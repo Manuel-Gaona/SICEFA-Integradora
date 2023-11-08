@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme = "light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sucursal</title>
+    <link rel="icon" href="../../assets/img/logo.png">
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/solid.css">
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/regular.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+</head>
+<body>
+    <header id="headerPage" class="sticky-top"></header>
+    <main id="mainPage">
+        <div class="container">
+            <div class="container-fluid d-flex align-items-center justify-content-center">
+                <div class="col-2">
+                    <img src="../../assets/img/empleado.jpeg" alt="foto empleado" class="img-fluid rounded-circle">
+                </div>
+                <h1 class="">Nombre</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form id="theform">
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtnombre" disabled>
+                            <label for="txtnombre">Nombre </label>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtgenero" disabled>
+                            <label for="txtgenero">Genero </label>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtfechaNac" disabled>
+                            <label for="txtfechaNac">Fecha de Nacimiento </label>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtrfc" disabled>
+                            <label for="txtrfc">RFC </label>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtcurp" disabled>
+                            <label for="txtcurp">CURP </label>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtdomicilio" disabled>
+                            <label for="txtdomicilio">Domicilio </label>
+                        </div>
+                        <!-- cp -->
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtcp" disabled>
+                            <label for="txtcp">Código Postal </label>
+                        </div>
+                        <!-- ciudad -->
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtciudad" disabled>
+                            <label for="txtciudad">Ciudad </label>
+                        </div>
+                        <!-- estado -->
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txtestado" disabled>
+                            <label for="txtestado">Estado </label>
+                        </div>
+                        <!-- telefono -->
+                        <div class="form-floating my-1">
+                            <input type="text" class="form-control my-2" id="txttelefono" disabled>
+                            <label for="txttelefono">Teléfono </label>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footerPage"></footer>
+    <script src="../../lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../controllers/sucursalController.js" type="module"></script>
+</body>
+</html>

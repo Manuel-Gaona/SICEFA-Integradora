@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="es" data-bs-theme = "light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METVI</title>
+
+    <link rel="icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="lib/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="lib/fontawesome-free-6.4.2-web/css/solid.css">
+    <link rel="stylesheet" href="lib/fontawesome-free-6.4.2-web/css/regular.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <!--barra de navegación-->
+    <header class="sticky-top">
+        <nav class="navbar bg-primary px-md-3">
+            <a id="brand" class="navbar-brand text-white" href="index.html">
+                <img src="assets/img/logo-dibujo.png" alt="logo" height="30"> metvi
+            </a>
+            <h1 id="h1-SICEFA" class="d-none d-md-block text-white cambiarLogin">SICEFA sucursal</h1>
+            <div class="px-2 mx-2">
+                <button id="btn-cambiar-login" class="btn btn-success mx-1">
+                    Cambiar a central
+                </button>
+                <button id="btn-tema-color" class="btn btn-sm mx-1">
+                    <i class="fas fa-adjust"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!--cuerpo-->
+    <main id="Comienzo">
+        <div class="container my-4">
+            <div id="h1-SICEFA-sm" class="d-sm-none"></div>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-iniciarSesion-tab" data-bs-toggle="tab" data-bs-target="#nav-iniciarSesion" type="button" role="tab" aria-controls="nav-iniciarSesion" aria-selected="true">Iniciar sesión</button>
+                <button class="nav-link" id="nav-inicio-tab" data-bs-toggle="tab" data-bs-target="#nav-inicio" type="button" role="tab" aria-controls="nav-iniciarSesion" aria-selected="false">Inicio</button>
+                <button class="nav-link" id="nav-nosotros-tab" data-bs-toggle="tab" data-bs-target="#nav-nosotros" type="button" role="tab" aria-controls="nav-nosotros" aria-selected="false">Nosotros</button>
+            </div>
+
+            <div class="tab-content" id="nav-tabContent">
+                <div  class="tab-pane fade show active p-3 p-md-4 border border-top-0" id="nav-iniciarSesion" role="tabpanel" aria-labelledby="nav-iniciarSesion-tab" tabindex="0">
+                    <!--Aqui inicia el contenido de Iniciar sesión-->
+                    <div class="row">
+                        <div class="col-md-8 col-lg-5 m-auto">
+                            <div class="card">
+                                <div class="card-header text-center pb-0">
+                                            <h2 id="h2-SICEFA">SICEFA sucursal</h2>
+                                            <h2 class="h5">Iniciar sesión</h2>
+                                </div>    
+                                <div class="card-body">
+                                    <form name="login" method="get">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+                                                <label for="usuario">Usuario</label>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Contraseña">
+                                                <label for="contrasenia">Contraseña</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                                            <button id="btn-acceder" class="btn btn-success" type="submit">Acceder</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mensaje-error"></div>
+                    <!--Aqui termina el contenido de Inicio de sesion-->
+                </div>
+                <div class="tab-pane fade px-5 py-3 p-md-5 text-justify border border-top-0" id="nav-inicio" role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
+                    <!--Aqui inicia el contenido de Inicio-->
+                    <h2 class="text-center">Tu socio en salud Medicamos tu Vida S.A.</h2>
+                    <p>Bienvenidos a Medicamos tu Vida S.A., tu farmacia de confianza en León, Guanajuato. Con nuestra sede central en la bulliciosa colonia Futurama Monterrey y nuestras tres sucursales estratégicamente ubicadas en el Centro, Centro Max y Plaza Mayor, hemos crecido rápidamente para convertirnos en un referente en el mercado farmacéutico estatal.</p>
+                    <p>En Medicamos tu Vida S.A., estamos comprometidos a ser tu socio en salud. Nos enorgullece ofrecer una amplia selección de medicamentos genéricos y de patente para atender tus necesidades de salud de manera integral. Nos esforzamos en garantizar que tengas acceso a productos de alta calidad a precios competitivos.</p>
+                    <h3>Nuestra Trayectoria</h3>
+                    <p>Desde nuestra fundación, hemos trabajado incansablemente para establecer una presencia sólida en el mercado farmacéutico local. Nuestro crecimiento y éxito se deben a nuestra dedicación para brindar productos farmacéuticos confiables y un servicio excepcional a nuestros clientes.</p>
+                    <p>Con décadas de experiencia en el sector, hemos forjado relaciones sólidas con la comunidad de León y sus alrededores. Nuestra empresa es reconocida por su integridad, ética empresarial y compromiso con la salud de nuestros clientes.</p>
+                    <!--Aqui termina el contenido de Inicio-->
+                </div>
+                <div class="tab-pane fade px-5 py-3 p-md-5 text-justify border border-top-0" id="nav-nosotros" role="tabpanel" aria-labelledby="nav-nosotros-tab" tabindex="0">
+                    <!--Aqui inicia el contenido de Nosotros-->
+                    <h2 class="text-center">Nosotros (Misión, Visión, Valores)</h2>
+                    <h3>Misión</h3>
+                    <p >En Medicamos tu Vida S.A., nuestra misión es clara: mejorar la salud y el bienestar de la comunidad de León, Guanajuato, y más allá. Nos esforzamos por ofrecer un acceso seguro y confiable a una amplia gama de medicamentos genéricos y de patente. Nuestro compromiso es proporcionar soluciones farmacéuticas efectivas y asequibles que impacten positivamente la vida de nuestros clientes.</p>
+                    <h3>Visión</h3>
+                    <p>Nuestra visión es liderar el camino en la industria farmacéutica regional. Buscamos expandir nuestro alcance y servicios para satisfacer las necesidades de salud de la comunidad con excelencia y profesionalismo. En el futuro, queremos ser reconocidos como el estándar de calidad y confiabilidad en la industria, manteniendo nuestra reputación de integridad, innovación y compromiso con la comunidad.</p>
+                    <h3>Valores</h3>
+                    <p>En Medicamos tu Vida S.A., nuestros valores son la brújula que guía nuestras acciones:</p>
+                    <ul>
+                        <li><strong>Integridad:</strong> Nuestra ética y honestidad son fundamentales. Actuamos con integridad en todo lo que hacemos y promovemos una cultura de transparencia y confianza.</li>
+                        <li><strong>Innovación:</strong> Nos comprometemos a mantenernos a la vanguardia de la innovación farmacéutica. Buscamos soluciones creativas y efectivas para abordar las necesidades cambiantes de nuestros clientes.</li>
+                        <li><strong>Responsabilidad Social:</strong> Estamos dedicados a ser un miembro responsable de la comunidad. Contribuimos a iniciativas de bienestar y apoyamos causas sociales que impactan positivamente en la vida de las personas.</li>
+                        <li><strong>Compromiso con la Salud:</strong> La salud de nuestros clientes es nuestra prioridad. Nos esforzamos por ofrecer productos seguros y efectivos que mejoren la calidad de vida. Creemos en la importancia de la colaboración y el trabajo en equipo para alcanzar nuestros objetivos.</li>
+                    </ul>
+                    <!--Aqui termina el contenido de Nosotros-->
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!--pie de pagina-->
+    <footer>
+        <div class="container-fluid bg-primary p-3 text-center">
+            <div class="row">
+                <div class="col m-auto">
+                    <h6 class="text-white"><b>Enlaces</b></h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#Comienzo" class="link-offset-3 text-white">Volver arriba</a></li>
+                        <li><a id="link-cambiar-login" class="link-offset-3 text-white">SICEFA central</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col m-auto">
+                    <h6 class="text-white"><b>Contacto</b></h6>
+                    <ul class="list-unstyled text-light">
+                        <li><i>León, Gto, México</i></li>
+                        <li><i>555 555 5555</i></li>
+                        <li><i>infoejmplo@gmail.com</i></li>
+                    </ul>
+                </div>
+    
+                <div class="col-12 mt-3">
+                    <p class="derechos text-light text-center">&copy; 2023 metvi. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+</body>
+</html>

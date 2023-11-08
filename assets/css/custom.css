@@ -1,0 +1,15 @@
+:root {
+    --bs-primary: #216D77;
+    --bs-primary-rgb: 33, 109, 119;
+    --bs-success: #1B7A59;
+    --bs-success-rgb: 27, 122, 89;
+  }
+p{
+  text-align: justify;
+}
+a:hover{
+  text-decoration: underline;
+}
+#brand{
+  text-decoration: none;
+}

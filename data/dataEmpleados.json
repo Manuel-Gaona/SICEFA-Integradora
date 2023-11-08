@@ -1,0 +1,113 @@
+[
+    {
+        "usuario": {
+            "nombreUsuario": "Administrador",
+            "contrasenia": "Administrador",
+            "tipoUsuario": 1,
+            "rol": "ADMC",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Juan",
+            "apellidoP": "Perez",
+            "apellidoM": "Gonzalez",
+            "genero": "0",
+            "fechaNacimiento": "1990/01/01",
+            "rfc": "PEGJ900101",
+            "curp": "PEGJ900101HDFRNS09",
+            "foto": "https://previews.123rf.com/images/golubovy/golubovy1806/golubovy180600547/103613892-pasaporte-documento-concepto-de-foto-de-identificaci%C3%B3n-retrato-de-hombre-de-negocios-joven-guapo.jpg",
+            "datosDomicilio": {
+                "domicilio": "Calle 1 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "2023/01/01",
+            "puesto": "Gerente",
+            "salario": 10000.00,
+            "email": "juanperez@gmail.com",
+            "codigoEmpleado": "23010001",
+            "sucursal": "1"
+        },
+        "usuario": {
+            "nombreUsuario": "23010001",
+            "contrasenia": "23010001",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Maria",
+            "apellidoP": "Hernandez",
+            "apellidoM": "Lopez",
+            "genero": "1",
+            "fechaNacimiento": "1995/01/01",
+            "rfc": "HELJ950101",
+            "curp": "HELJ950101MDFRNS09",
+            "foto": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fes-es%2Ffoto%2Fhombre-que-usa-una-camisa-blanca-para-hombre-4502105%2F&psig=AOvVaw0QZ2Z3Q4ZQ4Q4ZQ4ZQ4ZQ4&ust=1629786168218000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjQ4ZqQnvICFQAAAAAdAAAAABAD",
+            "datosDomicilio": {
+                "domicilio": "Calle 2 #987",
+                "cp": "98765",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "0987654321"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "2023/08/05",
+            "puesto": "Atención a clientes",
+            "salario": 8500.00,
+            "email": "mariahernandez@gmail.com",
+            "codigoEmpleado": "23080002",
+            "sucursal": "1"
+        },
+        "usuario": {
+            "nombreUsuario": "23080002",
+            "contrasenia": "23080002",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Pedro",
+            "apellidoP": "Garcia",
+            "apellidoM": "Rodriguez",
+            "genero": "0",
+            "fechaNacimiento": "1987/06/17",
+            "rfc": "GARP950101",
+            "curp": "GARP950101HDFRNS09",
+            "foto": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fes-es%2Ffoto%2Fhombre-que-usa-una-camisa-blanca-para-hombre-4502105%2F&psig=AOvVaw0QZ2Z3Q4ZQ4Q4ZQ4ZQ4ZQ4&ust=1629786168218000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjQ4ZqQnvICFQAAAAAdAAAAABAD",
+            "datosDomicilio": {
+                "domicilio": "Calle 3 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "4567890123"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "2022/04/05",
+            "puesto": "Atención a clientes",
+            "salario": 15500.50,
+            "email": "pedrogarcia@gmail.com",
+            "codigoEmpleado": "22040000",
+            "sucursal": "1"
+        },
+        "usuario": {
+            "nombreUsuario": "22040000",
+            "contrasenia": "22040000",
+            "tipoUsuario": 0,
+            "rol": "ADMS",
+            "estatus": 1
+        }
+    }
+]
