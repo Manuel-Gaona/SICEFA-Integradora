@@ -1,13 +1,16 @@
 //declarar variables
 let paginaInicio = 0;
+
 //importar las clases
 import ModoColorModel from "../../models/modoColorModel.js";
 import loginModel from "../../models/loginModel.js";
 import empleadosModel from "../../models/empleadosModel.js";
+
 //instanciar las clases
 const modoColor = new ModoColorModel();
 const login = new loginModel();
 const empleados = new empleadosModel();
+
 //escuchar click en el botón btn-tema-color
 const btnModoColor = document.getElementById('btn-tema-color');
 
@@ -60,26 +63,37 @@ form.addEventListener('submit', async (event) => {
         const dataEmpleados = await empleados.cargarDatosEmpleados();
         console.log(dataEmpleados);
         const empleado = dataEmpleados.find(e => e.usuario.nombreUsuario === usuarioInput);
-
-        if (empleado) {
+        console.log(empleado);
+        
+        if (usuarioInput === "") {
+            divMensajeError.innerHTML = mensajeError("El usuario no puede estar vacío.");
+        }
+        else if(contraseniaInput === ""){
+            divMensajeError.innerHTML = mensajeError("La contraseña no puede estar vacía.");
+        }
+        else if (empleado) {
             const tipoUsuario = empleado.usuario.tipoUsuario;
-
             if(tipoUsuario == paginaInicio){
                 if (empleado.usuario.contrasenia === contraseniaInput) {
-                    const usuario = empleado.usuario.nombreUsuario;
-                    const rol = empleado.usuario.rol;
-                    sessionStorage.setItem("usuario", usuario);
-                    sessionStorage.setItem("rol", rol);
-                    switch(paginaInicio){
-                        case 0:
-                            window.location.href = "views/sucursal/sucursal.html";
-                            break;
-                        case 1:
-                            window.location.href = "views/central/central.html";
-                            break;
-                        default:
-                            alert("Ha ocurrido un error")
-                            window.location.href = "index.html";
+                    if (empleado.usuario.estatus === 1) {
+                        const usuario = empleado.usuario.nombreUsuario;
+                        const rol = empleado.usuario.rol;
+                        sessionStorage.setItem("usuario", usuario);
+                        sessionStorage.setItem("rol", rol);
+                        switch(paginaInicio){
+                            case 0:
+                                window.location.href = "views/sucursal/index.html";
+                                break;
+                            case 1:
+                                window.location.href = "views/central/index.html";
+                                break;
+                            default:
+                                alert("Ha ocurrido un error")
+                                window.location.href = "index.html";
+                        }
+                    }
+                    else {
+                        divMensajeError.innerHTML = mensajeError("Este usuario ya no tiene acceso a la plataforma.");
                     }
                 } 
                 else {
@@ -93,7 +107,5 @@ form.addEventListener('submit', async (event) => {
         else {
             divMensajeError.innerHTML = mensajeError("El usuario no existe.");
         }
-            
     }
 )
-
