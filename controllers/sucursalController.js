@@ -1,18 +1,24 @@
 //importar clases
 import includesModel from "../models/includesModel.js";
 import empleadosModel from "../models/empleadosModel.js";
+import verificacionModel from "../models/verificacionModel.js";
 
 //instanciar clases
 const includes = new includesModel();
 const empleados = new empleadosModel();
+const verificacion = new verificacionModel();
+
+//Llamar datos sessionStorege
+const usuario = sessionStorage.getItem("usuario");
+const rol = sessionStorage.getItem("rol");
 
 // Llama a la función para incluir el header y el footer
 includes.incluirHeaderSucursal();
 includes.incluirFooterSucursal();
 
-//Llamar datos sessionStorege
-const usuario = sessionStorage.getItem("usuario");
-const rol = sessionStorage.getItem("rol");
+//Cargar datos de empleado
+verificacion.verificarUsuario(usuario);
+cargarDatosEmpleado();
 
 //Acortar funciones
 function docID(id){
@@ -21,10 +27,14 @@ function docID(id){
 
 //cargar datos empleado 
 async function cargarDatosEmpleado(){
+        //cargar datos de empleado
         const empleado = await empleados.getDatosEmpleado(usuario, await empleados.cargarDatosEmpleados());
-        //console.log(empleado);
-        //datos de persona
+        //constante para nombre completo
         const nombreCompleto = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
+        //console.log(empleado);
+        //Nombre bienvenida
+        docID("nombreBienvenida").innerHTML = " " + empleado.datosPersona.nombre;
+        //datos de persona
         docID("txtnombre").value = nombreCompleto;
         docID("txtgenero").value = empleado.datosPersona.genero;
         docID("txtfechaNac").value = empleado.datosPersona.fechaNacimiento;
@@ -47,8 +57,6 @@ async function cargarDatosEmpleado(){
         docID("txtcontrasenia").value = empleado.usuario.contrasenia;
         docID("txtrol").value = empleado.usuario.rol;
 }
-
-cargarDatosEmpleado();
 
 //funcion para cambiar contraseña
 const btnUpdatePassword = docID("btnUpdatePassword");
