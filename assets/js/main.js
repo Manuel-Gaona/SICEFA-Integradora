@@ -61,9 +61,9 @@ form.addEventListener('submit', async (event) => {
         const contraseniaInput = form.contrasenia.value;
 
         const dataEmpleados = await empleados.cargarDatosEmpleados();
-        console.log(dataEmpleados);
+        // console.log(dataEmpleados);
         const empleado = dataEmpleados.find(e => e.usuario.nombreUsuario === usuarioInput);
-        console.log(empleado);
+        // console.log(empleado);
         
         if (usuarioInput === "") {
             divMensajeError.innerHTML = mensajeError("El usuario no puede estar vacío.");
