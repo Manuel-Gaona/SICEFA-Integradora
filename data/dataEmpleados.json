@@ -27,7 +27,7 @@
             "telefono": "1234567890"
         },
         "datosLaborales": {
-            "fechaIngreso": "2023/01/01",
+            "fechaIngreso": "01/01/2023",
             "puesto": "Gerente",
             "salario": 10000.00,
             "email": "juanperez@gmail.com",
@@ -61,7 +61,7 @@
             "telefono": "0987654321"
         },
         "datosLaborales": {
-            "fechaIngreso": "2023/08/05",
+            "fechaIngreso": "05/08/2023",
             "puesto": "Atención a clientes",
             "salario": 8500.00,
             "email": "mariahernandez@gmail.com",
@@ -95,7 +95,7 @@
             "telefono": "4567890123"
         },
         "datosLaborales": {
-            "fechaIngreso": "2022/04/05",
+            "fechaIngreso": "05/04/2022",
             "puesto": "Atención a clientes",
             "salario": 15500.50,
             "email": "pedrogarcia@gmail.com",
