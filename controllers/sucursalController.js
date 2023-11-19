@@ -13,8 +13,8 @@ const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 
 // Llama a la función para incluir el header y el footer
-includes.incluirHeaderSucursal();
-includes.incluirFooterSucursal();
+includes.incluirHeader();
+includes.incluirFooter();
 
 //Cargar datos de empleado
 verificacion.verificarUsuario(usuario);

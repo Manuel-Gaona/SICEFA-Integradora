@@ -7,5 +7,5 @@ const includes = new includesModel();
 const empleados = new empleadosModel();
 
 // Llama a la función para incluir el header y el footer
-includes.incluirHeaderSucursal();
-includes.incluirFooterSucursal();
+includes.incluirHeader();
+includes.incluirFooter();
