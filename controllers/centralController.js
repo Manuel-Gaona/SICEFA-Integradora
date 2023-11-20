@@ -35,11 +35,18 @@ async function cargarDatosEmpleado(){
             //constante para nombre completo
             const nombreCompleto = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
             //console.log(empleado);
+            //let para genero
+            let genero;
+            //switch para genero
+            switch(empleado.datosPersona.genero){
+                case 0: genero = "Masculino"; break;
+                case 1: genero = "Femenino"; break;
+            }
             //Nombre bienvenida
             docID("nombreBienvenida").innerHTML = " " + empleado.datosPersona.nombre;
             //datos de persona
             docID("txtnombre").value = nombreCompleto;
-            docID("txtgenero").value = empleado.datosPersona.genero;
+            docID("txtgenero").value = genero;
             docID("txtfechaNac").value = empleado.datosPersona.fechaNacimiento;
             docID("txtrfc").value = empleado.datosPersona.rfc;
             docID("txtcurp").value = empleado.datosPersona.curp;

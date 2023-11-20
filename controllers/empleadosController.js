@@ -12,7 +12,11 @@ const verificacion = new verificacionModel();
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // Crear const dataEmpleados para guardar los datos de los empleados
+
 const dataEmpleados = await empleados.cargarDatosEmpleados();
+console.log(dataEmpleados);
+//contador empleados
+let contadorEmpleados = 2;
 
 // Llama a la función para incluir el header y el footer
 includes.incluirHeader();
@@ -41,7 +45,86 @@ btnAgregarEmpleado.addEventListener("click", () => {
     let email = document.getElementById("txtemail").value;
     let puesto = document.getElementById("txtpuesto").value;
     let salario = document.getElementById("txtsalario").value;
-    
+    let rol = document.getElementById("txtrol").value;
+    let gen = document.querySelector('input[name="genero"]:checked').value;
+    //datos 
+    let genero, mes, dia, tipoUsuario;
+    let fecha = new Date();
+    let annio = fecha.getFullYear();
+    //switch para genero
+    switch (gen) {
+        case "masculino":
+            genero = 0;
+            break;
+        case "femenino":
+            genero = 1;
+            break;
+    }
+    //if para fecha
+    if((fecha.getMonth() + 1) < 10){
+        mes = "0" + (fecha.getMonth() + 1);
+    }
+    else{
+        mes = "" + (fecha.getMonth() + 1);
+    }
+    if(fecha.getDate() + 1 < 10){
+        dia = "0" + fecha.getDate();
+    }
+    else{
+        dia = "" + fecha.getDate();
+    }
+    //declarar variable fechaRegistro
+    let fechaRegistro = dia + "/" + mes + "/" + annio;
+    //aumentar contador
+    contadorEmpleados++;
+    //declarar variable codigoEmpleado
+    let codigoEmpleado = "" + annio.toString().slice(-2) + mes + dia + contadorEmpleados.toString().padStart(2, '0');
+    //definir el tipo de usuario
+    if(rol === "ADMC"){
+        tipoUsuario = 1;
+    }
+    else if((rol === "ADMS") || (rol === "EMPS")){
+        tipoUsuario = 0;
+    }
+
+    let empleado = {
+        "datosPersona": {
+            "nombre": nombre,
+            "apellidoP": apellidoP,
+            "apellidoM": apellidoM,
+            "genero": genero,
+            "fechaNacimiento": fechaNacimiento,
+            "rfc": rfc,
+            "curp": curp,
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": domicilio,
+                "cp": cp,
+                "ciudad": ciudad,
+                "estado": estado,
+            },
+            "telefono": telefono
+        },
+        "datosLaborales": {
+            "fechaIngreso": fechaRegistro,
+            "puesto": puesto,
+            "salario": salario,
+            "email": email,
+            "codigoEmpleado": codigoEmpleado,
+            "sucursal": "1"
+        },
+        "usuario": {
+            "nombreUsuario": codigoEmpleado,
+            "contrasenia": codigoEmpleado,
+            "tipoUsuario": tipoUsuario,
+            "rol": rol,
+            "estatus": 1
+        }
+    }
+    console.log(empleado);
+    //enviar datos al servidor
+    dataEmpleados.push(empleado);
+    console.log(dataEmpleados);
 });
 
 //Escuchar el evento click del checkbox
