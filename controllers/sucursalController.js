@@ -16,7 +16,7 @@ const rol = sessionStorage.getItem("rol");
 includes.incluirHeader();
 includes.incluirFooter();
 
-//Cargar datos de empleado
+//Cargar datos de empleado y verificar usuario
 verificacion.verificarUsuario(usuario);
 cargarDatosEmpleado();
 
