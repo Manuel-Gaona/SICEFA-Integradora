@@ -38,52 +38,71 @@
                                     <!-- nombre -->
                                 <div class="row">
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtnombre" >
+                                        <input type="text" class="form-control my-2" id="txtnombre" required>
                                         <label for="txtnombre">Nombre </label>
                                     </div>
-                                    <!-- genero -->
+                                    <!-- apellido paterno -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtgenero" >
-                                        <label for="txtgenero">Genero </label>
+                                        <input type="text" class="form-control my-2" id="txtapellidoP" required>
+                                        <label for="txtapellidoP">Apellido Paterno </label>
+                                    </div>
+                                    <!-- apellido materno -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtapellidoM" required>
+                                        <label for="txtapellidoM">Apellido Materno </label>
+                                    </div>
+                                    <!-- genero -->
+                                    <div class="my-1 col-12 col-md-6 col-lg-4">
+                                        <div class="row">
+                                            <label>Genero</label>
+                                            <div class="col text-center">
+                                                <input type="radio" class="form-check-input" id="rdgenerom" value="masculino" name="genero" required>                   
+                                                <label for="rdgenerom">Masculino</label>
+                                            </div>
+                                            <div class="col text-center">
+                                                <input type="radio" class="form-check-input" id="rdgenerof" value="femenino" name="genero" required>
+                                                <label for="rdgenerof">Femenino</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- fecha de nacimiento -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="txt" class="form-control my-2" id="txtfechaNac" >
+                                        <input type="date" class="form-control my-2" id="txtfechaNac" required>
                                         <label for="txtfechaNac">Fecha de Nacimiento </label>
                                     </div>
                                     <!-- rfc -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtrfc" >
+                                        <input type="text" class="form-control my-2" id="txtrfc" required>
                                         <label for="txtrfc">RFC </label>
                                     </div>
                                     <!-- curp -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtcurp" >
+                                        <input type="text" class="form-control my-2" id="txtcurp" required>
                                         <label for="txtcurp">CURP </label>
                                     </div>
                                     <!-- domicilio -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtdomicilio" >
+                                        <input type="text" class="form-control my-2" id="txtdomicilio" required>
                                         <label for="txtdomicilio">Domicilio </label>
                                     </div>
                                     <!-- cp -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtcp" >
+                                        <input type="number" class="form-control my-2" id="txtcp" required>
                                         <label for="txtcp">Código Postal </label>
                                     </div>
                                     <!-- ciudad -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtciudad" >
+                                        <input type="text" class="form-control my-2" id="txtciudad" required>
                                         <label for="txtciudad">Ciudad </label>
                                     </div>
                                     <!-- estado -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtestado" >
+                                        <input type="text" class="form-control my-2" id="txtestado" required>
                                         <label for="txtestado">Estado </label>
                                     </div>
                                     <!-- telefono -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="number" class="form-control my-2" id="txttelefono" >
+                                        <input type="number" class="form-control my-2" id="txttelefono" required>
                                         <label for="txttelefono">Teléfono </label>
                                     </div>
                                 </div>
@@ -92,25 +111,25 @@
                                 <div class="row">
                                     <!-- email -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="email" class="form-control my-2" id="txtemail" >
+                                        <input type="email" class="form-control my-2" id="txtemail" required>
                                         <label for="txtemail">Email </label>
                                     </div>
                                     <!-- puesto -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtpuesto" >
+                                        <input type="text" class="form-control my-2" id="txtpuesto" required>
                                         <label for="txtpuesto">Puesto </label>
                                     </div>
                                     <!-- salario -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtsalario" >
+                                        <input type="number" class="form-control my-2" id="txtsalario" required>
                                         <label for="txtsalario">Salario </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <!-- boton agregar-->
-                                    <button id="btnAgregar" type="submit" class="btn btn-success col-10 col-md-5 col-lg-4 my-2 mx-auto">Agregar</button>
+                                    <button id="btnAgregarEmpleado" type="submit" class="btn btn-success col-10 col-md-5 col-lg-4 my-2 mx-auto">Agregar</button>
                                     <!-- boton clear -->
-                                    <button id="btnClear" type="reset" class="btn btn-secondary col-10 col-md-5 col-lg-4 my-2 mx-auto">Limpiar</button>
+                                    <button id="btnLimpiarDatos" type="reset" class="btn btn-secondary col-10 col-md-5 col-lg-4 my-2 mx-auto">Limpiar</button>
                                 </div>
                             </form>
                         </div>
@@ -118,33 +137,44 @@
                     <!--Aqui termina el contenido de consultar-->
                 </div>
 
-                <div class="tab-pane fade px-5 py-3 p-md-5 text-justify border border-top-0" id="nav-inicio" role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
+                <div class="tab-pane fade px-5 py-3 p-md-3 text-justify border border-top-0" id="nav-inicio" role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
                     <!--Aqui inicia el contenido de consular-->
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name ="chkestatus" id="chkestatus">
+                                        <label class="form-check-label" for="chkestatus">Empleados inactivos</label>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col" >
+                                    <div class="input-group">
+                                        <div class="form-floating">
+                                            <input type="text" id="txtdatobuscado" class="form-control" />
+                                            <label  for="txtdatobuscado">Buscar</label>
+                                        </div>
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div> -->
+                
+                            </div>
+                        <div class="col-12">
                                 <div class="d-flex gap-2 justify-content-center">
                                     <table class="table table-striped table-sm">
                                         <thead>
                                             <tr>
                                                 <th>Codigo</th>
                                                 <th>Nombre</th>
-                                                <th>Email</th>
+                                                <th class="d-none d-md-table-cell">Email</th>
                                                 <th>Rol</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tblTuristicos">
-                                             <tr>
-                                                <td>1</td>
-                                                <td>Jose</td>
-                                                <td>jose@gmail.com</td>
-                                                <td>EMPS</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-warning">Editar</button>
-                                                    <button class="btn btn-sm btn-danger">Eliminar</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                        <tbody id="tblEmpleados"></tbody>
                                     </table>
                                 </div>
                         </div>
