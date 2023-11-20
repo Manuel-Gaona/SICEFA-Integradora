@@ -116,12 +116,23 @@
                                     </div>
                                     <!-- puesto -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="text" class="form-control my-2" id="txtpuesto" required>
+                                        <select class="form-select" id="txtpuesto" required>
+                                            <option value="Atencion a Clientes">Atencion a Clientes</option>
+                                            <option value="Gerente">Gerente</option>
+                                        </select>
                                         <label for="txtpuesto">Puesto </label>
+                                    </div>
+                                    <!-- rol -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <select class="form-select" id="txtrol" required>
+                                            <option value="EMPS">Empleado</option>
+                                            <option value="ADMS">Administrador</option>
+                                        </select>
+                                        <label for="txtrol">Rol </label>
                                     </div>
                                     <!-- salario -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                        <input type="number" class="form-control my-2" id="txtsalario" required>
+                                        <input type="text" class="form-control my-2" id="txtsalario" required>
                                         <label for="txtsalario">Salario </label>
                                     </div>
                                 </div>

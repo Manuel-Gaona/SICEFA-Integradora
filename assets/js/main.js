@@ -59,7 +59,6 @@ form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const usuarioInput = form.usuario.value;
         const contraseniaInput = form.contrasenia.value;
-
         const dataEmpleados = await empleados.cargarDatosEmpleados();
         // console.log(dataEmpleados);
         const empleado = dataEmpleados.find(e => e.usuario.nombreUsuario === usuarioInput);

@@ -29,33 +29,48 @@ function docID(id){
 async function cargarDatosEmpleado(){
         //cargar datos de empleado
         const empleado = await empleados.getDatosEmpleado(usuario, await empleados.cargarDatosEmpleados());
-        //constante para nombre completo
-        const nombreCompleto = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
-        //console.log(empleado);
-        //Nombre bienvenida
-        docID("nombreBienvenida").innerHTML = " " + empleado.datosPersona.nombre;
-        //datos de persona
-        docID("txtnombre").value = nombreCompleto;
-        docID("txtgenero").value = empleado.datosPersona.genero;
-        docID("txtfechaNac").value = empleado.datosPersona.fechaNacimiento;
-        docID("txtrfc").value = empleado.datosPersona.rfc;
-        docID("txtcurp").value = empleado.datosPersona.curp;
-        docID("txtdomicilio").value = empleado.datosPersona.datosDomicilio.domicilio;
-        docID("txtcp").value = empleado.datosPersona.datosDomicilio.cp;
-        docID("txtciudad").value = empleado.datosPersona.datosDomicilio.ciudad;
-        docID("txtestado").value = empleado.datosPersona.datosDomicilio.estado;
-        docID("txttelefono").value = empleado.datosPersona.telefono;
-        //datos laborales
-        docID("txtsucursal").value = empleado.datosLaborales.sucursal;
-        docID("txtcodigoEmpleado").value = empleado.datosLaborales.codigoEmpleado;
-        docID("txtemail").value = empleado.datosLaborales.email;
-        docID("txtpuesto").value = empleado.datosLaborales.puesto;
-        docID("txtsalario").value = empleado.datosLaborales.salario;
-        docID("txtfechaIngreso").value = empleado.datosLaborales.fechaIngreso;
-        //datos usuario
-        docID("txtnombreUsuario").value = empleado.usuario.nombreUsuario;
-        docID("txtcontrasenia").value = empleado.usuario.contrasenia;
-        docID("txtrol").value = empleado.usuario.rol;
+
+        //revisar que exista el empleado.datosPersona
+        if(empleado.datosPersona){
+            //constante para nombre completo
+            const nombreCompleto = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
+            //let para genero
+            let genero;
+            //switch para genero
+            switch(empleado.datosPersona.genero){
+                case 0: genero = "Masculino"; break;
+                case 1: genero = "Femenino"; break;
+            }
+            //console.log(empleado);
+            //Nombre bienvenida
+            docID("nombreBienvenida").innerHTML = " " + empleado.datosPersona.nombre;
+            //datos de persona
+            docID("txtnombre").value = nombreCompleto;
+            docID("txtgenero").value = genero;
+            docID("txtfechaNac").value = empleado.datosPersona.fechaNacimiento;
+            docID("txtrfc").value = empleado.datosPersona.rfc;
+            docID("txtcurp").value = empleado.datosPersona.curp;
+            docID("txtdomicilio").value = empleado.datosPersona.datosDomicilio.domicilio;
+            docID("txtcp").value = empleado.datosPersona.datosDomicilio.cp;
+            docID("txtciudad").value = empleado.datosPersona.datosDomicilio.ciudad;
+            docID("txtestado").value = empleado.datosPersona.datosDomicilio.estado;
+            docID("txttelefono").value = empleado.datosPersona.telefono;
+        }
+        if(empleado.datosLaborales){
+            //datos laborales
+            docID("txtsucursal").value = empleado.datosLaborales.sucursal;
+            docID("txtcodigoEmpleado").value = empleado.datosLaborales.codigoEmpleado;
+            docID("txtemail").value = empleado.datosLaborales.email;
+            docID("txtpuesto").value = empleado.datosLaborales.puesto;
+            docID("txtsalario").value = empleado.datosLaborales.salario;
+            docID("txtfechaIngreso").value = empleado.datosLaborales.fechaIngreso;
+        }
+        if(empleado.usuario){
+            //datos usuario
+            docID("txtnombreUsuario").value = empleado.usuario.nombreUsuario;
+            docID("txtcontrasenia").value = empleado.usuario.contrasenia;
+            docID("txtrol").value = empleado.usuario.rol;
+        }
 }
 
 //funcion para cambiar contraseña
