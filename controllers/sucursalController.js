@@ -40,6 +40,7 @@ async function cargarDatosEmpleado(){
             switch(empleado.datosPersona.genero){
                 case 0: genero = "Masculino"; break;
                 case 1: genero = "Femenino"; break;
+                default: genero = "No especificado"; break;
             }
             //console.log(empleado);
             //Nombre bienvenida
