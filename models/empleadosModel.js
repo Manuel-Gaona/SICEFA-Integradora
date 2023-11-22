@@ -39,7 +39,7 @@ class empleadosModel{
             const data = await res.json();
             return data;
         } catch (err) {
-            return console.log(err);
+            console.log(err);
         }
     }
     //cargar datos empleado con usuario
@@ -84,7 +84,6 @@ class empleadosModel{
                 });
             }
         });
-
     }
     //funcion cargar datos empleado en modal
     cargarDatosEmpleadoModal(indice, dataEmpleados){
@@ -132,15 +131,19 @@ class empleadosModel{
             switch(empleado.usuario.estatus){
                 case 0: 
                     estatus = "Inactivo"; 
-                    this.btnEliminarEmpleadoModal.classList.add("disabled");
-                    this.btnEditarEmpleadoModal.classList.add("disabled");
-                    this.btnConfirmarEdicionModal.classList.add("disabled");
+                    this.btnEliminarEmpleadoModal.classList.add("d-none");
+                    this.btnEditarEmpleadoModal.classList.add("d-none");
+                    this.btnConfirmarEdicionModal.classList.add("d-none");
                     break;
-                case 1: estatus = "Activo"; break;
+                case 1: 
+                    estatus = "Activo"
+                    this.btnEliminarEmpleadoModal.classList.remove("d-none");
+                    this.btnEditarEmpleadoModal.classList.remove("d-none");
+                    this.btnConfirmarEdicionModal.classList.remove("d-none");
+                    ; break;
             }
             this.estatusModal.value = estatus;
         }
-        return empleado;
     }
     //funcion para habilitar campos
     habilitarCamposModal(){

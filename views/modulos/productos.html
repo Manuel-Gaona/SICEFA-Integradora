@@ -9,15 +9,256 @@
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/solid.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/regular.css">
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../lib/sweetalert/css/sweetalert2.min.css">
     <link rel="stylesheet" href="../../assets/css/custom.css">
 </head>
 <body>
     <header id="headerPage" class="sticky-top"></header>
 
     <main id="mainPage" class="my-3">
+        <h1 class="text-center">Productos</h1>
+        <div class="container my-4">
+        <!-- nav tabs -->
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link" id="nav-agregarProducto-tab" data-bs-toggle="tab" data-bs-target="#nav-agregarProducto" type="button" role="tab" aria-controls="nav-agregarProducto" aria-selected="true" disabled>Agregar</button>
+                <button class="nav-link active" id="nav-consultar-tab" data-bs-toggle="tab" data-bs-target="#nav-consultar" type="button" role="tab" aria-controls="nav-consultar" aria-selected="false">Consultar</button>
+            </div>
+            <!-- tab content -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- agregar producto -->
+                <div class="tab-pane fade p-3 p-md-4 border border-top-0" id="nav-agregarProducto" role="tabpanel" aria-labelledby="nav-agregarProducto-tab" tabindex="0">
+                    <!-- Inicia contenido agregar producto -->
+                    <!-- card -->
+                    <div class="card">
+                        <!-- card header -->
+                        <div class="card-header text-center pb-0">
+                            <h2 id="h2-SICEFA">Agregar producto</h2>
+                        </div> 
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- form -->
+                            <form id="formAgregarProducto">
+                                <div class="row">
+                                    <!-- nombre -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtnombre" required>
+                                        <label for="txtnombre">Nombre </label>
+                                    </div>
+                                    <!-- nombre generico -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtnombreGenerico" required>
+                                        <label for="txtnombreGenerico">Nombre generico</label>
+                                    </div>
+                                    <!-- forma farmaceutica -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtformaFarmaceutica" required>
+                                        <label for="txtformaFarmaceutica">Forma farmaceutica</label>
+                                    </div>
+                                    <!-- unidad de medida -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtunidadMedida" required>
+                                        <label for="txtunidadMedida">Unidad de medida</label>
+                                    </div>
+                                    <!-- presentacion -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtpresentacion" required>
+                                        <label for="txtpresentacion">Presentacion</label>
+                                    </div>
+                                    <!-- principal indicacion -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtprincipalIndicacion" required>
+                                        <label for="txtprincipalIndicacion">Principal indicacion</label>
+                                    </div>
+                                    <!-- contrainddicaciones -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="text" class="form-control my-2" id="txtcontraindicaciones" required>
+                                        <label for="txtcontraindicaciones">Contraindicaciones</label>
+                                    </div>
+                                    <!-- concentracion -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="number" class="form-control my-2" id="txtconcentracion" required>
+                                        <label for="txtconcentracion">Concentracion</label>
+                                    </div>
+                                    <!-- unidades en envase -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="number" class="form-control my-2" id="txtunidadesEnvase" required>
+                                        <label for="txtunidadesEnvase">Unidades en envase</label>
+                                    </div>
+                                    <!-- precio de compra -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="number" class="form-control my-2" id="txtprecioCompra" required>
+                                        <label for="txtprecioCompra">Precio de compra</label>
+                                    </div>
+                                    <!-- precio unitario -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="number" class="form-control my-2" id="txtprecioUnitario" required>
+                                        <label for="txtprecioUnitario">Precio unitario</label>
+                                    </div>
+                                    <!-- codigo de barras -->
+                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                        <input type="number" class="form-control my-2" id="txtcodigoBarras" required>
+                                        <label for="txtcodigoBarras">Codigo de barras</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- boton agregar -->
+                                    <button id="btnAgregarPruducto" type="submit" class="btn btn-success col-10 col-md-5 col-lg-4 my-2 mx-auto">Agregar</button>
+                                    <!-- boton clear -->
+                                    <button id="btnLimpiarDatos" type="reset" class="btn btn-secondary col-10 col-md-5 col-lg-4 my-2 mx-auto">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>  
+                </div>
+                <!-- consultar -->
+                <div class="tab-pane fade show active p-3 p-md-4 border border-top-0" id="nav-consultar" role="tabpanel" aria-labelledby="nav-consultar-tab" tabindex="0">
+                    <!-- Inicia contenido consultar -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name ="chkestatus" id="chkestatus">
+                                        <label class="form-check-label" for="chkestatus">Productos eliminados</label>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex align-items-center">
+                                    <button id="btnRecargarDatosProducto" class="btn btn-sm my-auto"><i class="fas fa-sync-alt"></i></button>
+                                </div>
+                                <div class="col-12 col-md-5" >
+                                    <div class="input-group">
+                                        <div class="form-floating">
+                                            <input type="text" id="txtdatobuscado" class="form-control"/>
+                                            <label  for="txtdatobuscado">Buscar</label>
+                                        </div>
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex gap-2 justify-content-center">
+                                    <table class="table table-striped table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Codigo</th>
+                                                <th>Nombre</th>
+                                                <th class="d-none d-lg-table-cell">Concentración</th>
+                                                <th>Medida unidades</th>
+                                                <th>Precio Venta</th>
+                                                <th class="text-center">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tblProductos"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- modal -->
+                            <div class="modal fade" id="modalVerProducto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Datos del producto</h5>
+                                            <button id="btnCerrarModal-header" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <!-- aqui va el contenido del modal -->
+                                        <div class="modal-body">
+                                            <form id="formAgregarProducto-modal">
+                                                <div class="row">
+                                                    <!-- id producto modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtidProducto-modal" required disabled>
+                                                        <label for="txtidProducto-modal">Id producto</label>
+                                                    </div>
+                                                    <!-- nombre modal -->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtnombre-modal" required disabled>
+                                                        <label for="txtnombre-modal">Nombre </label>
+                                                    </div>
+                                                    <!-- nombre generico modal -->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtnombreGenerico-modal" required disabled>
+                                                        <label for="txtnombreGenerico-modal">Nombre generico</label>
+                                                    </div>
+                                                    <!-- forma farmaceutica modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtformaFarmaceutica-modal" required disabled>
+                                                        <label for="txtformaFarmaceutica-modal">Forma farmaceutica</label>
+                                                    </div>
+                                                    <!-- unidad de medida modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtunidadMedida-modal" required disabled>
+                                                        <label for="txtunidadMedida-modal">Unidad de medida</label>
+                                                    </div>
+                                                    <!-- presentacion modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtpresentacion-modal" required disabled>
+                                                        <label for="txtpresentacion-modal">Presentacion</label>
+                                                    </div>
+                                                    <!-- principal indicacion modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtprincipalIndicacion-modal" required disabled>
+                                                        <label for="txtprincipalIndicacion-modal">Principal indicacion</label>
+                                                    </div>
+                                                    <!-- contrainddicaciones modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtcontraindicaciones-modal" required disabled>
+                                                        <label for="txtcontraindicaciones-modal">Contraindicaciones</label>
+                                                    </div>
+                                                    <!-- concentracion modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtconcentracion-modal" required disabled>
+                                                        <label for="txtconcentracion-modal">Concentracion</label>
+                                                    </div>
+                                                    <!-- unidades en envase modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtunidadesEnvase-modal" required disabled>
+                                                        <label for="txtunidadesEnvase-modal">Unidades en envase</label>
+                                                    </div>
+                                                    <!-- precio de compra modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtprecioCompra-modal" required disabled>
+                                                        <label for="txtprecioCompra-modal">Precio de compra</label>
+                                                    </div>
+                                                    <!-- precio unitario modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtprecioUnitario-modal" required disabled>
+                                                        <label for="txtprecioUnitario-modal">Precio unitario</label>
+                                                    </div>
+                                                    <!-- codigo de barras modal-->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="number" class="form-control my-2" id="txtcodigoBarras-modal" required disabled>
+                                                        <label for="txtcodigoBarras-modal">Codigo de barras</label>
+                                                    </div>
+                                                    <!-- estatus modal input -->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2" id="txtestatus-modal" required disabled>
+                                                        <label for="txtestatus-modal">Estatus</label>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- footer modal -->
+                                        <div class="modal-footer">
+                                            <button id="btnEliminarProducto" type="button" class="btn btn-danger">Eliminar</button>
+                                            <button id="btnEditarProducto" type="button" class="btn btn-warning">Editar</button>
+                                            <button id="btnConfirmarEdicion" type="button" class="btn btn-success disabled">Confirmar</button>
+                                            <button id="btnCerrarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer id="footerPage" class="sticky-bottom"></footer>
-    <script src="../../lib/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../controllers/empleadosController.js" type="module"></script>
+    <script src="/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/lib/sweetalert/js/sweetalert2.min.js"></script>
+    <script type="module" src="/controllers/productosController.js"></script>
 </body>
 </html>
