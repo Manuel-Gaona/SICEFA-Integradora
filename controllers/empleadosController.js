@@ -132,6 +132,12 @@ btnAgregarEmpleado.addEventListener("click", (event) => {
     });
 });
 
+//Escuchar el evento click en nav-consultar-tab
+const navConsultarTab = document.getElementById("nav-consultar-tab");
+navConsultarTab.addEventListener("click", () => {
+    loadTable(seleccion);
+});
+
 //Escuchar el evento click del checkbox
 const chkestatus = document.getElementById("chkestatus");
 chkestatus.addEventListener("click", () => {
@@ -145,13 +151,12 @@ chkestatus.addEventListener("click", () => {
         loadTable(seleccion);
     }
 });
+
 //escuchar click en recargarDatos
 const btnRecargar = document.getElementById("btnRecargarDatos");
-
 btnRecargar.addEventListener("click", () => {
     loadTable(seleccion);
 });
-
 
 //funcion para cargar la tabla
 function loadTable(seleccion){
@@ -168,18 +173,9 @@ function loadTable(seleccion){
                                     '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
                                     '<td>' + empleado.usuario.rol + '</td>'+
                                     '<td>' +
-                                        '<div class="dropdown d-md-none">' +
-                                            '<button class="btn btn-sm btn-secondary dropdown-toggle col-4 m-auto" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>' +
-                                            '<ul class="dropdown-menu text-center" aria-labelledby="accionesDropdown">' +
-                                                '<li><button class="btn btn-sm btn-success col-8 m-auto mb-2"><i class="fa-solid fa-eye"></i></button></li>' +
-                                                '<li><button class="btn btn-sm btn-warning col-8 m-auto mb-2"><i class="fa-solid fa-pen"></i></button></li>' +
-                                                '<li><button class="btn btn-sm btn-danger col-8 m-auto"><i class="fa-solid fa-trash"></i></button></li>' +
-                                            '</ul>' +
-                                        '</div>' +
-                                        '<div class="row d-none d-md-block text-center">' +
-                                            '<div class="col-3"></div>' +
-                                            '<button class="btn btn-sm btn-success col-4"><i class="fa-solid fa-eye"></i></button>' +
-                                            '<div class="col-3"></div>' +
+                                        '<div class="text-center">' +
+                                            //btnTable para cargar modal
+                                            '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataEmpleados.indexOf(empleado) + '"><i class="fa-solid fa-plus"></i></button>' +
                                         '</div>' +
                                     '</td>' +
                                 '</tr>';
@@ -194,11 +190,9 @@ function loadTable(seleccion){
                                 '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
                                 '<td>' + empleado.usuario.rol + '</td>'+
                                 '<td>' +
-                                    '<div class="row d-none d-md-block">' +
-                                        //btn table para ver datos con icono de mas
-                                        '<button id="dataEmpleados.indexOf(empleado)" class="btn btn-sm btn-success col-3 mx-1 btnTable"><i class="fa-solid fa-eye"></i></button>' +
-                                        '<button class="btn btn-sm btn-warning col-3 mx-1"><i class="fa-solid fa-pen"></i></button>' +
-                                        '<button id="btnBorrar'+ dataEmpleados.indexOf(empleado) +'" class="btn btn-sm btn-danger col-8><i class="fa-solid fa-trash"></i></button>' +
+                                    '<div class="text-center">' +
+                                        //btnTable para cargar modal
+                                        '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataEmpleados.indexOf(empleado) + '"><i class="fa-solid fa-plus"></i></button>' +
                                     '</div>' +
                                 '</td>' +
                             '</tr>';
@@ -209,36 +203,85 @@ function loadTable(seleccion){
         document.getElementById("tblEmpleados").innerHTML = cuerpo;
     });
 }
+//funcion cuando se activa el modal
+const modalVerEmpleado = document.getElementById("modalVerEmpleado");
 
-//Escuchar el evento click en nav-consultar-tab
-const navConsultarTab = document.getElementById("nav-consultar-tab");
-navConsultarTab.addEventListener("click", () => {
-    loadTable(seleccion);
-});
+if (modalVerEmpleado) {
+    modalVerEmpleado.addEventListener("show.bs.modal", (event) => {
+        //obtener el boton que abre el modal
+        const button = event.relatedTarget;
+        //obtener el indice del boton
+        const indice = button.getAttribute("data-bs-whatever");
+        //obtener datos del empleado
+        const empleado = dataEmpleados[indice];
+        //cargar datos en modal
+        empleados.cargarDatosEmpleadoModal(indice, dataEmpleados);
+        
+        //eliminar botones si el estatus del empleado es 0
 
 
-function eliminarEmpleado(codigoEmpleado) {
-    Swal.fire({
-        title: "¿Desea eliminar el empleado?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Si",
-        cancelButtonText: "No",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            const indice = dataEmpleados.findIndex((e) => e.datosLaborales.codigoEmpleado === codigoEmpleado);
-            if (indice !== -1) {
-                dataEmpleados[indice].usuario.estatus = 0;
+        //escuchar el evento click del btnEliminarEmpleado
+        const btnEliminarEmpleado = document.getElementById("btnEliminarEmpleado");
+        btnEliminarEmpleado.addEventListener("click", () => {
+            empleados.eliminarEmpleado(indice, dataEmpleados);
+        });
+
+        //escuchar el evento click del btnEditarEmpleado
+        const btnEditarEmpleado = document.getElementById("btnEditarEmpleado");
+        btnEditarEmpleado.addEventListener("click", () => {
+            //habilitar los campos
+            empleados.habilitarCamposModal();
+            btnEditarEmpleado.classList.add("disabled");
+            btnEliminarEmpleado.classList.add("disabled");
+            btnConfirmarEdicion.classList.remove("disabled");
+        });
+
+        //escuchar el evento click del btnConfirmarEdicion
+        const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
+        btnConfirmarEdicion.addEventListener("click", () => {
+            //pedir confirmacion
+            Swal.fire({
+                title: "¿Desea actualizar los datos?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+            }).then((result) => {
+                if(result.isConfirmed){
+                    //actualizar datos
+                    dataEmpleados[indice] = empleados.confirmarCambiosModal(indice, dataEmpleados);
+                    //deshabilitar campos
+                    empleados.deshabilitarCamposModal();
+                    btnEditarEmpleado.classList.remove("disabled");
+                    btnEliminarEmpleado.classList.remove("disabled");
+                    btnConfirmarEdicion.classList.add("disabled");
+                    console.log(dataEmpleados);
+                }
+                //mostrar mensaje de confirmacion
                 Swal.fire({
-                    title: "Se ha eliminado correctamente",
+                    title: "Se ha actualizado correctamente",
                     icon: "success"
                 });
-            } else {
-                Swal.fire({
-                    title: "Empleado no encontrado",
-                    icon: "error"
-                });
-            }
-        }
+            });
+        });
+
+        //escuchar el evento click del btnCerrarModal
+        const btnCerrarModal = document.getElementById("btnCerrarModal");
+        btnCerrarModal.addEventListener("click", () => {
+            loadTable(seleccion);
+            empleados.deshabilitarCamposModal();
+            btnEditarEmpleado.classList.remove("disabled");
+            btnEliminarEmpleado.classList.remove("disabled");
+            btnConfirmarEdicion.classList.add("disabled");
+        });
+        //escuchar el evento click del btnCerrarModal-header
+        const btnCerrarModalHeader = document.getElementById("btnCerrarModal-header");
+        btnCerrarModalHeader.addEventListener("click", () => {
+            loadTable(seleccion);
+            empleados.deshabilitarCamposModal();
+            btnEditarEmpleado.classList.remove("disabled");
+            btnEliminarEmpleado.classList.remove("disabled");
+            btnConfirmarEdicion.classList.add("disabled");
+        });
     });
 }

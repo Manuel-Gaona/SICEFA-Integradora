@@ -10,82 +10,14 @@
     },
     {
         "datosPersona": {
-            "nombre": "Juan",
-            "apellidoP": "Perez",
-            "apellidoM": "Gonzalez",
-            "genero": "0",
-            "fechaNacimiento": "01/01/1990",
-            "rfc": "PEGJ900101",
-            "curp": "PEGJ900101HDFRNS09",
-            "foto": "https://previews.123rf.com/images/golubovy/golubovy1806/golubovy180600547/103613892-pasaporte-documento-concepto-de-foto-de-identificaci%C3%B3n-retrato-de-hombre-de-negocios-joven-guapo.jpg",
-            "datosDomicilio": {
-                "domicilio": "Calle 1 #123",
-                "cp": "12345",
-                "ciudad": "León",
-                "estado": "Guanajuato"
-            },
-            "telefono": "1234567890"
-        },
-        "datosLaborales": {
-            "fechaIngreso": "01/01/2023",
-            "puesto": "Gerente",
-            "salario": 10000.00,
-            "email": "juanperez@gmail.com",
-            "codigoEmpleado": "23010001",
-            "sucursal": "1"
-        },
-        "usuario": {
-            "nombreUsuario": "23010001",
-            "contrasenia": "23010001",
-            "tipoUsuario": 0,
-            "rol": "EMPS",
-            "estatus": 1
-        }
-    },
-    {
-        "datosPersona": {
-            "nombre": "Maria",
-            "apellidoP": "Hernandez",
-            "apellidoM": "Lopez",
-            "genero": "1",
-            "fechaNacimiento": "01/01/1995",
-            "rfc": "HELJ950101",
-            "curp": "HELJ950101MDFRNS09",
-            "foto": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fes-es%2Ffoto%2Fhombre-que-usa-una-camisa-blanca-para-hombre-4502105%2F&psig=AOvVaw0QZ2Z3Q4ZQ4Q4ZQ4ZQ4ZQ4&ust=1629786168218000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjQ4ZqQnvICFQAAAAAdAAAAABAD",
-            "datosDomicilio": {
-                "domicilio": "Calle 2 #987",
-                "cp": "98765",
-                "ciudad": "León",
-                "estado": "Guanajuato"
-            },
-            "telefono": "0987654321"
-        },
-        "datosLaborales": {
-            "fechaIngreso": "05/08/2023",
-            "puesto": "Atención a clientes",
-            "salario": 8500.00,
-            "email": "mariahernandez@gmail.com",
-            "codigoEmpleado": "23080002",
-            "sucursal": "1"
-        },
-        "usuario": {
-            "nombreUsuario": "23080002",
-            "contrasenia": "23080002",
-            "tipoUsuario": 0,
-            "rol": "EMPS",
-            "estatus": 0
-        }
-    },
-    {
-        "datosPersona": {
             "nombre": "Pedro",
             "apellidoP": "Garcia",
             "apellidoM": "Rodriguez",
-            "genero": "0",
+            "genero": 0,
             "fechaNacimiento": "17/06/1987",
             "rfc": "GARP950101",
             "curp": "GARP950101HDFRNS09",
-            "foto": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fes-es%2Ffoto%2Fhombre-que-usa-una-camisa-blanca-para-hombre-4502105%2F&psig=AOvVaw0QZ2Z3Q4ZQ4Q4ZQ4ZQ4ZQ4&ust=1629786168218000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjQ4ZqQnvICFQAAAAAdAAAAABAD",
+            "foto": "",
             "datosDomicilio": {
                 "domicilio": "Calle 3 #456",
                 "cp": "45678",
@@ -100,7 +32,7 @@
             "salario": 15500.50,
             "email": "pedrogarcia@gmail.com",
             "codigoEmpleado": "22040000",
-            "sucursal": "1"
+            "sucursal": 1
         },
         "usuario": {
             "nombreUsuario": "22040000",
@@ -108,6 +40,1094 @@
             "tipoUsuario": 0,
             "rol": "ADMS",
             "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Laura",
+            "apellidoP": "Lopez",
+            "apellidoM": "Gutierrez",
+            "genero": 1,
+            "fechaNacimiento": "15/03/1992",
+            "rfc": "LOLG920315",
+            "curp": "LOLG920315HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 5 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "5678901234"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "02/07/2023",
+            "puesto": "Atención a clientes",
+            "salario": 9000.00,
+            "email": "lauralopez@gmail.com",
+            "codigoEmpleado": "23070001",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23070001",
+            "contrasenia": "23070001",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Carlos",
+            "apellidoP": "Ramirez",
+            "apellidoM": "Gomez",
+            "genero": 0,
+            "fechaNacimiento": "10/11/1985",
+            "rfc": "RAGC851110",
+            "curp": "RAGC851110HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 4 #234",
+                "cp": "34567",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "2345678901"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/09/2023",
+            "puesto": "Gerente",
+            "salario": 12000.00,
+            "email": "carlosramirez@gmail.com",
+            "codigoEmpleado": "23090002",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23090002",
+            "contrasenia": "23090002",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Ana",
+            "apellidoP": "Martinez",
+            "apellidoM": "Diaz",
+            "genero": 1,
+            "fechaNacimiento": "25/05/1993",
+            "rfc": "MADA930525",
+            "curp": "MADA930525HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 6 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "3456789012"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "10/11/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9500.00,
+            "email": "anamartinez@gmail.com",
+            "codigoEmpleado": "22110003",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22110003",
+            "contrasenia": "22110003",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Ricardo",
+            "apellidoP": "Gomez",
+            "apellidoM": "Hernandez",
+            "genero": 0,
+            "fechaNacimiento": "03/12/1988",
+            "rfc": "GORH881203",
+            "curp": "GORH881203HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 7 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "6789012345"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "20/04/2022",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "ricardogomez@gmail.com",
+            "codigoEmpleado": "22040004",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22040004",
+            "contrasenia": "22040004",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Sofia",
+            "apellidoP": "Diaz",
+            "apellidoM": "Perez",
+            "genero": 1,
+            "fechaNacimiento": "18/09/1994",
+            "rfc": "DIPS940918",
+            "curp": "DIPS940918HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 8 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "7890123456"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/03/2023",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "sofiadiaz@gmail.com",
+            "codigoEmpleado": "23030005",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23030005",
+            "contrasenia": "23030005",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Javier",
+            "apellidoP": "Sanchez",
+            "apellidoM": "Gutierrez",
+            "genero": 0,
+            "fechaNacimiento": "12/07/1991",
+            "rfc": "SAGJ910712",
+            "curp": "SAGJ910712HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 9 #234",
+                "cp": "34567",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "8901234567"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/06/2022",
+            "puesto": "Gerente",
+            "salario": 10500.00,
+            "email": "javiersanchez@gmail.com",
+            "codigoEmpleado": "22060006",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22060006",
+            "contrasenia": "22060006",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Elena",
+            "apellidoP": "Martinez",
+            "apellidoM": "Lopez",
+            "genero": 1,
+            "fechaNacimiento": "05/04/1996",
+            "rfc": "MALL960405",
+            "curp": "MALL960405HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 10 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "9012345678"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "10/02/2022",
+            "puesto": "Atención a clientes",
+            "salario": 8800.00,
+            "email": "elenamartinez@gmail.com",
+            "codigoEmpleado": "22020007",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22020007",
+            "contrasenia": "22020007",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Alejandro",
+            "apellidoP": "Gonzalez",
+            "apellidoM": "Ramirez",
+            "genero": 0,
+            "fechaNacimiento": "08/11/1989",
+            "rfc": "GOAR891108",
+            "curp": "GOAR891108HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 11 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/09/2023",
+            "puesto": "Gerente",
+            "salario": 11500.00,
+            "email": "alejandrogonzalez@gmail.com",
+            "codigoEmpleado": "23090008",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23090008",
+            "contrasenia": "23090008",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Isabel",
+            "apellidoP": "Diaz",
+            "apellidoM": "Hernandez",
+            "genero": 1,
+            "fechaNacimiento": "20/02/1993",
+            "rfc": "DIHI930220",
+            "curp": "DIHI930220HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 12 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "2345678901"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/12/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "isabeldiaz@gmail.com",
+            "codigoEmpleado": "22120009",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22120009",
+            "contrasenia": "22120009",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Hector",
+            "apellidoP": "Gutierrez",
+            "apellidoM": "Martinez",
+            "genero": 0,
+            "fechaNacimiento": "14/07/1990",
+            "rfc": "GUMH900714",
+            "curp": "GUMH900714HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 13 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "3456789012"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/05/2022",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "hectorgutierrez@gmail.com",
+            "codigoEmpleado": "22050010",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22050010",
+            "contrasenia": "22050010",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Gabriela",
+            "apellidoP": "Luna",
+            "apellidoM": "Gomez",
+            "genero": 1,
+            "fechaNacimiento": "08/03/1994",
+            "rfc": "LUGG940308",
+            "curp": "LUGG940308MDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 14 #567",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "4567890123"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "12/10/2023",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "gabrielaluna@gmail.com",
+            "codigoEmpleado": "23100011",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23100011",
+            "contrasenia": "23100011",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Fernando",
+            "apellidoP": "Hernandez",
+            "apellidoM": "Rios",
+            "genero": 0,
+            "fechaNacimiento": "25/09/1989",
+            "rfc": "HERF890925",
+            "curp": "HERF890925HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 15 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/04/2023",
+            "puesto": "Gerente",
+            "salario": 11500.00,
+            "email": "fernandohernandez@gmail.com",
+            "codigoEmpleado": "23040012",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23040012",
+            "contrasenia": "23040012",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Laura",
+            "apellidoP": "Gomez",
+            "apellidoM": "Santos",
+            "genero": 1,
+            "fechaNacimiento": "19/06/1992",
+            "rfc": "GOSL920619",
+            "curp": "GOSL920619HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 16 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "3456789012"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "05/02/2022",
+            "puesto": "Atención a clientes",
+            "salario": 8800.00,
+            "email": "lauragomez@gmail.com",
+            "codigoEmpleado": "22020013",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22020013",
+            "contrasenia": "22020013",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Roberto",
+            "apellidoP": "Perez",
+            "apellidoM": "Lopez",
+            "genero": 0,
+            "fechaNacimiento": "12/12/1987",
+            "rfc": "PELR871212",
+            "curp": "PELR871212HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 17 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "5678901234"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "10/07/2023",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "robertoperez@gmail.com",
+            "codigoEmpleado": "23070014",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23070014",
+            "contrasenia": "23070014",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Carmen",
+            "apellidoP": "Gutierrez",
+            "apellidoM": "Martinez",
+            "genero": 1,
+            "fechaNacimiento": "05/08/1995",
+            "rfc": "GUMC950805",
+            "curp": "GUMC950805HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 18 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "6789012345"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/01/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "carmengutierrez@gmail.com",
+            "codigoEmpleado": "22010015",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22010015",
+            "contrasenia": "22010015",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Eduardo",
+            "apellidoP": "Ramirez",
+            "apellidoM": "Hernandez",
+            "genero": 0,
+            "fechaNacimiento": "18/04/1993",
+            "rfc": "RAHE930418",
+            "curp": "RAHE930418HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 19 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "7890123456"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/03/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9000.00,
+            "email": "eduardoramirez@gmail.com",
+            "codigoEmpleado": "22030016",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22030016",
+            "contrasenia": "22030016",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Mariana",
+            "apellidoP": "Diaz",
+            "apellidoM": "Perez",
+            "genero": 1,
+            "fechaNacimiento": "15/11/1991",
+            "rfc": "DIPM911115",
+            "curp": "DIPM911115HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 20 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "9012345678"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "20/08/2022",
+            "puesto": "Gerente",
+            "salario": 10500.00,
+            "email": "marianadiaz@gmail.com",
+            "codigoEmpleado": "22080017",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22080017",
+            "contrasenia": "22080017",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Jorge",
+            "apellidoP": "Martinez",
+            "apellidoM": "Gutierrez",
+            "genero": 0,
+            "fechaNacimiento": "12/05/1990",
+            "rfc": "MAGJ900512",
+            "curp": "MAGJ900512HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 21 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "2345678901"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/09/2023",
+            "puesto": "Gerente",
+            "salario": 11500.00,
+            "email": "jorgemartinez@gmail.com",
+            "codigoEmpleado": "23090018",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23090018",
+            "contrasenia": "23090018",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Sara",
+            "apellidoP": "Hernandez",
+            "apellidoM": "Ramirez",
+            "genero": 1,
+            "fechaNacimiento": "28/02/1993",
+            "rfc": "HERS930228",
+            "curp": "HERS930228HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 22 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "3456789012"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/06/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "sarahernandez@gmail.com",
+            "codigoEmpleado": "22060019",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22060019",
+            "contrasenia": "22060019",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Miguel",
+            "apellidoP": "Gomez",
+            "apellidoM": "Diaz",
+            "genero": 0,
+            "fechaNacimiento": "10/10/1996",
+            "rfc": "GODM961010",
+            "curp": "GODM961010HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 23 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "4567890123"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "12/03/2023",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "miguelgomez@gmail.com",
+            "codigoEmpleado": "23030020",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23030020",
+            "contrasenia": "23030020",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Luis",
+            "apellidoP": "Garcia",
+            "apellidoM": "Lopez",
+            "genero": 0,
+            "fechaNacimiento": "20/11/1990",
+            "rfc": "GALL901120",
+            "curp": "GALL901120HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 25 #567",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "5678901234"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "12/09/2023",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "luisgarcia@gmail.com",
+            "codigoEmpleado": "23090021",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23090021",
+            "contrasenia": "23090021",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Veronica",
+            "apellidoP": "Martinez",
+            "apellidoM": "Ramirez",
+            "genero": 1,
+            "fechaNacimiento": "15/05/1992",
+            "rfc": "MARR920515",
+            "curp": "MARR920515HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 26 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/07/2023",
+            "puesto": "Gerente",
+            "salario": 11500.00,
+            "email": "veronicamartinez@gmail.com",
+            "codigoEmpleado": "23070022",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23070022",
+            "contrasenia": "23070022",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Diego",
+            "apellidoP": "Gomez",
+            "apellidoM": "Hernandez",
+            "genero": 0,
+            "fechaNacimiento": "18/08/1993",
+            "rfc": "GOHD930818",
+            "curp": "GOHD930818HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 27 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "6789012345"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/04/2022",
+            "puesto": "Atención a clientes",
+            "salario": 8800.00,
+            "email": "diegogomez@gmail.com",
+            "codigoEmpleado": "22040023",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22040023",
+            "contrasenia": "22040023",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Paola",
+            "apellidoP": "Diaz",
+            "apellidoM": "Gutierrez",
+            "genero": 1,
+            "fechaNacimiento": "22/01/1991",
+            "rfc": "DIGP910122",
+            "curp": "DIGP910122HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 28 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "9012345678"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "10/03/2023",
+            "puesto": "Gerente",
+            "salario": 10500.00,
+            "email": "paoladiaz@gmail.com",
+            "codigoEmpleado": "23030024",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23030024",
+            "contrasenia": "23030024",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Arturo",
+            "apellidoP": "Ramirez",
+            "apellidoM": "Luna",
+            "genero": 0,
+            "fechaNacimiento": "11/06/1994",
+            "rfc": "RALA940611",
+            "curp": "RALA940611HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 29 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "2345678901"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/09/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "arturoramirez@gmail.com",
+            "codigoEmpleado": "22090025",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22090025",
+            "contrasenia": "22090025",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Ana",
+            "apellidoP": "Martinez",
+            "apellidoM": "Gomez",
+            "genero": 1,
+            "fechaNacimiento": "05/12/1995",
+            "rfc": "MAGA951205",
+            "curp": "MAGA951205HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 31 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "3456789012"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/02/2022",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "anamartinez@gmail.com",
+            "codigoEmpleado": "22020026",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22020026",
+            "contrasenia": "22020026",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Carlos",
+            "apellidoP": "Hernandez",
+            "apellidoM": "Santos",
+            "genero": 0,
+            "fechaNacimiento": "30/03/1993",
+            "rfc": "HESC930330",
+            "curp": "HESC930330HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 33 #456",
+                "cp": "45678",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "4567890123"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/11/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9000.00,
+            "email": "carloshernandez@gmail.com",
+            "codigoEmpleado": "22110027",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22110027",
+            "contrasenia": "22110027",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Monica",
+            "apellidoP": "Lopez",
+            "apellidoM": "Gutierrez",
+            "genero": 1,
+            "fechaNacimiento": "18/07/1994",
+            "rfc": "LOGM940718",
+            "curp": "LOGM940718HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 35 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "10/05/2023",
+            "puesto": "Gerente",
+            "salario": 10500.00,
+            "email": "monicalopez@gmail.com",
+            "codigoEmpleado": "23050028",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23050028",
+            "contrasenia": "23050028",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Ricardo",
+            "apellidoP": "Gomez",
+            "apellidoM": "Hernandez",
+            "genero": 0,
+            "fechaNacimiento": "22/04/1991",
+            "rfc": "GOHR910422",
+            "curp": "GOHR910422HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 37 #789",
+                "cp": "56789",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "6789012345"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "15/08/2022",
+            "puesto": "Atención a clientes",
+            "salario": 9200.00,
+            "email": "ricardogomez@gmail.com",
+            "codigoEmpleado": "22080029",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "22080029",
+            "contrasenia": "22080029",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Isabel",
+            "apellidoP": "Ramirez",
+            "apellidoM": "Martinez",
+            "genero": 1,
+            "fechaNacimiento": "10/12/1992",
+            "rfc": "RAMI921210",
+            "curp": "RAMI921210HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Avenida 39 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "2345678901"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/02/2023",
+            "puesto": "Gerente",
+            "salario": 11000.00,
+            "email": "isabelramirez@gmail.com",
+            "codigoEmpleado": "23020030",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23020030",
+            "contrasenia": "23020030",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Juan",
+            "apellidoP": "Perez",
+            "apellidoM": "Gonzalez",
+            "genero": 0,
+            "fechaNacimiento": "01/01/1990",
+            "rfc": "PEGJ900101",
+            "curp": "PEGJ900101HDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 1 #123",
+                "cp": "12345",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "1234567890"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "01/01/2023",
+            "puesto": "Gerente",
+            "salario": 10000.00,
+            "email": "juanperez@gmail.com",
+            "codigoEmpleado": "23010031",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23010031",
+            "contrasenia": "23010031",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 1
+        }
+    },
+    {
+        "datosPersona": {
+            "nombre": "Maria",
+            "apellidoP": "Hernandez",
+            "apellidoM": "Lopez",
+            "genero": 1,
+            "fechaNacimiento": "01/01/1995",
+            "rfc": "HELJ950101",
+            "curp": "HELJ950101MDFRNS09",
+            "foto": "",
+            "datosDomicilio": {
+                "domicilio": "Calle 2 #987",
+                "cp": "98765",
+                "ciudad": "León",
+                "estado": "Guanajuato"
+            },
+            "telefono": "0987654321"
+        },
+        "datosLaborales": {
+            "fechaIngreso": "05/08/2023",
+            "puesto": "Atención a clientes",
+            "salario": 8500.00,
+            "email": "mariahernandez@gmail.com",
+            "codigoEmpleado": "23080032",
+            "sucursal": 1
+        },
+        "usuario": {
+            "nombreUsuario": "23080032",
+            "contrasenia": "23080032",
+            "tipoUsuario": 0,
+            "rol": "EMPS",
+            "estatus": 0
         }
     }
 ]
