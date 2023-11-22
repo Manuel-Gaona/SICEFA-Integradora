@@ -12,7 +12,7 @@ const verificacion = new verificacionModel();
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // Crear const dataEmpleados para guardar los datos de los empleados
-const dataEmpleados = await empleados.cargarDatosEmpleados();
+let dataEmpleados = await empleados.cargarDatosEmpleados();
 console.log(dataEmpleados);
 //contador empleados
 let contadorEmpleados = dataEmpleados.length - 2;
@@ -217,9 +217,6 @@ if (modalVerEmpleado) {
         //cargar datos en modal
         empleados.cargarDatosEmpleadoModal(indice, dataEmpleados);
         
-        //eliminar botones si el estatus del empleado es 0
-
-
         //escuchar el evento click del btnEliminarEmpleado
         const btnEliminarEmpleado = document.getElementById("btnEliminarEmpleado");
         btnEliminarEmpleado.addEventListener("click", () => {
