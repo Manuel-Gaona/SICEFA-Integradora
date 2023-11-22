@@ -21,7 +21,12 @@ let contadorProductos = dataProductos.length -1;
 includes.incluirHeader();
 includes.incluirFooter();
 //verificar usuario
+console.log(rol);
 verificacion.verificarUsuario(usuario);
+//habilitar nav-agregarProducto si es ADMC
+if(sessionStorage.getItem("rol") === "ADMC"){
+    document.getElementById("nav-agregarProducto-tab").removeAttribute("disabled");
+}
 //seleccion de la tabla 
 let seleccion = 1;
 //cargar tabla
