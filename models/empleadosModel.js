@@ -37,6 +37,24 @@ class empleadosModel{
         empleado.usuario.contrasenia = contrasenia;
         console.log('Contraseña actualizada:', empleado);
     }
+    //funcion eliminar empleado
+    eliminarEmpleado(indice, dataEmpleados){
+        Swal.fire({
+            title: "¿Desea eliminar el empleado?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+        }).then((result) => {
+            if(result.isConfirmed){
+                dataEmpleados[indice].usuario.estatus = 0;
+                Swal.fire({
+                    title: "Se ha eliminado correctamente",
+                    icon: "success"
+                });
+            }
+        });
+    }
 }
 
 export default empleadosModel;

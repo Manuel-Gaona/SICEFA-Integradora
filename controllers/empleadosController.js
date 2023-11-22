@@ -12,11 +12,10 @@ const verificacion = new verificacionModel();
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // Crear const dataEmpleados para guardar los datos de los empleados
-
 const dataEmpleados = await empleados.cargarDatosEmpleados();
 console.log(dataEmpleados);
 //contador empleados
-let contadorEmpleados = 2;
+let contadorEmpleados = dataEmpleados.length - 2;
 
 // Llama a la función para incluir el header y el footer
 includes.incluirHeader();
@@ -24,12 +23,13 @@ includes.incluirFooter();
 //verificar usuario
 verificacion.verificarUsuario(usuario);
 //Cargar la tabla
-loadTable(1);
+let seleccion = 1;
 
 //Escuchar el evento click del boton agregar empleado
 const btnAgregarEmpleado = document.getElementById("btnAgregarEmpleado");
 
-btnAgregarEmpleado.addEventListener("click", () => {
+btnAgregarEmpleado.addEventListener("click", (event) => {
+    event.preventDefault();
     //obtener datos del formulario
     let nombre = document.getElementById("txtnombre").value;
     let apellidoP = document.getElementById("txtapellidoP").value;
@@ -125,20 +125,34 @@ btnAgregarEmpleado.addEventListener("click", () => {
     //enviar datos al servidor
     dataEmpleados.push(empleado);
     console.log(dataEmpleados);
+    loadTable(1);
+    Swal.fire({
+        title: "Se ha agregado correctamente",
+        icon: "success"
+    });
 });
 
 //Escuchar el evento click del checkbox
 const chkestatus = document.getElementById("chkestatus");
-
 chkestatus.addEventListener("click", () => {
     let checkbox = chkestatus.checked;
     if(checkbox){
-        loadTable(0);
+        seleccion = 0;
+        loadTable(seleccion);
     }
     else{
-        loadTable(1);
+        seleccion = 1;
+        loadTable(seleccion);
     }
 });
+//escuchar click en recargarDatos
+const btnRecargar = document.getElementById("btnRecargarDatos");
+
+btnRecargar.addEventListener("click", () => {
+    loadTable(seleccion);
+});
+
+
 //funcion para cargar la tabla
 function loadTable(seleccion){
     let cuerpo = " ";
@@ -162,8 +176,10 @@ function loadTable(seleccion){
                                                 '<li><button class="btn btn-sm btn-danger col-8 m-auto"><i class="fa-solid fa-trash"></i></button></li>' +
                                             '</ul>' +
                                         '</div>' +
-                                        '<div class="row d-none d-md-block">' +
-                                            '<button class="btn btn-sm btn-success col-3 mx-1"><i class="fa-solid fa-eye"></i></button>' +
+                                        '<div class="row d-none d-md-block text-center">' +
+                                            '<div class="col-3"></div>' +
+                                            '<button class="btn btn-sm btn-success col-4"><i class="fa-solid fa-eye"></i></button>' +
+                                            '<div class="col-3"></div>' +
                                         '</div>' +
                                     '</td>' +
                                 '</tr>';
@@ -178,28 +194,51 @@ function loadTable(seleccion){
                                 '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
                                 '<td>' + empleado.usuario.rol + '</td>'+
                                 '<td>' +
-                                    '<div class="dropdown d-md-none row">' +
-                                        '<button class="btn btn-sm btn-secondary dropdown-toggle col-4 mx-auto" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>' +
-                                        '<ul class="dropdown-menu text-center" aria-labelledby="accionesDropdown">' +
-                                            '<li><button class="btn btn-sm btn-success col-8 m-auto mb-2"><i class="fa-solid fa-eye"></i></button></li>' +
-                                            '<li><button class="btn btn-sm btn-warning col-8 m-auto mb-2"><i class="fa-solid fa-pen"></i></button></li>' +
-                                            '<li><button class="btn btn-sm btn-danger col-8 m-auto"><i class="fa-solid fa-trash"></i></button></li>' +
-                                        '</ul>' +
-                                    '</div>' +
                                     '<div class="row d-none d-md-block">' +
-                                        '<button class="btn btn-sm btn-success col-3 mx-1"><i class="fa-solid fa-eye"></i></button>' +
+                                        //btn table para ver datos con icono de mas
+                                        '<button id="dataEmpleados.indexOf(empleado)" class="btn btn-sm btn-success col-3 mx-1 btnTable"><i class="fa-solid fa-eye"></i></button>' +
                                         '<button class="btn btn-sm btn-warning col-3 mx-1"><i class="fa-solid fa-pen"></i></button>' +
-                                        '<button class="btn btn-sm btn-danger col-3 mx-1"><i class="fa-solid fa-trash"></i></button>' +
+                                        '<button id="btnBorrar'+ dataEmpleados.indexOf(empleado) +'" class="btn btn-sm btn-danger col-8><i class="fa-solid fa-trash"></i></button>' +
                                     '</div>' +
                                 '</td>' +
                             '</tr>';
                     }
                 break;
             }
-
-        }
-
+        } 
+        document.getElementById("tblEmpleados").innerHTML = cuerpo;
     });
+}
 
-    document.getElementById("tblEmpleados").innerHTML = cuerpo;
+//Escuchar el evento click en nav-consultar-tab
+const navConsultarTab = document.getElementById("nav-consultar-tab");
+navConsultarTab.addEventListener("click", () => {
+    loadTable(seleccion);
+});
+
+
+function eliminarEmpleado(codigoEmpleado) {
+    Swal.fire({
+        title: "¿Desea eliminar el empleado?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const indice = dataEmpleados.findIndex((e) => e.datosLaborales.codigoEmpleado === codigoEmpleado);
+            if (indice !== -1) {
+                dataEmpleados[indice].usuario.estatus = 0;
+                Swal.fire({
+                    title: "Se ha eliminado correctamente",
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "Empleado no encontrado",
+                    icon: "error"
+                });
+            }
+        }
+    });
 }
