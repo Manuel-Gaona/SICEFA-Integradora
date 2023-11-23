@@ -1,0 +1,255 @@
+{
+  "compras": [
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado1",
+      "fecha": "2023-12-05",
+      "hora": "09:30",
+      "productos": [
+        {
+          "nombre": "Producto1",
+          "cantidad": 100,
+          "historial_precios": [
+            {"fecha": "2023-12-01", "precio_compra": 8.50},
+            {"fecha": "2023-12-03", "precio_compra": 9.00},
+            {"fecha": "2023-12-05", "precio_compra": 9.50}
+          ]
+        },
+        {
+          "nombre": "Producto2",
+          "cantidad": 50,
+          "historial_precios": [
+            {"fecha": "2023-12-02", "precio_compra": 20.00},
+            {"fecha": "2023-12-04", "precio_compra": 22.00},
+            {"fecha": "2023-12-05", "precio_compra": 23.00}
+          ]
+        },
+        {
+          "nombre": "Producto3",
+          "cantidad": 75,
+          "historial_precios": [
+            {"fecha": "2023-12-01", "precio_compra": 12.75},
+            {"fecha": "2023-12-04", "precio_compra": 13.50},
+            {"fecha": "2023-12-05", "precio_compra": 14.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado2",
+      "fecha": "2023-12-06",
+      "hora": "10:45",
+      "productos": [
+        {
+          "nombre": "Producto2",
+          "cantidad": 30,
+          "historial_precios": [
+            {"fecha": "2023-12-05", "precio_compra": 23.00},
+            {"fecha": "2023-12-06", "precio_compra": 24.50}
+          ]
+        },
+        {
+          "nombre": "Producto4",
+          "cantidad": 40,
+          "historial_precios": [
+            {"fecha": "2023-12-05", "precio_compra": 15.00},
+            {"fecha": "2023-12-06", "precio_compra": 16.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado3",
+      "fecha": "2023-12-07",
+      "hora": "11:15",
+      "productos": [
+        {
+          "nombre": "Producto1",
+          "cantidad": 50,
+          "historial_precios": [
+            {"fecha": "2023-12-06", "precio_compra": 10.00},
+            {"fecha": "2023-12-07", "precio_compra": 10.50}
+          ]
+        },
+        {
+          "nombre": "Producto3",
+          "cantidad": 60,
+          "historial_precios": [
+            {"fecha": "2023-12-06", "precio_compra": 14.50},
+            {"fecha": "2023-12-07", "precio_compra": 15.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado1",
+      "fecha": "2023-12-08",
+      "hora": "14:30",
+      "productos": [
+        {
+          "nombre": "Producto2",
+          "cantidad": 20,
+          "historial_precios": [
+            {"fecha": "2023-12-07", "precio_compra": 24.00},
+            {"fecha": "2023-12-08", "precio_compra": 25.00}
+          ]
+        },
+        {
+          "nombre": "Producto4",
+          "cantidad": 25,
+          "historial_precios": [
+            {"fecha": "2023-12-07", "precio_compra": 16.50},
+            {"fecha": "2023-12-08", "precio_compra": 17.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado2",
+      "fecha": "2023-12-09",
+      "hora": "09:00",
+      "productos": [
+        {
+          "nombre": "Producto1",
+          "cantidad": 30,
+          "historial_precios": [
+            {"fecha": "2023-12-08", "precio_compra": 10.75},
+            {"fecha": "2023-12-09", "precio_compra": 11.00}
+          ]
+        },
+        {
+          "nombre": "Producto3",
+          "cantidad": 15,
+          "historial_precios": [
+            {"fecha": "2023-12-08", "precio_compra": 15.25},
+            {"fecha": "2023-12-09", "precio_compra": 15.50}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado3",
+      "fecha": "2023-12-10",
+      "hora": "12:45",
+      "productos": [
+        {
+          "nombre": "Producto2",
+          "cantidad": 15,
+          "historial_precios": [
+            {"fecha": "2023-12-09", "precio_compra": 25.50},
+            {"fecha": "2023-12-10", "precio_compra": 26.00}
+          ]
+        },
+        {
+          "nombre": "Producto4",
+          "cantidad": 35,
+          "historial_precios": [
+            {"fecha": "2023-12-09", "precio_compra": 17.50},
+            {"fecha": "2023-12-10", "precio_compra": 18.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado1",
+      "fecha": "2023-12-11",
+      "hora": "15:15",
+      "productos": [
+        {
+          "nombre": "Producto1",
+          "cantidad": 40,
+          "historial_precios": [
+            {"fecha": "2023-12-10", "precio_compra": 11.25},
+            {"fecha": "2023-12-11", "precio_compra": 11.50}
+          ]
+        },
+        {
+          "nombre": "Producto3",
+          "cantidad": 20,
+          "historial_precios": [
+            {"fecha": "2023-12-10", "precio_compra": 16.00},
+            {"fecha": "2023-12-11", "precio_compra": 16.50}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado2",
+      "fecha": "2023-12-12",
+      "hora": "17:00",
+      "productos": [
+        {
+          "nombre": "Producto2",
+          "cantidad": 10,
+          "historial_precios": [
+            {"fecha": "2023-12-11", "precio_compra": 26.50},
+            {"fecha": "2023-12-12", "precio_compra": 27.00}
+          ]
+        },
+        {
+          "nombre": "Producto4",
+          "cantidad": 30,
+          "historial_precios": [
+            {"fecha": "2023-12-11", "precio_compra": 18.50},
+            {"fecha": "2023-12-12", "precio_compra": 19.00}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado3",
+      "fecha": "2023-12-13",
+      "hora": "14:00",
+      "productos": [
+        {
+          "nombre": "Producto1",
+          "cantidad": 25,
+          "historial_precios": [
+            {"fecha": "2023-12-12", "precio_compra": 11.75},
+            {"fecha": "2023-12-13", "precio_compra": 12.00}
+          ]
+        },
+        {
+          "nombre": "Producto3",
+          "cantidad": 10,
+          "historial_precios": [
+            {"fecha": "2023-12-12", "precio_compra": 17.00},
+            {"fecha": "2023-12-13", "precio_compra": 17.50}
+          ]
+        }
+      ]
+    },
+    {
+      "sucursal": "SICEFA CENTRAL",
+      "empleado_logueado": "Empleado1",
+      "fecha": "2023-12-14",
+      "hora": "11:30",
+      "productos": [
+        {
+          "nombre": "Producto2",
+          "cantidad": 15,
+          "historial_precios": [
+            {"fecha": "2023-12-13", "precio_compra": 27.50},
+            {"fecha": "2023-12-14", "precio_compra": 28.00}
+          ]
+        },
+        {
+          "nombre": "Producto4",
+          "cantidad": 20,
+          "historial_precios": [
+            {"fecha": "2023-12-13", "precio_compra": 19.50},
+            {"fecha": "2023-12-14", "precio_compra": 20.00}
+          ]
+        }
+      ]
+    }
+  ]
+}

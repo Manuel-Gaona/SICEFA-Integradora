@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/solid.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/regular.css">
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/lib/sweetalert/css/sweetalert2.min.css">
     <link rel="stylesheet" href="../../assets/css/custom.css">
 </head>
 <body>
@@ -113,6 +114,28 @@
                 <div class="tab-pane fade px-5 py-3 p-md-5 text-justify border border-top-0" id="nav-inicio" role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
                     <!--Aqui inicia el contenido de consular-->
                     <div class="row">
+                        <div class="row mb-2">
+                            <div class="col">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name ="chkestatus" id="chkestatus">
+                                    <label class="form-check-label" for="chkestatus">Empleados inactivos</label>
+                                </div>
+                            </div>
+                            <div class="col-1 d-flex align-items-center">
+                                <button id="btnRecargarDatos" class="btn btn-sm my-auto"><i class="fas fa-sync-alt"></i></button>
+                            </div>
+                            <!-- <div class="col-12 col-md-5" >
+                                <div class="input-group">
+                                    <div class="form-floating">
+                                        <input type="text" id="txtdatobuscado" class="form-control" />
+                                        <label  for="txtdatobuscado">Buscar</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div> -->
+                        </div>
                         <div class="col">
                                 <div class="d-flex gap-2 justify-content-center">
                                     <table class="table table-striped table-sm">
@@ -125,20 +148,160 @@
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tblTuristicos">
-                                             <tr>
-                                                <td>1</td>
-                                                <td>Jose</td>
-                                                <td>jose@gmail.com</td>
-                                                <td>13/04/2022</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-warning">Editar</button>
-                                                    <button class="btn btn-sm btn-danger">Eliminar</button>
-                                                </td>
-                                            </tr>
+                                        <tbody id="tblClientes">
                                         </tbody>
                                     </table>
                                 </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+                    <div class="modal fade" id="modalVerEmpleado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Datos del empleado</h5>
+                                    <button id="btnCerrarModal-header" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- aqui va el contenido del modal -->
+                                <div class="modal-body">
+                                    <form id="theform-modal">
+                                            <!-- nombre -->
+                                        <div class="row">
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtnombre-modal" required disabled>
+                                                <label for="txtnombre-modal">Nombre </label>
+                                            </div>
+                                            <!-- apellido paterno -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtapellidoP-modal" required disabled>
+                                                <label for="txtapellidoP-modal">Apellido Paterno </label>
+                                            </div>
+                                            <!-- apellido materno -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtapellidoM-modal" required disabled>
+                                                <label for="txtapellidoM-modal">Apellido Materno </label>
+                                            </div>
+                                            <!-- genero -->
+                                            <div class="my-1 col-12 col-md-6 col-lg-4">
+                                                <div class="row">
+                                                    <span class="h5">Genero</span>
+                                                    <div class="col text-center">
+                                                        <input type="radio" class="form-check-input" id="rdgenerom-modal" value="masculino" name="genero-modal" required disabled>                   
+                                                        <label for="rdgenerom-modal">Masculino</label>
+                                                    </div>
+                                                    <div class="col text-center">
+                                                        <input type="radio" class="form-check-input" id="rdgenerof-modal" value="femenino" name="genero-modal" required disabled>
+                                                        <label for="rdgenerof-modal">Femenino</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- fecha de nacimiento -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtfechaNac-modal" required disabled>
+                                                <label for="txtfechaNac-modal">Fecha de Nacimiento </label>
+                                            </div>
+                                            <!-- rfc -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtrfc-modal" required disabled>
+                                                <label for="txtrfc-modal">RFC </label>
+                                            </div>
+                                            <!-- curp -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtcurp-modal" required disabled>
+                                                <label for="txtcurp-modal">CURP </label>
+                                            </div>
+                                            <!-- domicilio -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtdomicilio-modal" required disabled>
+                                                <label for="txtdomicilio-modal">Domicilio </label>
+                                            </div>
+                                            <!-- cp -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="number" class="form-control my-2" id="txtcp-modal" required disabled>
+                                                <label for="txtcp-modal">Código Postal </label>
+                                            </div>
+                                            <!-- ciudad -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtciudad-modal" required disabled>
+                                                <label for="txtciudad-modal">Ciudad </label>
+                                            </div>
+                                            <!-- estado -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtestado-modal" required disabled>
+                                                <label for="txtestado-modal">Estado </label>
+                                            </div>
+                                            <!-- telefono -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="number" class="form-control my-2" id="txttelefono-modal" required disabled>
+                                                <label for="txttelefono-modal">Teléfono </label>
+                                            </div>
+                                            <!-- fecha de ingreso -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtfechaIng-modal" required disabled>
+                                                <label for="txtfechaIng-modal">Fecha de Ingreso </label>
+                                            </div>
+                                            <!-- puesto -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <select class="form-select" id="txtpuesto-modal" required disabled>
+                                                    <option value="Atención a clientes">Atención a Clientes</option>
+                                                    <option value="Gerente">Gerente</option>
+                                                </select>
+                                                <label for="txtpuesto-modal">Puesto </label>
+                                            </div>
+                                            <!-- salario -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtsalario-modal" required disabled>
+                                                <label for="txtsalario-modal">Salario </label>
+                                            </div>
+                                            <!-- email -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="email" class="form-control my-2" id="txtemail-modal" required disabled>
+                                                <label for="txtemail-modal">Email </label>
+                                            </div>
+                                            <!-- codigo empleado -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtcodigo-modal" required disabled>
+                                                <label for="txtcodigo-modal">Codigo Empleado </label>
+                                            </div>
+                                            <!-- sucursal -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" id="txtsucursal-modal" class="form-control my-2" required disabled>
+                                                <label for="txtsucursal-modal">Sucursal </label>
+                                            </div>
+                                            <!-- usuario -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtusuario-modal" required disabled>
+                                                <label for="txtusuario-modal">Usuario </label>
+                                            </div>
+                                            <!-- contraseña -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="password" class="form-control my-2" id="txtcontrasenia-modal" required disabled>
+                                                <label for="txtcontrasenia-modal">Contraseña </label>
+                                            </div>
+                                            <!-- rol -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <select class="form-select" id="txtrol-modal" required disabled>
+                                                    <option value="EMPS">Empleado</option>
+                                                    <option value="ADMS">Administrador</option>
+                                                </select>
+                                                <label for="txtrol-modal">Rol </label>
+                                            </div>
+                                            <!-- estatus -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtestatus-modal" required disabled>
+                                                <label for="txtestatus-modal">Estatus </label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- footer modal -->
+                                <div class="modal-footer">
+                                    <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Eliminar</button>
+                                    <button id="btnEditarEmpleado" type="button" class="btn btn-warning">Editar</button>
+                                    <button id="btnConfirmarEdicion" type="button" class="btn btn-success disabled">Confirmar</button>
+                                    <button id="btnCerrarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- aqui termina  -->
