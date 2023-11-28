@@ -17,7 +17,6 @@ console.log(dataClientes);
 
 //contador de clientes
 let contadorClientes = dataClientes.length -1;
-console.log(contadorClientes);
 //seleccion de la tabla
 let seleccion = 1;
 
@@ -28,9 +27,7 @@ includes.incluirFooter();
 verificacion.verificarUsuario(usuario);
 
 //escuchar el evento click del boton agregar
-
 const btnAgregarCliente = document.getElementById("btnAgregarCliente");
-
 btnAgregarCliente.addEventListener("click", (event) => {
     event.preventDefault();
     //obtener datos del formulario
@@ -176,4 +173,17 @@ function loadTable(seleccion) {
     });
 }
 
-//
+//funcion modal
+const modalVerCliente = document.getElementById("modalVerCliente");
+//escuchar evento show
+if (modalVerCliente){
+modalVerCliente.addEventListener("show.bs.modal", (event) => {
+        //obtener boton que abrio el modal
+        let button = event.relatedTarget;
+        //obtener indice del boton
+        let indice = button.getAttribute("data-bs-whatever");
+        //obtener datos del cliente
+        let cliente = dataClientes[indice];
+        
+    });
+}
