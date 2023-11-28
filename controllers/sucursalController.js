@@ -38,13 +38,17 @@ async function cargarDatosEmpleado(){
             let genero;
             //switch para genero
             switch(empleado.datosPersona.genero){
-                case 0: genero = "Masculino"; break;
-                case 1: genero = "Femenino"; break;
+                case 0: 
+                    genero = "Masculino"; 
+                    docID("nombreBienvenida").innerHTML = "¡Bienvenido " + empleado.datosPersona.nombre + "!";
+                    break;
+                case 1: 
+                    genero = "Femenino"; 
+                    docID("nombreBienvenida").innerHTML = "¡Bienvenida " + empleado.datosPersona.nombre + "!";
+                    break;
                 default: genero = "No especificado"; break;
             }
             //console.log(empleado);
-            //Nombre bienvenida
-            docID("nombreBienvenida").innerHTML = " " + empleado.datosPersona.nombre;
             //datos de persona
             docID("txtnombre").value = nombreCompleto;
             docID("txtgenero").value = genero;

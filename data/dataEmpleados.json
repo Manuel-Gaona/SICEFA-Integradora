@@ -32,7 +32,7 @@
             "salario": 15500.50,
             "email": "pedrogarcia@gmail.com",
             "codigoEmpleado": "22040000",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "22040000",
@@ -66,7 +66,7 @@
             "salario": 9000.00,
             "email": "lauralopez@gmail.com",
             "codigoEmpleado": "23070001",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "23070001",
@@ -100,7 +100,7 @@
             "salario": 12000.00,
             "email": "carlosramirez@gmail.com",
             "codigoEmpleado": "23090002",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23090002",
@@ -134,7 +134,7 @@
             "salario": 9500.00,
             "email": "anamartinez@gmail.com",
             "codigoEmpleado": "22110003",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "22110003",
@@ -168,7 +168,7 @@
             "salario": 11000.00,
             "email": "ricardogomez@gmail.com",
             "codigoEmpleado": "22040004",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "22040004",
@@ -202,7 +202,7 @@
             "salario": 9200.00,
             "email": "sofiadiaz@gmail.com",
             "codigoEmpleado": "23030005",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "23030005",
@@ -236,7 +236,7 @@
             "salario": 10500.00,
             "email": "javiersanchez@gmail.com",
             "codigoEmpleado": "22060006",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "22060006",
@@ -270,7 +270,7 @@
             "salario": 8800.00,
             "email": "elenamartinez@gmail.com",
             "codigoEmpleado": "22020007",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "22020007",
@@ -304,7 +304,7 @@
             "salario": 11500.00,
             "email": "alejandrogonzalez@gmail.com",
             "codigoEmpleado": "23090008",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "23090008",
@@ -338,7 +338,7 @@
             "salario": 9200.00,
             "email": "isabeldiaz@gmail.com",
             "codigoEmpleado": "22120009",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22120009",
@@ -372,7 +372,7 @@
             "salario": 11000.00,
             "email": "hectorgutierrez@gmail.com",
             "codigoEmpleado": "22050010",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "22050010",
@@ -406,7 +406,7 @@
             "salario": 9200.00,
             "email": "gabrielaluna@gmail.com",
             "codigoEmpleado": "23100011",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23100011",
@@ -440,7 +440,7 @@
             "salario": 11500.00,
             "email": "fernandohernandez@gmail.com",
             "codigoEmpleado": "23040012",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "23040012",
@@ -474,7 +474,7 @@
             "salario": 8800.00,
             "email": "lauragomez@gmail.com",
             "codigoEmpleado": "22020013",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22020013",
@@ -508,7 +508,7 @@
             "salario": 11000.00,
             "email": "robertoperez@gmail.com",
             "codigoEmpleado": "23070014",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "23070014",
@@ -542,7 +542,7 @@
             "salario": 9200.00,
             "email": "carmengutierrez@gmail.com",
             "codigoEmpleado": "22010015",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22010015",
@@ -576,7 +576,7 @@
             "salario": 9000.00,
             "email": "eduardoramirez@gmail.com",
             "codigoEmpleado": "22030016",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22030016",
@@ -610,7 +610,7 @@
             "salario": 10500.00,
             "email": "marianadiaz@gmail.com",
             "codigoEmpleado": "22080017",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22080017",
@@ -644,7 +644,7 @@
             "salario": 11500.00,
             "email": "jorgemartinez@gmail.com",
             "codigoEmpleado": "23090018",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23090018",
@@ -678,7 +678,7 @@
             "salario": 9200.00,
             "email": "sarahernandez@gmail.com",
             "codigoEmpleado": "22060019",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "22060019",
@@ -712,7 +712,7 @@
             "salario": 11000.00,
             "email": "miguelgomez@gmail.com",
             "codigoEmpleado": "23030020",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23030020",
@@ -746,7 +746,7 @@
             "salario": 9200.00,
             "email": "luisgarcia@gmail.com",
             "codigoEmpleado": "23090021",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "23090021",
@@ -780,7 +780,7 @@
             "salario": 11500.00,
             "email": "veronicamartinez@gmail.com",
             "codigoEmpleado": "23070022",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23070022",
@@ -814,7 +814,7 @@
             "salario": 8800.00,
             "email": "diegogomez@gmail.com",
             "codigoEmpleado": "22040023",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22040023",
@@ -848,7 +848,7 @@
             "salario": 10500.00,
             "email": "paoladiaz@gmail.com",
             "codigoEmpleado": "23030024",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "23030024",
@@ -882,7 +882,7 @@
             "salario": 9200.00,
             "email": "arturoramirez@gmail.com",
             "codigoEmpleado": "22090025",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "22090025",
@@ -916,7 +916,7 @@
             "salario": 11000.00,
             "email": "anamartinez@gmail.com",
             "codigoEmpleado": "22020026",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "22020026",
@@ -950,7 +950,7 @@
             "salario": 9000.00,
             "email": "carloshernandez@gmail.com",
             "codigoEmpleado": "22110027",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "22110027",
@@ -984,7 +984,7 @@
             "salario": 10500.00,
             "email": "monicalopez@gmail.com",
             "codigoEmpleado": "23050028",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23050028",
@@ -1018,7 +1018,7 @@
             "salario": 9200.00,
             "email": "ricardogomez@gmail.com",
             "codigoEmpleado": "22080029",
-            "sucursal": 1
+            "sucursal": "Plaza Mayor"
         },
         "usuario": {
             "nombreUsuario": "22080029",
@@ -1052,7 +1052,7 @@
             "salario": 11000.00,
             "email": "isabelramirez@gmail.com",
             "codigoEmpleado": "23020030",
-            "sucursal": 1
+            "sucursal": "Centro Max"
         },
         "usuario": {
             "nombreUsuario": "23020030",
@@ -1086,7 +1086,7 @@
             "salario": 10000.00,
             "email": "juanperez@gmail.com",
             "codigoEmpleado": "23010031",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23010031",
@@ -1120,7 +1120,7 @@
             "salario": 8500.00,
             "email": "mariahernandez@gmail.com",
             "codigoEmpleado": "23080032",
-            "sucursal": 1
+            "sucursal": "Centro"
         },
         "usuario": {
             "nombreUsuario": "23080032",

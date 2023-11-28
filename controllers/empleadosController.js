@@ -8,33 +8,43 @@ const includes = new includesModel();
 const empleados = new empleadosModel();
 const verificacion = new verificacionModel();
 
+//pruebas fecha
+//fecha registro
+// let fechaRegistro = fechaRegistroDate.toLocaleDateString();
+// console.log(fechaRegistro);
+
+//declarar cosntantes y variables
 //llamar datos sessionStorege
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // Crear const dataEmpleados para guardar los datos de los empleados
 let dataEmpleados = await empleados.cargarDatosEmpleados();
 console.log(dataEmpleados);
+
 //contador empleados
-let contadorEmpleados = dataEmpleados.length - 2;
+let contadorAdmin = empleados.buscarAdministradores(dataEmpleados);
+let contadorEmpleados = dataEmpleados.length - contadorAdmin;
+//Cargar la tabla
+let seleccion = 1;
 
 // Llama a la función para incluir el header y el footer
 includes.incluirHeader();
 includes.incluirFooter();
 //verificar usuario
 verificacion.verificarUsuario(usuario);
-//Cargar la tabla
-let seleccion = 1;
+
+//agregar nombre sucursal
+document.getElementById("nombreSucursal").innerHTML = " sucursal: " + empleados.getSucursal(usuario, dataEmpleados);
 
 //Escuchar el evento click del boton agregar empleado
 const btnAgregarEmpleado = document.getElementById("btnAgregarEmpleado");
-
 btnAgregarEmpleado.addEventListener("click", (event) => {
     event.preventDefault();
     //obtener datos del formulario
     let nombre = document.getElementById("txtnombre").value;
     let apellidoP = document.getElementById("txtapellidoP").value;
     let apellidoM = document.getElementById("txtapellidoM").value;
-    let fechaNacimiento = document.getElementById("txtfechaNac").value;
+    let fechaNac = document.getElementById("txtfechaNac").value;
     let rfc = document.getElementById("txtrfc").value;
     let curp = document.getElementById("txtcurp").value;
     let domicilio = document.getElementById("txtdomicilio").value;
@@ -46,90 +56,82 @@ btnAgregarEmpleado.addEventListener("click", (event) => {
     let puesto = document.getElementById("txtpuesto").value;
     let salario = document.getElementById("txtsalario").value;
     let rol = document.getElementById("txtrol").value;
-    let gen = document.querySelector('input[name="genero"]:checked').value;
-    //datos 
-    let genero, mes, dia, tipoUsuario;
-    let fecha = new Date();
-    let annio = fecha.getFullYear();
-    //switch para genero
-    switch (gen) {
-        case "masculino":
-            genero = 0;
-            break;
-        case "femenino":
-            genero = 1;
-            break;
+    let genElement = document.querySelector('input[name="genero"]:checked');
+    let gen = genElement ? genElement.value : null;
+    //validar datos
+    if (!nombre || !apellidoP || !apellidoM || !fechaNac || !rfc || !curp || !domicilio || !cp || !ciudad || !estado || !telefono || !email || !puesto || !salario || !rol || !gen) {
+        Swal.fire({
+            title: "Faltan datos",
+            text: "Por favor, completa todos los campos obligatorios.",
+            icon: "error"
+        });
     }
-    //if para fecha
-    if((fecha.getMonth() + 1) < 10){
-        mes = "0" + (fecha.getMonth() + 1);
-    }
-    else{
-        mes = "" + (fecha.getMonth() + 1);
-    }
-    if(fecha.getDate() + 1 < 10){
-        dia = "0" + fecha.getDate();
-    }
-    else{
-        dia = "" + fecha.getDate();
-    }
-    //declarar variable fechaRegistro
-    let fechaRegistro = dia + "/" + mes + "/" + annio;
-    //aumentar contador
-    contadorEmpleados++;
-    //declarar variable codigoEmpleado
-    let codigoEmpleado = "" + annio.toString().slice(-2) + mes + dia + contadorEmpleados.toString().padStart(2, '0');
-    //definir el tipo de usuario
-    if(rol === "ADMC"){
-        tipoUsuario = 1;
-    }
-    else if((rol === "ADMS") || (rol === "EMPS")){
-        tipoUsuario = 0;
-    }
+    else {
+        //definir datos restantes
+        //fecha de nacimiento
+        let fechaNacimiento = empleados.cambiarFormatoFechaDate(fechaNac);
+        //genero
+        let genero = empleados.generoStringToNumber(gen);
+        //fecha registro
+        let fechaRegistroDate = new Date();
+        let fechaRegistro = empleados.cambiarFormatoFechaDate(fechaRegistroDate);
+        let annio = fechaRegistroDate.getFullYear();
+        //aumentar contador
+        contadorEmpleados++;
+        //declarar variable codigoEmpleado
+        let codigoEmpleado = "" + annio.toString().slice(-2) + empleados.getMes(fechaRegistroDate) + contadorEmpleados.toString().padStart(4, '0');
+        //definir el tipo de usuario
+        let tipoUsuario = empleados.definirTipoUsuario(rol);
+        //definir sucursal
+        let sucursal = empleados.getSucursal(usuario, dataEmpleados);
 
-    let empleado = {
-        "datosPersona": {
-            "nombre": nombre,
-            "apellidoP": apellidoP,
-            "apellidoM": apellidoM,
-            "genero": genero,
-            "fechaNacimiento": fechaNacimiento,
-            "rfc": rfc,
-            "curp": curp,
-            "foto": "",
-            "datosDomicilio": {
-                "domicilio": domicilio,
-                "cp": cp,
-                "ciudad": ciudad,
-                "estado": estado,
+        //crear objeto empleado
+        let empleado = {
+            "datosPersona": {
+                "nombre": nombre,
+                "apellidoP": apellidoP,
+                "apellidoM": apellidoM,
+                "genero": genero,
+                "fechaNacimiento": fechaNacimiento,
+                "rfc": rfc,
+                "curp": curp,
+                "foto": "",
+                "datosDomicilio": {
+                    "domicilio": domicilio,
+                    "cp": cp,
+                    "ciudad": ciudad,
+                    "estado": estado,
+                },
+                "telefono": telefono
             },
-            "telefono": telefono
-        },
-        "datosLaborales": {
-            "fechaIngreso": fechaRegistro,
-            "puesto": puesto,
-            "salario": salario,
-            "email": email,
-            "codigoEmpleado": codigoEmpleado,
-            "sucursal": "1"
-        },
-        "usuario": {
-            "nombreUsuario": codigoEmpleado,
-            "contrasenia": codigoEmpleado,
-            "tipoUsuario": tipoUsuario,
-            "rol": rol,
-            "estatus": 1
+            "datosLaborales": {
+                "fechaIngreso": fechaRegistro,
+                "puesto": puesto,
+                "salario": salario,
+                "email": email,
+                "codigoEmpleado": codigoEmpleado,
+                "sucursal": sucursal
+            },
+            "usuario": {
+                "nombreUsuario": codigoEmpleado,
+                "contrasenia": codigoEmpleado,
+                "tipoUsuario": tipoUsuario,
+                "rol": rol,
+                "estatus": 1
+            }
         }
+        console.log(empleado);
+        //enviar datos al servidor
+        dataEmpleados.unshift(empleado);
+        console.log(dataEmpleados);
+        document.getElementById("formAgregarEmpleado").reset();
+        document.getElementById("txtnombre").focus();
+        //mostrar mensaje de confirmacion
+        Swal.fire({
+            title: "Se ha agregado correctamente",
+            icon: "success"
+        });
     }
-    console.log(empleado);
-    //enviar datos al servidor
-    dataEmpleados.push(empleado);
-    console.log(dataEmpleados);
-    loadTable(1);
-    Swal.fire({
-        title: "Se ha agregado correctamente",
-        icon: "success"
-    });
 });
 
 //Escuchar el evento click en nav-consultar-tab
@@ -160,12 +162,32 @@ btnRecargar.addEventListener("click", () => {
 
 //funcion para cargar la tabla
 function loadTable(seleccion){
-    let cuerpo = " ";
+    let cuerpo = "";
     dataEmpleados.forEach(function (empleado){
+        //verificar que el empleado tenga todos los datos
         if (empleado.datosLaborales && empleado.datosPersona && empleado.usuario){
-            switch(seleccion){
-                case 0:
-                    if(empleado.usuario.estatus === 0){
+            //verificar la sucursal del usuario
+            if (empleados.getSucursal(usuario, dataEmpleados) === empleado.datosLaborales.sucursal){
+                switch(seleccion){
+                    case 0:
+                        if(empleado.usuario.estatus === 0){
+                            var nombreEmpleado = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
+                            cuerpo += '<tr>'+
+                                        '<td>'+ empleado.datosLaborales.codigoEmpleado +'</td>'+
+                                        '<td>'+ nombreEmpleado +'</td>'+
+                                        '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
+                                        '<td>' + empleado.usuario.rol + '</td>'+
+                                        '<td>' +
+                                            '<div class="text-center">' +
+                                                //btnTable para cargar modal
+                                                '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataEmpleados.indexOf(empleado) + '"><i class="fa-solid fa-plus"></i></button>' +
+                                            '</div>' +
+                                        '</td>' +
+                                    '</tr>';
+                        }
+                    break;
+                    case 1:
+                        if(empleado.usuario.estatus === 1){
                         var nombreEmpleado = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
                         cuerpo += '<tr>'+
                                     '<td>'+ empleado.datosLaborales.codigoEmpleado +'</td>'+
@@ -179,25 +201,9 @@ function loadTable(seleccion){
                                         '</div>' +
                                     '</td>' +
                                 '</tr>';
-                    }
-                break;
-                case 1:
-                    if(empleado.usuario.estatus === 1){
-                    var nombreEmpleado = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
-                    cuerpo += '<tr>'+
-                                '<td>'+ empleado.datosLaborales.codigoEmpleado +'</td>'+
-                                '<td>'+ nombreEmpleado +'</td>'+
-                                '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
-                                '<td>' + empleado.usuario.rol + '</td>'+
-                                '<td>' +
-                                    '<div class="text-center">' +
-                                        //btnTable para cargar modal
-                                        '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataEmpleados.indexOf(empleado) + '"><i class="fa-solid fa-plus"></i></button>' +
-                                    '</div>' +
-                                '</td>' +
-                            '</tr>';
-                    }
-                break;
+                        }
+                    break;
+                }
             }
         } 
         document.getElementById("tblEmpleados").innerHTML = cuerpo;
@@ -205,7 +211,7 @@ function loadTable(seleccion){
 }
 //funcion cuando se activa el modal
 const modalVerEmpleado = document.getElementById("modalVerEmpleado");
-
+//escuchar el evento show del modal
 if (modalVerEmpleado) {
     modalVerEmpleado.addEventListener("show.bs.modal", (event) => {
         //obtener el boton que abre el modal
@@ -228,38 +234,61 @@ if (modalVerEmpleado) {
         btnEditarEmpleado.addEventListener("click", () => {
             //habilitar los campos
             empleados.habilitarCamposModal();
-            btnEditarEmpleado.classList.add("disabled");
-            btnEliminarEmpleado.classList.add("disabled");
-            btnConfirmarEdicion.classList.remove("disabled");
+            btnEditarEmpleado.classList.add("d-none");
+            btnEliminarEmpleado.classList.add("d-none");
+            btnConfirmarEdicion.classList.remove("d-none");
+            btnCancelarEdicion.classList.remove("d-none");
+        });
+
+        //escuchar el evento click del btnCancelarEdicion
+        const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
+        btnCancelarEdicion.addEventListener("click", () => {
+            empleados.deshabilitarCamposModal();
+            btnEditarEmpleado.classList.remove("d-none");
+            btnEliminarEmpleado.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
         });
 
         //escuchar el evento click del btnConfirmarEdicion
         const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
         btnConfirmarEdicion.addEventListener("click", () => {
             //pedir confirmacion
-            Swal.fire({
-                title: "¿Desea actualizar los datos?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Si",
-                cancelButtonText: "No",
-            }).then((result) => {
-                if(result.isConfirmed){
-                    //actualizar datos
-                    dataEmpleados[indice] = empleados.confirmarCambiosModal(indice, dataEmpleados);
-                    //deshabilitar campos
-                    empleados.deshabilitarCamposModal();
-                    btnEditarEmpleado.classList.remove("disabled");
-                    btnEliminarEmpleado.classList.remove("disabled");
-                    btnConfirmarEdicion.classList.add("disabled");
-                    console.log(dataEmpleados);
-                }
-                //mostrar mensaje de confirmacion
+            let dataEmpleado = empleados.getDatosFormModal(dataEmpleados, indice);
+            console.log(dataEmpleado);
+            console.log(dataEmpleados[indice]);
+            if (dataEmpleado == dataEmpleados[indice]){
                 Swal.fire({
-                    title: "Se ha actualizado correctamente",
-                    icon: "success"
+                    title: "No se han realizado cambios",
+                    icon: "warning"
                 });
-            });
+            }
+            else{
+                Swal.fire({
+                    title: "¿Desea actualizar los datos?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Si",
+                    cancelButtonText: "No",
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        //actualizar datos
+                        dataEmpleados[indice] = dataEmpleado;
+                        //deshabilitar campos
+                        console.log(dataEmpleados);
+                        //mostrar mensaje de confirmacion
+                        Swal.fire({
+                            title: "Se ha actualizado correctamente",
+                            icon: "success"
+                        });
+                    }
+                });
+            }
+            empleados.deshabilitarCamposModal();
+            btnEditarEmpleado.classList.remove("d-none");
+            btnEliminarEmpleado.classList.remove("d-none");
+            btnCancelarEdicion.classList.add("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
         });
 
         //escuchar el evento click del btnCerrarModal
@@ -267,18 +296,20 @@ if (modalVerEmpleado) {
         btnCerrarModal.addEventListener("click", () => {
             loadTable(seleccion);
             empleados.deshabilitarCamposModal();
-            btnEditarEmpleado.classList.remove("disabled");
-            btnEliminarEmpleado.classList.remove("disabled");
-            btnConfirmarEdicion.classList.add("disabled");
+            btnEditarEmpleado.classList.remove("d-none");
+            btnEliminarEmpleado.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
         });
         //escuchar el evento click del btnCerrarModal-header
         const btnCerrarModalHeader = document.getElementById("btnCerrarModal-header");
         btnCerrarModalHeader.addEventListener("click", () => {
             loadTable(seleccion);
             empleados.deshabilitarCamposModal();
-            btnEditarEmpleado.classList.remove("disabled");
-            btnEliminarEmpleado.classList.remove("disabled");
-            btnConfirmarEdicion.classList.add("disabled");
+            btnEditarEmpleado.classList.remove("d-none");
+            btnEliminarEmpleado.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
         });
     });
 }

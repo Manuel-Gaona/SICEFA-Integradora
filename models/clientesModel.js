@@ -13,7 +13,14 @@ class ClientesModel {
             console.log(err);
         }
     }
-
+    generoStringToNumber(genero){
+        let generoNumber;
+        switch(genero){
+            case "masculino": generoNumber = 0; break;
+            case "femenino": generoNumber = 1; break;
+        }
+        return generoNumber;
+    }
 }
 
 export default ClientesModel;

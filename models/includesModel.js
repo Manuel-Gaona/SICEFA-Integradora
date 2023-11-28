@@ -28,10 +28,10 @@ class includesModel{
             linkSucursales.remove();
         }
         else if(rol === "EMPS"){
+            linkSucursales.remove();
             linkEmpleados.remove();
             linkClientes.remove();
             linkPedidos.remove();
-            linkUsuario.remove();
         }
         else if(rol === "ADMC"){
             linkClientes.remove();

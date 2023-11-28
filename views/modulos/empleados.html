@@ -16,7 +16,7 @@
     <header id="headerPage" class="sticky-top"></header>
 
     <main id="mainPage" class="my-3">
-        <h1 class="text-center">Empleados</h1>
+        <h1 class="text-center">Empleados<span id="nombreSucursal" class="text-reset"></span></h1>
         <div class="container my-4">
             <div id="h1-SICEFA-sm" class="d-sm-none"></div>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -34,7 +34,7 @@
                         </div> 
                             
                         <div class="card-body ">
-                            <form id="theform">
+                            <form id="formAgregarEmpleado">
                                 <h3>Datos personales</h3>
                                     <!-- nombre -->
                                 <div class="row">
@@ -236,7 +236,7 @@
                                                     </div>
                                                     <!-- fecha de nacimiento -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                        <input type="text" class="form-control my-2" id="txtfechaNac-modal" required disabled>
+                                                        <input type="date" class="form-control my-2" id="txtfechaNac-modal" required disabled>
                                                         <label for="txtfechaNac-modal">Fecha de Nacimiento </label>
                                                     </div>
                                                     <!-- rfc -->
@@ -276,7 +276,7 @@
                                                     </div>
                                                     <!-- fecha de ingreso -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                        <input type="text" class="form-control my-2" id="txtfechaIng-modal" required disabled>
+                                                        <input type="date" class="form-control my-2" id="txtfechaIng-modal" required disabled>
                                                         <label for="txtfechaIng-modal">Fecha de Ingreso </label>
                                                     </div>
                                                     <!-- puesto -->
@@ -337,7 +337,8 @@
                                         <div class="modal-footer">
                                             <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Eliminar</button>
                                             <button id="btnEditarEmpleado" type="button" class="btn btn-warning">Editar</button>
-                                            <button id="btnConfirmarEdicion" type="button" class="btn btn-success disabled">Confirmar</button>
+                                            <button id="btnCancelarEdicion" type="button" class="btn btn-danger d-none">Cancelar</button>
+                                            <button id="btnConfirmarEdicion" type="button" class="btn btn-success d-none">Confirmar</button>
                                             <button id="btnCerrarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
                                         </div>
                                     </div>
