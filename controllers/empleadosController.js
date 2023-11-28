@@ -254,41 +254,32 @@ if (modalVerEmpleado) {
         const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
         btnConfirmarEdicion.addEventListener("click", () => {
             //pedir confirmacion
-            let dataEmpleado = empleados.getDatosFormModal(dataEmpleados, indice);
-            console.log(dataEmpleado);
-            console.log(dataEmpleados[indice]);
-            if (dataEmpleado == dataEmpleados[indice]){
-                Swal.fire({
-                    title: "No se han realizado cambios",
-                    icon: "warning"
-                });
-            }
-            else{
-                Swal.fire({
-                    title: "¿Desea actualizar los datos?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Si",
-                    cancelButtonText: "No",
-                }).then((result) => {
-                    if(result.isConfirmed){
-                        //actualizar datos
-                        dataEmpleados[indice] = dataEmpleado;
-                        //deshabilitar campos
-                        console.log(dataEmpleados);
-                        //mostrar mensaje de confirmacion
-                        Swal.fire({
-                            title: "Se ha actualizado correctamente",
-                            icon: "success"
-                        });
-                    }
-                });
-            }
-            empleados.deshabilitarCamposModal();
-            btnEditarEmpleado.classList.remove("d-none");
-            btnEliminarEmpleado.classList.remove("d-none");
-            btnCancelarEdicion.classList.add("d-none");
-            btnConfirmarEdicion.classList.add("d-none");
+            Swal.fire({
+                title: "¿Desea actualizar los datos?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+            }).then((result) => {
+                if(result.isConfirmed){
+                    //obtener datos del formulario
+                    let dataEmpleado = empleados.getDatosFormModal();
+                    //editar datos del empleado
+                    dataEmpleados[indice] = dataEmpleado;
+                    // console.log(dataEmpleados);
+                    //deshabilitar campos
+                    empleados.deshabilitarCamposModal();
+                    btnEditarEmpleado.classList.remove("d-none");
+                    btnEliminarEmpleado.classList.remove("d-none");
+                    btnCancelarEdicion.classList.add("d-none");
+                    btnConfirmarEdicion.classList.add("d-none");
+                    //mostrar mensaje de confirmacion
+                    Swal.fire({
+                        title: "Se ha actualizado correctamente",
+                        icon: "success"
+                    });
+                }
+            });
         });
 
         //escuchar el evento click del btnCerrarModal

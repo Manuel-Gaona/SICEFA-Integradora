@@ -34,7 +34,7 @@ btnAgregarCliente.addEventListener("click", (event) => {
     let nombre = document.getElementById("txtnombre").value;
     let apellidoPaterno = document.getElementById("txtapellidoP").value;
     let apellidoMaterno = document.getElementById("txtapellidoM").value;
-    let fechaNacimiento = document.getElementById("txtfechaNac").value;
+    let fechaNac = document.getElementById("txtfechaNac").value;
     let rfc = document.getElementById("txtrfc").value;
     let curp = document.getElementById("txtcurp").value;
     let domicilio = document.getElementById("txtdomicilio").value;
@@ -58,8 +58,9 @@ btnAgregarCliente.addEventListener("click", (event) => {
         let id = contadorClientes;
         //generar fecha de registro
         let fechaRegistroDate = new Date();
-        let fechaRegistro = fechaRegistroDate.toLocaleDateString();
-        console.log(fechaRegistro);
+        let fechaRegistro = clientes.cambiarFormatoAfechaString(fechaRegistroDate);
+        //generar fecha de nacimiento
+        let fechaNacimiento = clientes.cambiarFormatoAfechaString(fechaNac);
         //generar genero
         let genero = clientes.generoStringToNumber(gen);
         //crear objeto cliente
@@ -101,7 +102,6 @@ btnAgregarCliente.addEventListener("click", (event) => {
     }
 }
 );
-
 
 //escuchar click en nav-consultar-tab
 const navConsultarTab = document.getElementById("nav-consultar-tab");
@@ -184,6 +184,100 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         let indice = button.getAttribute("data-bs-whatever");
         //obtener datos del cliente
         let cliente = dataClientes[indice];
+        console.log(cliente);
+        //cargar datos del cliente en el modal
+        clientes.cargarDatosClienteModal(cliente);
+
+        //click en btnEliminarCliente
+        const btnEliminarCliente = document.getElementById("btnEliminarCliente");
+        btnEliminarCliente.addEventListener("click", () => {
+            clientes.eliminarCliente(indice, dataClientes);
+        });
+
+        //click en btnEditarCliente
+        const btnEditarCliente = document.getElementById("btnEditarCliente");
+        btnEditarCliente.addEventListener("click", () => {
+            clientes.habilitarCamposModal();
+            btnEditarCliente.classList.add("d-none");
+            btnEliminarCliente.classList.add("d-none");
+            btnConfirmarEdicion.classList.remove("d-none");
+            btnCancelarEdicion.classList.remove("d-none");
+        });
         
+        //click en btnCancelarEdicion
+        const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
+        btnCancelarEdicion.addEventListener("click", () => {
+            clientes.deshabilitarCamposModal();
+            btnEditarCliente.classList.remove("d-none");
+            btnEliminarCliente.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
+        });
+
+        //click en btnConfirmarEdicion
+        const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
+        btnConfirmarEdicion.addEventListener("click", () => {
+            //pedir confirmacion
+            Swal.fire({
+                title: '¿Estas seguro?',
+                text: "Los cambios serán permanentes",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //obtener datos del cliente
+                    let dataCliente = clientes.getDatosClienteModal();
+                    console.log(dataCliente);
+                    //editar cliente
+                    dataClientes[indice] = dataCliente;
+                    //ocultar botones
+                    btnEditarCliente.classList.remove("d-none");
+                    btnEliminarCliente.classList.remove("d-none");
+                    btnConfirmarEdicion.classList.add("d-none");
+                    btnCancelarEdicion.classList.add("d-none");
+                    //deshabilitar campos
+                    clientes.deshabilitarCamposModal();
+                    //mensaje de exito
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cliente editado',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+        });
+
+        //click en btnCerrarModal
+        const btnCerrarModal = document.getElementById("btnCerrarModal");
+        btnCerrarModal.addEventListener("click", () => {
+            //cargar tabla
+            loadTable(seleccion);
+            //ocultar botones
+            btnEditarCliente.classList.remove("d-none");
+            btnEliminarCliente.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
+            //deshabilitar campos
+            clientes.deshabilitarCamposModal();
+        });
+
+        //click en btnCerrarModal-header
+        const btnCerrarModalHeader = document.getElementById("btnCerrarModal-header");
+        btnCerrarModalHeader.addEventListener("click", () => {
+            //cargar tabla
+            loadTable(seleccion);
+            //ocultar botones
+            btnEditarCliente.classList.remove("d-none");
+            btnEliminarCliente.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
+            //deshabilitar campos
+            clientes.deshabilitarCamposModal();
+        });
     });
 }

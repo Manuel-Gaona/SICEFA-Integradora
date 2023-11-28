@@ -183,17 +183,17 @@
                                             <!-- nombre -->
                                         <div class="row">
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtnombre-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtnombre-modal" required disabled>
                                                 <label for="txtnombre-modal">Nombre </label>
                                             </div>
                                             <!-- apellido paterno -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtapellidoP-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtapellidoP-modal" required disabled>
                                                 <label for="txtapellidoP-modal">Apellido Paterno </label>
                                             </div>
                                             <!-- apellido materno -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtapellidoM-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtapellidoM-modal" required disabled>
                                                 <label for="txtapellidoM-modal">Apellido Materno </label>
                                             </div>
                                             <!-- genero -->
@@ -201,67 +201,82 @@
                                                 <div class="row">
                                                     <span class="h6">Genero</span>
                                                     <div class="col text-center">
-                                                        <input type="radio" class="form-check-input" id="rdgenerom-modal" value="masculino" name="genero" required>                   
+                                                        <input type="radio" class="form-check-input" id="rdgenerom-modal" value="masculino" name="genero-modal" required disabled>                   
                                                         <label for="rdgenerom-modal">Masculino</label>
                                                     </div>
                                                     <div class="col text-center">
-                                                        <input type="radio" class="form-check-input" id="rdgenerof-modal" value="femenino" name="genero" required>
+                                                        <input type="radio" class="form-check-input" id="rdgenerof-modal" value="femenino" name="genero-modal" required disabled>
                                                         <label for="rdgenerof-modal">Femenino</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- fecha de nacimiento -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="date" class="form-control my-2" id="txtfechaNac-modal" required>
+                                                <input type="date" class="form-control my-2" id="txtfechaNac-modal" required disabled>
                                                 <label for="txtfechaNac-modal">Fecha de Nacimiento </label>
                                             </div>
                                             <!-- rfc -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtrfc-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtrfc-modal" required disabled>
                                                 <label for="txtrfc-modal">RFC </label>
                                             </div>
                                             <!-- curp -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtcurp-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtcurp-modal" required disabled>
                                                 <label for="txtcurp-modal">CURP </label>
                                             </div>
                                             <!-- domicilio -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtdomicilio-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtdomicilio-modal" required disabled>
                                                 <label for="txtdomicilio-modal">Domicilio </label>
                                             </div>
                                             <!-- cp -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="number" class="form-control my-2" id="txtcp-modal" required>
+                                                <input type="number" class="form-control my-2" id="txtcp-modal" required disabled>
                                                 <label for="txtcp-modal">Código Postal </label>
                                             </div>
                                             <!-- ciudad -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtciudad-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtciudad-modal" required disabled>
                                                 <label for="txtciudad-modal">Ciudad </label>
                                             </div>
                                             <!-- estado -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="text" class="form-control my-2" id="txtestado-modal" required>
+                                                <input type="text" class="form-control my-2" id="txtestado-modal" required disabled>
                                                 <label for="txtestado-modal">Estado </label>
                                             </div>
                                             <!-- telefono -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="number" class="form-control my-2" id="txttelefono-modal" required>
+                                                <input type="number" class="form-control my-2" id="txttelefono-modal" required disabled>
                                                 <label for="txttelefono-modal">Teléfono </label>
+                                            </div>
+                                            <!-- id -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="number" class="form-control my-2" id="txtid-modal" required disabled>
+                                                <label for="txtid-modal">id </label>
                                             </div>
                                             <!-- email -->
                                             <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                <input type="email" class="form-control my-2" id="txtemail-modal" required>
+                                                <input type="email" class="form-control my-2" id="txtemail-modal" required disabled>
                                                 <label for="txtemail-modal">Correo Electronico</label>
+                                            </div>
+                                            <!-- estatus -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtestatus-modal" required disabled>
+                                                <label for="txtestatus-modal">Estatus</label>
+                                            </div>
+                                            <!-- fecha registro -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="date" class="form-control my-2" id="txtfechaRegistro-modal" required disabled>
+                                                <label for="txtfechaRegistro-modal">Fecha de registro</label>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <!-- footer modal -->
                                 <div class="modal-footer">
-                                    <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Eliminar</button>
-                                    <button id="btnEditarEmpleado" type="button" class="btn btn-warning">Editar</button>
+                                    <button id="btnEliminarCliente" type="button" class="btn btn-danger">Eliminar</button>
+                                    <button id="btnEditarCliente" type="button" class="btn btn-warning">Editar</button>
                                     <button id="btnCancelarEdicion" type="button" class="btn btn-danger d-none">Cancelar</button>
                                     <button id="btnConfirmarEdicion" type="button" class="btn btn-success d-none">Confirmar</button>
                                     <button id="btnCerrarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
