@@ -107,7 +107,6 @@ class empleadosModel{
                 this.cargarDatosEmpleadoModal(indice, dataEmpleados);
                 this.btnEliminarEmpleadoModal.classList.add("d-none");
                 this.btnEditarEmpleadoModal.classList.add("d-none");
-                this.btnConfirmarEdicionModal.classList.add("d-none");
                 Swal.fire({
                     title: "Se ha eliminado correctamente",
                     icon: "success"

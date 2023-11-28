@@ -4,16 +4,16 @@
       "nombre": "Venta al Publico",
       "apellido_paterno": "",
       "apellido_materno": "",
-      "género": "",
+      "genero": "",
       "fecha_de_nacimiento": "",
       "RFC": "",
       "CURP": "",
       "foto": "",
       "domicilio": "",
-      "código_postal": "",
+      "codigo_postal": "",
       "ciudad": "",
       "estado": "",
-      "teléfono": ""
+      "telefono": ""
     },
     "datos_adicionales": {
       "id": 0,
@@ -27,16 +27,16 @@
       "nombre": "Juan",
       "apellido_paterno": "Gómez",
       "apellido_materno": "López",
-      "género": 0,
+      "genero": 0,
       "fecha_de_nacimiento": "15/05/1990",
       "RFC": "GOLJ900515XXX",
       "CURP": "GOLJ900515HDFXXX",
       "foto": "",
       "domicilio": "Calle Principal #123",
-      "código_postal": "12345",
+      "codigo_postal": "12345",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "1234567890"
+      "telefono": "1234567890"
     },
     "datos_adicionales": {
       "id": 1,
@@ -50,16 +50,16 @@
       "nombre": "María",
       "apellido_paterno": "Pérez",
       "apellido_materno": "Rodríguez",
-      "género": 1,
+      "genero": 1,
       "fecha_de_nacimiento": "20/08/1985",
       "RFC": "PERM850820XXX",
       "CURP": "PERM850820MDFXXX",
       "foto": "",
       "domicilio": "Avenida Secundaria #456",
-      "código_postal": "54321",
+      "codigo_postal": "54321",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "9876543210"
+      "telefono": "9876543210"
     },
     "datos_adicionales": {
       "id": 2,
@@ -73,16 +73,16 @@
       "nombre": "Carlos",
       "apellido_paterno": "Martínez",
       "apellido_materno": "García",
-      "género": 0,
+      "genero": 0,
       "fecha_de_nacimiento": "10/03/1982",
       "RFC": "MAGC820310XXX",
       "CURP": "MAGC820310HMCXXX",
       "foto": "",
       "domicilio": "Calle de Ejemplo #789",
-      "código_postal": "67890",
+      "codigo_postal": "67890",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "5555555555"
+      "telefono": "5555555555"
     },
     "datos_adicionales": {
       "id": 3,
@@ -96,16 +96,16 @@
       "nombre": "Ana",
       "apellido_paterno": "López",
       "apellido_materno": "Hernández",
-      "género": 1,
+      "genero": 1,
       "fecha_de_nacimiento": "03/12/1995",
       "RFC": "LOHA951203XXX",
       "CURP": "LOHA951203MMNXXX",
       "foto": "",
       "domicilio": "Calle de Ejemplo #456",
-      "código_postal": "56789",
+      "codigo_postal": "56789",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "3333333333"
+      "telefono": "3333333333"
     },
     "datos_adicionales": {
       "id": 4,
@@ -119,16 +119,16 @@
       "nombre": "Roberto",
       "apellido_paterno": "González",
       "apellido_materno": "Díaz",
-      "género": 0,
+      "genero": 0,
       "fecha_de_nacimiento": "18/07/1988",
       "RFC": "GODR880718XXX",
       "CURP": "GODR880718HCMXXX",
       "foto": "",
       "domicilio": "Avenida Principal #789",
-      "código_postal": "98765",
+      "codigo_postal": "98765",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "4444444444"
+      "telefono": "4444444444"
     },
     "datos_adicionales": {
       "id": 5,
@@ -142,16 +142,16 @@
       "nombre": "Laura",
       "apellido_paterno": "Fernández",
       "apellido_materno": "Ramírez",
-      "género": 1,
+      "genero": 1,
       "fecha_de_nacimiento": "25/09/1992",
       "RFC": "FERL920925XXX",
       "CURP": "FERL920925MDFXXX",
       "foto": "",
       "domicilio": "Calle Secundaria #123",
-      "código_postal": "43210",
+      "codigo_postal": "43210",
       "ciudad": "Leon",
       "estado": "Guanajuato",
-      "teléfono": "6666666666"
+      "telefono": "6666666666"
     },
     "datos_adicionales": {
       "id": 6,
@@ -165,16 +165,16 @@
       "nombre": "Héctor",
       "apellido_paterno": "Ramírez",
       "apellido_materno": "Sánchez",
-      "género": 0,
+      "genero": 0,
       "fecha_de_nacimiento": "08/02/1980",
       "RFC": "RASH800208XXX",
       "CURP": "RASH800208HCCXXX",
       "foto": "",
       "domicilio": "Avenida Ejemplo #567",
-      "código_postal": "87654",
+      "codigo_postal": "87654",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "7777777777"
+      "telefono": "7777777777"
     },
     "datos_adicionales": {
       "id": 7,
@@ -188,16 +188,16 @@
       "nombre": "Silvia",
       "apellido_paterno": "Gutiérrez",
       "apellido_materno": "Vargas",
-      "género": 1,
+      "genero": 1,
       "fecha_de_nacimiento": "14/06/1987",
       "RFC": "GUVS870614XXX",
       "CURP": "GUVS870614MTCXXX",
       "foto": "",
       "domicilio": "Calle Nueva #789",
-      "código_postal": "34567",
+      "codigo_postal": "34567",
       "ciudad": "Leon",
       "estado": "Guanajuato",
-      "teléfono": "8888888888"
+      "telefono": "8888888888"
     },
     "datos_adicionales": {
       "id": 8,
@@ -211,16 +211,16 @@
       "nombre": "Javier",
       "apellido_paterno": "Hernández",
       "apellido_materno": "Mendoza",
-      "género": 0,
+      "genero": 0,
       "fecha_de_nacimiento": "30/04/1993",
       "RFC": "HEME930430XXX",
       "CURP": "HEME930430HCHXXX",
       "foto": "",
       "domicilio": "Avenida Nueva #123",
-      "código_postal": "23456",
+      "codigo_postal": "23456",
       "ciudad": "León",
       "estado": "Guanajuato",
-      "teléfono": "9999999999"
+      "telefono": "9999999999"
     },
     "datos_adicionales": {
       "id": 9,
@@ -234,16 +234,16 @@
       "nombre": "Elena",
       "apellido_paterno": "Sánchez",
       "apellido_materno": "Castro",
-      "género": 1,
+      "genero": 1,
       "fecha_de_nacimiento": "12/11/1984",
       "RFC": "SACE841112XXX",
       "CURP": "SACE841112MDFXXX",
       "foto": "",
       "domicilio": "Calle Ejemplo #456",
-      "código_postal": "76543",
+      "codigo_postal": "76543",
       "ciudad": "Silao",
       "estado": "Guanajuato",
-      "teléfono": "1111111111"
+      "telefono": "1111111111"
     },
     "datos_adicionales": {
       "id": 10,
