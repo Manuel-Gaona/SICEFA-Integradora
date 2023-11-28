@@ -46,7 +46,7 @@ btnAgregarCliente.addEventListener("click", (event) => {
     let genElement = document.querySelector('input[name="genero"]:checked');
     let gen = genElement ? genElement.value : null;
     //validar datos del formulario
-    if (!nombre || !apellidoPaterno || !apellidoMaterno || !fechaNacimiento || !rfc || !curp || !domicilio || !cp || !ciudad || !estado || !telefono || !email || !gen) {
+    if (!nombre || !apellidoPaterno || !apellidoMaterno || !fechaNac || !rfc || !curp || !domicilio || !cp || !ciudad || !estado || !telefono || !email || !gen) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
