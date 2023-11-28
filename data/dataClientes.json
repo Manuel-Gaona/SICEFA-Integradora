@@ -1,24 +1,47 @@
 [
   {
     "datos_personales": {
+      "nombre": "Venta al Publico",
+      "apellido_paterno": "",
+      "apellido_materno": "",
+      "género": "",
+      "fecha_de_nacimiento": "",
+      "RFC": "",
+      "CURP": "",
+      "foto": "",
+      "domicilio": "",
+      "código_postal": "",
+      "ciudad": "",
+      "estado": "",
+      "teléfono": ""
+    },
+    "datos_adicionales": {
+      "id": 0,
+      "estatus": 1,
+      "fecha_de_registro": "",
+      "correo_electronico": ""
+    }
+  },
+  {
+    "datos_personales": {
       "nombre": "Juan",
       "apellido_paterno": "Gómez",
       "apellido_materno": "López",
-      "género": "Masculino",
-      "fecha_de_nacimiento": "1990-05-15",
+      "género": 0,
+      "fecha_de_nacimiento": "15/05/1990",
       "RFC": "GOLJ900515XXX",
       "CURP": "GOLJ900515HDFXXX",
-      "foto": "url_de_la_foto1.jpg",
+      "foto": "",
       "domicilio": "Calle Principal #123",
       "código_postal": "12345",
-      "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "123-456-7890"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "1234567890"
     },
     "datos_adicionales": {
       "id": 1,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-22",
+      "estatus": 1,
+      "fecha_de_registro": "22/11/2023",
       "correo_electronico": "juan.gomez1@example.com"
     }
   },
@@ -27,21 +50,21 @@
       "nombre": "María",
       "apellido_paterno": "Pérez",
       "apellido_materno": "Rodríguez",
-      "género": "Femenino",
-      "fecha_de_nacimiento": "1985-08-20",
+      "género": 1,
+      "fecha_de_nacimiento": "20/08/1985",
       "RFC": "PERM850820XXX",
       "CURP": "PERM850820MDFXXX",
-      "foto": "url_de_la_foto2.jpg",
+      "foto": "",
       "domicilio": "Avenida Secundaria #456",
       "código_postal": "54321",
-"ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "987-654-3210"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "9876543210"
     },
     "datos_adicionales": {
       "id": 2,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-22",
+      "estatus": 1,
+      "fecha_de_registro": "22/11/2023",
       "correo_electronico": "maria.perez@example.com"
     }
   },
@@ -50,21 +73,21 @@
       "nombre": "Carlos",
       "apellido_paterno": "Martínez",
       "apellido_materno": "García",
-      "género": "Masculino",
-      "fecha_de_nacimiento": "1982-03-10",
+      "género": 0,
+      "fecha_de_nacimiento": "10/03/1982",
       "RFC": "MAGC820310XXX",
       "CURP": "MAGC820310HMCXXX",
-      "foto": "url_de_la_foto3.jpg",
+      "foto": "",
       "domicilio": "Calle de Ejemplo #789",
       "código_postal": "67890",
-    "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "555-555-5555"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "5555555555"
     },
     "datos_adicionales": {
       "id": 3,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-23",
+      "estatus": 1,
+      "fecha_de_registro": "23/11/2023",
       "correo_electronico": "carlos.martinez@example.com"
     }
   },
@@ -73,21 +96,21 @@
       "nombre": "Ana",
       "apellido_paterno": "López",
       "apellido_materno": "Hernández",
-      "género": "Femenino",
-      "fecha_de_nacimiento": "1995-12-03",
+      "género": 1,
+      "fecha_de_nacimiento": "03/12/1995",
       "RFC": "LOHA951203XXX",
       "CURP": "LOHA951203MMNXXX",
-      "foto": "url_de_la_foto4.jpg",
+      "foto": "",
       "domicilio": "Calle de Ejemplo #456",
       "código_postal": "56789",
-      "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "333-333-3333"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "3333333333"
     },
     "datos_adicionales": {
       "id": 4,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-24",
+      "estatus": 1,
+      "fecha_de_registro": "24/11/2023",
       "correo_electronico": "ana.lopez@example.com"
     }
   },
@@ -96,21 +119,21 @@
       "nombre": "Roberto",
       "apellido_paterno": "González",
       "apellido_materno": "Díaz",
-      "género": "Masculino",
-      "fecha_de_nacimiento": "1988-07-18",
+      "género": 0,
+      "fecha_de_nacimiento": "18/07/1988",
       "RFC": "GODR880718XXX",
       "CURP": "GODR880718HCMXXX",
-      "foto": "url_de_la_foto5.jpg",
+      "foto": "",
       "domicilio": "Avenida Principal #789",
       "código_postal": "98765",
-      "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "444-444-4444"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "4444444444"
     },
     "datos_adicionales": {
       "id": 5,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-25",
+      "estatus": 1,
+      "fecha_de_registro": "25/11/2023",
       "correo_electronico": "roberto.gonzalez@example.com"
     }
   },
@@ -119,21 +142,21 @@
       "nombre": "Laura",
       "apellido_paterno": "Fernández",
       "apellido_materno": "Ramírez",
-      "género": "Femenino",
-      "fecha_de_nacimiento": "1992-09-25",
+      "género": 1,
+      "fecha_de_nacimiento": "25/09/1992",
       "RFC": "FERL920925XXX",
       "CURP": "FERL920925MDFXXX",
-      "foto": "url_de_la_foto6.jpg",
+      "foto": "",
       "domicilio": "Calle Secundaria #123",
       "código_postal": "43210",
       "ciudad": "Leon",
       "estado": "Guanajuato",
-      "teléfono": "666-666-6666"
+      "teléfono": "6666666666"
     },
     "datos_adicionales": {
       "id": 6,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-26",
+      "estatus": 1,
+      "fecha_de_registro": "26/11/2023",
       "correo_electronico": "laura.fernandez@example.com"
     }
   },
@@ -142,21 +165,21 @@
       "nombre": "Héctor",
       "apellido_paterno": "Ramírez",
       "apellido_materno": "Sánchez",
-      "género": "Masculino",
-      "fecha_de_nacimiento": "1980-02-08",
+      "género": 0,
+      "fecha_de_nacimiento": "08/02/1980",
       "RFC": "RASH800208XXX",
       "CURP": "RASH800208HCCXXX",
-      "foto": "url_de_la_foto7.jpg",
+      "foto": "",
       "domicilio": "Avenida Ejemplo #567",
       "código_postal": "87654",
-      "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "777-777-7777"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "7777777777"
     },
     "datos_adicionales": {
       "id": 7,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-27",
+      "estatus": 1,
+      "fecha_de_registro": "27/11/2023",
       "correo_electronico": "hector.ramirez@example.com"
     }
   },
@@ -165,21 +188,21 @@
       "nombre": "Silvia",
       "apellido_paterno": "Gutiérrez",
       "apellido_materno": "Vargas",
-      "género": "Femenino",
-      "fecha_de_nacimiento": "1987-06-14",
+      "género": 1,
+      "fecha_de_nacimiento": "14/06/1987",
       "RFC": "GUVS870614XXX",
       "CURP": "GUVS870614MTCXXX",
-      "foto": "url_de_la_foto8.jpg",
+      "foto": "",
       "domicilio": "Calle Nueva #789",
       "código_postal": "34567",
       "ciudad": "Leon",
       "estado": "Guanajuato",
-      "teléfono": "888-888-8888"
+      "teléfono": "8888888888"
     },
     "datos_adicionales": {
       "id": 8,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-28",
+      "estatus": 1,
+      "fecha_de_registro": "28/11/2023",
       "correo_electronico": "silvia.gutierrez@example.com"
     }
   },
@@ -188,21 +211,21 @@
       "nombre": "Javier",
       "apellido_paterno": "Hernández",
       "apellido_materno": "Mendoza",
-      "género": "Masculino",
-      "fecha_de_nacimiento": "1993-04-30",
+      "género": 0,
+      "fecha_de_nacimiento": "30/04/1993",
       "RFC": "HEME930430XXX",
       "CURP": "HEME930430HCHXXX",
-      "foto": "url_de_la_foto9.jpg",
+      "foto": "",
       "domicilio": "Avenida Nueva #123",
       "código_postal": "23456",
-      "ciudad": "Ciudad de Mexico",
-      "estado": "Estado de Mexico",
-      "teléfono": "999-999-9999"
+      "ciudad": "León",
+      "estado": "Guanajuato",
+      "teléfono": "9999999999"
     },
     "datos_adicionales": {
       "id": 9,
-      "estatus": "1",
-      "fecha_de_registro": "2023-11-29",
+      "estatus": 1,
+      "fecha_de_registro": "29/11/2023",
       "correo_electronico": "javier.hernandez@example.com"
     }
   },
@@ -211,21 +234,21 @@
       "nombre": "Elena",
       "apellido_paterno": "Sánchez",
       "apellido_materno": "Castro",
-      "género": "Femenino",
-      "fecha_de_nacimiento": "1984-11-12",
+      "género": 1,
+      "fecha_de_nacimiento": "12/11/1984",
       "RFC": "SACE841112XXX",
       "CURP": "SACE841112MDFXXX",
-      "foto": "url_de_la_foto10.jpg",
+      "foto": "",
       "domicilio": "Calle Ejemplo #456",
       "código_postal": "76543",
       "ciudad": "Silao",
       "estado": "Guanajuato",
-      "teléfono": "111-111-1111"
+      "teléfono": "1111111111"
     },
     "datos_adicionales": {
       "id": 10,
       "estatus": "0",
-      "fecha_de_registro": "2023-11-30",
+      "fecha_de_registro": "30/11/2023",
       "correo_electronico": "elena.sanchez@example.com"
     }
   }
