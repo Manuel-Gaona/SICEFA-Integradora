@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme = "light">
+<html lang="es" data-bs-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,153 @@
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/solid.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/regular.css">
-    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="../../assets/css/custom.css">
 </head>
+
 <body>
     <header id="headerPage" class="sticky-top"></header>
 
     <main id="mainPage" class="my-3">
+        <div class="nav justify-content-center">
+            <h1>Pedidos</h1>
+        </div>
+        <div class="container my-4">
+            <div id="h1-SICEFA-sm" class="d-sm-none"></div>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-iniciarSesion-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-iniciarSesion" type="button" role="tab" aria-controls="nav-iniciarSesion"
+                    aria-selected="true">Agregar</button>
+                <button class="nav-link" id="nav-inicio-tab" data-bs-toggle="tab" data-bs-target="#nav-inicio"
+                    type="button" role="tab" aria-controls="nav-iniciarSesion" aria-selected="false">Consultar</button>
+            </div>
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active p-3 p-md-4 border border-top-0" id="nav-iniciarSesion"
+                    role="tabpanel" aria-labelledby="nav-iniciarSesion-tab" tabindex="0">
+                    <!--Aqui inicia la seccion de realizacion de pedido-->
+                    <div class="card">
+
+                        <div class="card-header text-center pb-0">
+                            <h2 id="h2-SICEFA">Realizar pedido</h2>
+                        </div>
+
+                        <div class="card-body ">
+                            <form id="theform">
+                                <h3>Datos del producto</h3>
+                                <div class="d-flex gap-2 justify-content-center">
+                                    <!-- Codigo -->
+                                    <div class="form-floating my-3 col-4 col-md-5 col-lg-3">
+                                        <input type="text" class="form-control my-2" id="txtCodigo">
+                                        <label for="txtCodigo">Codigo </label>
+                                    </div>
+                                    <!-- Nombre del producto -->
+                                    <div class="form-floating my-3 col-4 col-md-5 col-lg-3">
+                                        <input type="text" class="form-control my-2" id="txtNombreProducto">
+                                        <label for="txtNombreProducto">Nombre del producto</label>
+                                    </div>
+                                    <!-- Unidades -->
+                                    <div class="form-floating my-3 col-4 col-md-5 col-lg-3">
+                                        <input type="text" class="form-control my-2" id="txtUnidades">
+                                        <label for="txtUnidades">Unidades</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="row">
+                            <!-- boton agregar-->
+                            <button id="btnAgregar" type="submit"
+                                class="btn btn-success col-10 col-md-5 col-lg-4 my-2 mx-auto">Agregar</button>
+                            <!-- boton clear -->
+                            <button id="btnClear" type="reset"
+                                class="btn btn-secondary col-10 col-md-5 col-lg-4 my-2 mx-auto">Limpiar</button>
+                        </div>
+                    </div>
+                    <!--Aqui termina la seccion de realizacion de pedido -->
+                </div>
+
+                <div class="tab-pane fade px-5 py-3 p-md-5 text-justify border border-top-0" id="nav-inicio"
+                    role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
+                    <!--Aqui inicia la secion de pedidos completados y/o pendientes -->
+                    <div class="row">
+                        <div class="row mb-2">
+                            <div class="col">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="chkestatus" id="chkestatus">
+                                    <label class="form-check-label" for="chkestatus">Pedidos completados</label>
+                                </div>
+                            </div>
+                            <div class="col-1 d-flex align-items-center">
+                                <button id="btnRecargarDatos" class="btn btn-sm my-auto"><i
+                                        class="fas fa-sync-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <table class="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>Unidades</th>
+                                            <th>Estatus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tblPedidos"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalVerPedido" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Quejas</h5>
+                                    <button id="btnCerrarModal-header" type="button" class="btn-close"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- aqui va el contenido del modal -->
+                                <div class="modal-body">
+                                    <form id="theform-modal">
+                                        <!-- nombre -->
+                                        <div class="row">
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtnombre-modal"
+                                                    required disabled>
+                                                <label for="txtnombre-modal">Nombre </label>
+                                            </div>
+                                            <!-- apellido paterno -->
+                                            <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                <input type="text" class="form-control my-2" id="txtapellidoP-modal"
+                                                    required disabled>
+                                                <label for="txtapellidoP-modal">Apellido Paterno </label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- footer modal -->
+                                <div class="modal-footer">
+                                    <button id="btnEliminarEmpleado" type="button"
+                                        class="btn btn-danger">Eliminar</button>
+                                    <button id="btnEditarEmpleado" type="button" class="btn btn-warning">Editar</button>
+                                    <button id="btnConfirmarEdicion" type="button"
+                                        class="btn btn-success disabled">Confirmar</button>
+                                    <button id="btnCerrarModal" type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Salir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- aqui termina  -->
+                </div>
+            </div>
+        </div>
     </main>
     <footer id="footerPage" class="sticky-bottom"></footer>
     <script src="../../lib/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../controllers/empleadosController.js" type="module"></script>
+    <script src="../../controllers/pedidosController.js" type="module"></script>
 </body>
+
 </html>

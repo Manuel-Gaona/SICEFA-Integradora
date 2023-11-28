@@ -137,7 +137,7 @@ function loadTable(seleccion) {
             let nombreCompleto = cliente.datos_personales.nombre + " " + cliente.datos_personales.apellido_paterno + " " + cliente.datos_personales.apellido_materno;
             switch (seleccion) {
                 case 0:
-                    if (cliente.datos_adicionales.estatus === 0) 
+                    if (cliente.datos_adicionales.estatus === 0) {
                         cuerpo += 
                             '<tr>' +
                                 '<td>' + cliente.datos_adicionales.id +'</td>' +
@@ -150,6 +150,7 @@ function loadTable(seleccion) {
                                     '</div>' +
                                 '</td>' +
                             '</tr>';
+                    }
                 break;
                 case 1:
                     if (cliente.datos_adicionales.estatus === 1){ 
