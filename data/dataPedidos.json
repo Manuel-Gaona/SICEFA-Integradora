@@ -1,0 +1,20 @@
+[
+    {
+        "codigo": "1",
+        "nombre": "Donepecilo",
+        "unidades": 100,
+        "estatus": 1
+    },
+    {
+        "codigo": "2",
+        "nombre": "Etambutol",
+        "unidades": 80,
+        "estatus": 1
+    },
+    {
+        "codigo": "3",
+        "nombre": "Etambutol",
+        "unidades": 90,
+        "estatus": 0
+    }
+]
