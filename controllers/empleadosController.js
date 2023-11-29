@@ -152,6 +152,7 @@ chkestatus.addEventListener("click", () => {
         seleccion = 1;
         loadTable(seleccion);
     }
+    console.log(seleccion);
 });
 
 //escuchar click en recargarDatos

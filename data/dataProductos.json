@@ -15,7 +15,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 25,
+        "stockCentroMax": 15,
+        "stockPlazaMayor": 20
     },
     {
         "idProducto": "2",
@@ -33,7 +36,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 42,
+        "stockCentroMax": 30,
+        "stockPlazaMayor": 38
     },
     {
         "idProducto": "3",
@@ -51,7 +57,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "0"
+        "estatus": "0",
+        "stockCentro": 0,
+        "stockCentroMax": 0,
+        "stockPlazaMayor": 0
     },
     {
         "idProducto": "4",
@@ -69,7 +78,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 33,
+        "stockCentroMax": 25,
+        "stockPlazaMayor": 28
     },
     {
         "idProducto": "5",
@@ -87,7 +99,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 15,
+        "stockCentroMax": 10,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "6",
@@ -105,7 +120,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 20,
+        "stockCentroMax": 15,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "7",
@@ -123,7 +141,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 28,
+        "stockCentroMax": 20,
+        "stockPlazaMayor": 30
     },
     {
         "idProducto": "8",
@@ -141,7 +162,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 12,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "9",
@@ -159,7 +183,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 35,
+        "stockCentroMax": 28,
+        "stockPlazaMayor": 32
     },
     {
         "idProducto": "10",
@@ -177,7 +204,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "0"
+        "estatus": "0",
+        "stockCentro": 0,
+        "stockCentroMax": 0,
+        "stockPlazaMayor": 0
     },
     {
         "idProducto": "11",
@@ -195,7 +225,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 0,
+        "stockCentroMax": 0,
+        "stockPlazaMayor": 20
     },
     {
         "idProducto": "12",
@@ -213,7 +246,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 10,
+        "stockCentroMax": 0,
+        "stockPlazaMayor": 0
     },
     {
         "idProducto": "13",
@@ -231,7 +267,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 0,
+        "stockCentroMax": 10,
+        "stockPlazaMayor": 0
     },
     {
         "idProducto": "14",
@@ -246,10 +285,10 @@
         "unidadesEnvase": "10",
         "precioCompra": "394.47",
         "precioVenta": "472.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 18,
+        "stockCentroMax": 12,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "15",
@@ -264,10 +303,10 @@
         "unidadesEnvase": "1",
         "precioCompra": "865.92",
         "precioVenta": "1147.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 25,
+        "stockCentroMax": 20,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "16",
@@ -282,10 +321,10 @@
         "unidadesEnvase": "3",
         "precioCompra": "30.71",
         "precioVenta": "99.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 30,
+        "stockCentroMax": 25,
+        "stockPlazaMayor": 28
     },
     {
         "idProducto": "17",
@@ -300,10 +339,10 @@
         "unidadesEnvase": "30",
         "precioCompra": "20.93",
         "precioVenta": "78.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 22,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 20
     },
     {
         "idProducto": "18",
@@ -318,10 +357,10 @@
         "unidadesEnvase": "30",
         "precioCompra": "22.30",
         "precioVenta": "511.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 28,
+        "stockCentroMax": 25,
+        "stockPlazaMayor": 32
     },
     {
         "idProducto": "19",
@@ -336,10 +375,10 @@
         "unidadesEnvase": "25",
         "precioCompra": "143.62",
         "precioVenta": "419.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 15,
+        "stockCentroMax": 12,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "20",
@@ -354,10 +393,10 @@
         "unidadesEnvase": "5",
         "precioCompra": "580.98",
         "precioVenta": "711.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 20,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 25
     },
     {
         "idProducto": "21",
@@ -372,10 +411,10 @@
         "unidadesEnvase": "1",
         "precioCompra": "740.58",
         "precioVenta": "853.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "0",
+        "stockCentro": 0,
+        "stockCentroMax": 0,
+        "stockPlazaMayor": 0
     },
     {
         "idProducto": "22",
@@ -390,10 +429,10 @@
         "unidadesEnvase": "10",
         "precioCompra": "640.41",
         "precioVenta": "1052.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 25,
+        "stockCentroMax": 20,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "23",
@@ -408,10 +447,10 @@
         "unidadesEnvase": "10",
         "precioCompra": "57.10",
         "precioVenta": "67.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 15,
+        "stockCentroMax": 12,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "24",
@@ -426,10 +465,10 @@
         "unidadesEnvase": "1",
         "precioCompra": "2.61",
         "precioVenta": "28.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 18,
+        "stockCentroMax": 15,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "25",
@@ -444,11 +483,11 @@
         "unidadesEnvase": "1",
         "precioCompra": "217.18",
         "precioVenta": "394.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
+        "estatus": "1",
+        "stockCentro": 32,
+        "stockCentroMax": 28,
+        "stockPlazaMayor": 30
+    },    
     {
         "idProducto": "26",
         "nombreGeneral": "Somatropina",
@@ -465,7 +504,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 25,
+        "stockCentroMax": 20,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "27",
@@ -483,7 +525,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 28,
+        "stockCentroMax": 22,
+        "stockPlazaMayor": 25
     },
     {
         "idProducto": "28",
@@ -501,7 +546,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 20,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "29",
@@ -519,7 +567,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 12,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "30",
@@ -537,7 +588,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 10,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 12
     },
     {
         "idProducto": "31",
@@ -555,7 +609,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 10,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 12
     },
     {
         "idProducto": "32",
@@ -573,7 +630,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 12,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "33",
@@ -591,7 +651,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 18,
+        "stockCentroMax": 15,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "34",
@@ -609,7 +672,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 25,
+        "stockCentroMax": 20,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "35",
@@ -627,7 +693,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 32,
+        "stockCentroMax": 28,
+        "stockPlazaMayor": 30
     },
     {
         "idProducto": "36",
@@ -645,7 +714,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 28,
+        "stockCentroMax": 22,
+        "stockPlazaMayor": 25
     },
     {
         "idProducto": "37",
@@ -663,7 +735,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 15,
+        "stockCentroMax": 12,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "38",
@@ -681,7 +756,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 22,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 20
     },
     {
         "idProducto": "39",
@@ -699,7 +777,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 18,
+        "stockCentroMax": 15,
+        "stockPlazaMayor": 22
     },
     {
         "idProducto": "40",
@@ -717,7 +798,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 12,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "41",
@@ -735,7 +819,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 10,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 12
     },
     {
         "idProducto": "42",
@@ -753,7 +840,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 15,
+        "stockCentroMax": 12,
+        "stockPlazaMayor": 18
     },
     {
         "idProducto": "43",
@@ -771,7 +861,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 22,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 20
     },
     {
         "idProducto": "44",
@@ -789,7 +882,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 28,
+        "stockCentroMax": 22,
+        "stockPlazaMayor": 25
     },
     {
         "idProducto": "45",
@@ -807,7 +903,10 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 20,
+        "stockCentroMax": 18,
+        "stockPlazaMayor": 15
     },
     {
         "idProducto": "46",
@@ -825,420 +924,9 @@
         "foto": "",
         "rutaFoto": "",
         "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "47",
-        "nombreGeneral": "Insulina lispro lispro protamina",
-        "nombreGenerico": "Insulina lispro (origen ADN recombinante), lispro protamina (origen ADN recombinante)",
-        "formaFarmaceutica": "suspensión inyectable",
-        "unidadMedida": "Ámpula",
-        "presentacion": "Envase con un frasco ámpula con 10 ml.",
-        "principalIndicacion": "Diabetes mellitus insulino dependiente.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, hipoglucemia.",
-        "concentracion": "25 UI/75 UI / ml",
-        "unidadesEnvase": "1",
-        "precioCompra": "910.58",
-        "precioVenta": "1182.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "48",
-        "nombreGeneral": "Fórmula de arroz",
-        "nombreGenerico": "Fórmula de proteína hidrolizada de arroz etapa 1",
-        "formaFarmaceutica": "Polvo",
-        "unidadMedida": "Gramo",
-        "presentacion": "Envase de lata con 400 g y medida dosificadora de 4.5 g.",
-        "principalIndicacion": "Alergia a la proteína de la leche de vaca.",
-        "contraindicaciones": "NINGUNA",
-        "concentracion": "Energía 100-504 kcal/100kcal, Grasas 2.6-13.3/100kcal, Proteína 2.4-12.0/100kcal, Hidratos de carbono 11.3-56.7/100kcal, Lípidos 5.0-25.5/100kcal.",
-        "unidadesEnvase": "400",
-        "precioCompra": "19.33",
-        "precioVenta": "267.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "49",
-        "nombreGeneral": "Fórmula de arroz",
-        "nombreGenerico": "Fórmula de proteína hidrolizada de arroz etapa 2",
-        "formaFarmaceutica": "polvo",
-        "unidadMedida": "Gramo",
-        "presentacion": "Envase de lata con 400 g y medida dosificadora de 4.7 g.",
-        "principalIndicacion": " Alergia a la proteína de la leche de vaca.",
-        "contraindicaciones": "NINGUNA",
-        "concentracion": "Energía 100-484 kcal/100kcal, Grasas 2.4-11.4/100kcal, Proteína 3.1-15.0/100kcal, Hidratos de carbono 11.7-56.5/100kcal, Lípidos 4.5-22.0/100kcal.",
-        "unidadesEnvase": "400",
-        "precioCompra": "236.21",
-        "precioVenta": "299.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "50",
-        "nombreGeneral": "Inmunoglobulina humana antirrábica",
-        "nombreGenerico": "Inmunoglobulina humana antirrábica",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Ampolleta",
-        "presentacion": "Envase con una ampolleta con 2 ml (150 UI/ml).",
-        "principalIndicacion": "Inmunización pasiva contra el virus de la rabia.",
-        "contraindicaciones": "NINGUNA",
-        "concentracion": "Cada frasco ámpula o ampolleta contiene: Inmunoglobulina humana antirrábica 300 UI",
-        "unidadesEnvase": "1",
-        "precioCompra": "353.71",
-        "precioVenta": "1036.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "51",
-        "nombreGeneral": "Inmunoglobulina humana antirrábica",
-        "nombreGenerico": "Inmunoglobulina humana antirrábica",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Jeringa",
-        "presentacion": "Envase con una jeringa prellenada con 2 ml (150 UI/ml).",
-        "principalIndicacion": "Inmunización pasiva contra el virus de la rabia.",
-        "contraindicaciones": "NINGUNA",
-        "concentracion": "Cada frasco ámpula o ampolleta o jeringa contiene: Inmunoglobulina humana antirrábica 300 UI",
-        "unidadesEnvase": "1",
-        "precioCompra": "182.94",
-        "precioVenta": "942.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "52",
-        "nombreGeneral": "Aciclovir",
-        "nombreGenerico": "Aciclovir",
-        "formaFarmaceutica": "comprimido o tableta",
-        "unidadMedida": "Comprimido",
-        "presentacion": "Envase con 35 comprimidos o tabletas.",
-        "principalIndicacion": "1. Herpes simple y genital",
-        "contraindicaciones": "Hipersensibilidad al fármaco.",
-        "concentracion": "400 mg",
-        "unidadesEnvase": "35",
-        "precioCompra": "235.35",
-        "precioVenta": "513.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "53",
-        "nombreGeneral": "Aciclovir",
-        "nombreGenerico": "Aciclovir",
-        "formaFarmaceutica": "comprimido o tableta",
-        "unidadMedida": "Comprimido",
-        "presentacion": "Envase con 25 comprimidos o tabletas.",
-        "principalIndicacion": "1. Herpes simple y genital",
-        "contraindicaciones": "Hipersensibilidad al fármaco.",
-        "concentracion": "200 mg",
-        "unidadesEnvase": "25",
-        "precioCompra": "198.40",
-        "precioVenta": "537.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "54",
-        "nombreGeneral": "Midazolam",
-        "nombreGenerico": "Midazolam, Maleato de",
-        "formaFarmaceutica": "tableta",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 30 tabletas.",
-        "principalIndicacion": "Insomnio.",
-        "contraindicaciones": "Hipersensibilidad a las benzodiazepinas, miastenia gravis, glaucoma, estado de choque, coma e intoxicación alcohólica.",
-        "concentracion": "7.5 mg",
-        "unidadesEnvase": "30",
-        "precioCompra": "183.55",
-        "precioVenta": "380.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "55",
-        "nombreGeneral": "Paracetamol",
-        "nombreGenerico": "Paracetamol",
-        "formaFarmaceutica": "tableta",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 10 tabletas.",
-        "principalIndicacion": "1. Fiebre",
-        "contraindicaciones": "Hipersensibilidad al fármaco, disfunción hepática e insuficiencia renal grave.",
-        "concentracion": "500 mg",
-        "unidadesEnvase": "10",
-        "precioCompra": "451.73",
-        "precioVenta": "663.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "56",
-        "nombreGeneral": "Metamizol",
-        "nombreGenerico": "Metamizol sódico",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Ampolleta",
-        "presentacion": "Envase con 3 ampolletas con 2 ml.",
-        "principalIndicacion": "1. Fiebre",
-        "contraindicaciones": "Hipersensibilidad al fármaco y a pirazolonas. Insuficiencia renal o hepática, discrasias sanguíneas, úlcera duodenal.",
-        "concentracion": "1 g / 2 ml",
-        "unidadesEnvase": "3",
-        "precioCompra": "662.40",
-        "precioVenta": "1139.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "57",
-        "nombreGeneral": "Dexmedetomidina",
-        "nombreGenerico": "Dexmedetomidina, Clorhidrato de",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Ámpula",
-        "presentacion": "Envase con 25 frascos ámpula.",
-        "principalIndicacion": "Dolor postoperatorio.",
-        "contraindicaciones": "Hipersensibilidad al fármaco.",
-        "concentracion": "200 µg",
-        "unidadesEnvase": "25",
-        "precioCompra": "2.47",
-        "precioVenta": "30.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "58",
-        "nombreGeneral": "Zafirlukast",
-        "nombreGenerico": "Zafirlukast",
-        "formaFarmaceutica": "tableta",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 30 tabletas.",
-        "principalIndicacion": "Tratamiento y profilaxis del asma bronquial crónica.",
-        "contraindicaciones": "NINGUNA",
-        "concentracion": "20 mg",
-        "unidadesEnvase": "30",
-        "precioCompra": "85.89",
-        "precioVenta": "100.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "59",
-        "nombreGeneral": "Talidomida",
-        "nombreGenerico": "Talidomida",
-        "formaFarmaceutica": "tableta o cápsula",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 50 tabletas o cápsulas.",
-        "principalIndicacion": "Lepra.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, polineuritis y neuropatía.",
-        "concentracion": "100 mg",
-        "unidadesEnvase": "50",
-        "precioCompra": "38.07",
-        "precioVenta": "106.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "60",
-        "nombreGeneral": "Octreotida",
-        "nombreGenerico": "Octreotida, Acetato de (GT5)",
-        "formaFarmaceutica": "suspensión inyectable",
-        "unidadMedida": "Ámpula",
-        "presentacion": "Envase con un frasco ámpula y una jeringa prellenada con 2.5 ml de diluyente.",
-        "principalIndicacion": "1. Acromegalia.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, lesión intracraneal, niños con epífisis cerradas.",
-        "concentracion": "20 mg",
-        "unidadesEnvase": "1",
-        "precioCompra": "390.18",
-        "precioVenta": "870.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "61",
-        "nombreGeneral": "Interferón (beta)",
-        "nombreGenerico": "Interferón (beta) 1a",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Jeringa",
-        "presentacion": "Jeringa prellenada con 0.5 ml.",
-        "principalIndicacion": "Esclerosis múltiple.",
-        "contraindicaciones": "hipersensibilidad al fármaco.",
-        "concentracion": "6 millones UI (22 μg)",
-        "unidadesEnvase": "1",
-        "precioCompra": "399.80",
-        "precioVenta": "515.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "62",
-        "nombreGeneral": "Buprenorfina",
-        "nombreGenerico": "Buprenorfina",
-        "formaFarmaceutica": "parche",
-        "unidadMedida": "Parche",
-        "presentacion": "Envase con 4 parches.",
-        "principalIndicacion": "Dolor crónico de intensidad moderada a severa secundario a: neoplasias, enfermedad terminal, traumatismos, dolor neuropático.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, hipertensión intracraneal, daño hepático o renal, depresión del sistema nervioso central e hipertrofia prostática.",
-        "concentracion": "20 mg",
-        "unidadesEnvase": "4",
-        "precioCompra": "75.64",
-        "precioVenta": "706.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "63",
-        "nombreGeneral": "Oxicodona",
-        "nombreGenerico": "Oxicodona, Clorhidrato de",
-        "formaFarmaceutica": "tableta de liberación prolongada",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 100 tabletas de liberación prolongada.",
-        "principalIndicacion": "1. Dolor grave secundario a padecimientos Osteoarticulares.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, depresión respiratoria, asma bronquial, hipercapnia, íleo paralítico, abdomen agudo, enfermedad hepática aguda. Sensibilidad conocida a oxicodona, morfina u otros opiáceos.",
-        "concentracion": "10 mg",
-        "unidadesEnvase": "100",
-        "precioCompra": "5.54",
-        "precioVenta": "57.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "64",
-        "nombreGeneral": "Paracetamol",
-        "nombreGenerico": "Paracetamol",
-        "formaFarmaceutica": "supositorio",
-        "unidadMedida": "Supositorio",
-        "presentacion": "Envase con 3 supositorios.",
-        "principalIndicacion": "1. Fiebre",
-        "contraindicaciones": "Hipersensibilidad al fármaco, disfunción hepática e insuficiencia renal grave.",
-        "concentracion": "300 mg",
-        "unidadesEnvase": "3",
-        "precioCompra": "316.93",
-        "precioVenta": "796.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "65",
-        "nombreGeneral": "Buprenorfina",
-        "nombreGenerico": "Buprenorfina, Clorhidrato de",
-        "formaFarmaceutica": "tableta sublingual",
-        "unidadMedida": "Tableta",
-        "presentacion": "Envase con 10 tabletas.",
-        "principalIndicacion": "Dolor de intensidad moderada a severa secundario a: Infarto agudo del miocardio Neoplasias Enfermedad terminal Traumatismos.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, hipertensión intracraneal, daño hepático o renal, depresión del sistema nervioso central e hipertrofia prostática.",
-        "concentracion": "0.2 mg",
-        "unidadesEnvase": "10",
-        "precioCompra": "47.63",
-        "precioVenta": "150.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "66",
-        "nombreGeneral": "Ketorolaco, Trometamina",
-        "nombreGenerico": "Ketorolaco-trometamina",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Ámpula",
-        "presentacion": "Envase con 3 frascos ámpula o 3 ampolletas de 1 ml.",
-        "principalIndicacion": "Dolor de leve a moderada intensidad.",
-        "contraindicaciones": "Hipersensibilidad al fármaco o a otros analgésicos antiinflamatorios no esteroideos, úlcera péptica e insuficiencia renal y diátesis hemorrágica, postoperatorio de amigdalectomía en niños y uso preoperatorio.",
-        "concentracion": "30 mg",
-        "unidadesEnvase": "3",
-        "precioCompra": "217.39",
-        "precioVenta": "254.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "67",
-        "nombreGeneral": "Morfina",
-        "nombreGenerico": "Morfina pentahidratada, Sulfato de",
-        "formaFarmaceutica": "solución inyectable",
-        "unidadMedida": "Ampolleta",
-        "presentacion": "Envase con 1 ampolleta con 2.0 ml.",
-        "principalIndicacion": "1.Dolor agudo o crónico de moderado a intenso ocasionado por: Cáncer (fase preterminal y  terminal). ",
-        "contraindicaciones": "Hipersensibilidad al fármaco, tratamiento con inhibidores de la monoaminoxidasa, traumatismo craneoencefálico, hipertensión intracraneal y disfunción respiratoria, arritmias cardiacas, psicosis, hipotiroidismo y cólico biliar.",
-        "concentracion": "50 mg",
-        "unidadesEnvase": "1",
-        "precioCompra": "183.55",
-        "precioVenta": "264.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "68",
-        "nombreGeneral": "Buprenorfina",
-        "nombreGenerico": "Buprenorfina",
-        "formaFarmaceutica": "parche",
-        "unidadMedida": "Parche",
-        "presentacion": "Envase con 4 parches.",
-        "principalIndicacion": "Dolor crónico de intensidad moderada a severa secundario a: neoplasias, enfermedad terminal, traumatismos, dolor neuropático.",
-        "contraindicaciones": "Hipersensibilidad al fármaco, hipertensión intracraneal, daño hepático o renal, depresión del sistema nervioso central e hipertrofia prostática.",
-        "concentracion": "30 mg",
-        "unidadesEnvase": "4",
-        "precioCompra": "154.09",
-        "precioVenta": "376.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
-    },
-    {
-        "idProducto": "69",
-        "nombreGeneral": "Paracetamol",
-        "nombreGenerico": "Paracetamol",
-        "formaFarmaceutica": "solución oral",
-        "unidadMedida": "Mililitro",
-        "presentacion": "Envase con 15 ml, gotero calibrado a 0.5 y 1 ml, integrado o adjunto al envase que sirve de tapa.",
-        "principalIndicacion": "1. Fiebre",
-        "contraindicaciones": "Hipersensibilidad al fármaco, disfunción hepática e insuficiencia renal grave.",
-        "concentracion": "100 mg / ml",
-        "unidadesEnvase": "15",
-        "precioCompra": "17.28",
-        "precioVenta": "98.00",
-        "foto": "",
-        "rutaFoto": "",
-        "codigoBarras": "",
-        "estatus": "1"
+        "estatus": "1",
+        "stockCentro": 12,
+        "stockCentroMax": 8,
+        "stockPlazaMayor": 15
     }
 ]

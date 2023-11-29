@@ -1,3 +1,7 @@
+/**
+ * @author Juan Manuel Gaona Hernandez
+ * @description clase para el modelo de productos donde se crearan los metodos para el controlador
+ */
 //importar clases
 import includesModel from "../models/includesModel.js";
 import clientesModel from "../models/clientesModel.js";
@@ -87,9 +91,9 @@ btnAgregarCliente.addEventListener("click", (event) => {
                 "estatus": 1
             }
         }
-        console.log(cliente);
+        // console.log(cliente);
         dataClientes.unshift(cliente);
-        console.log(dataClientes);
+        // console.log(dataClientes);
         document.getElementById("formAgregarCliente").reset();
         document.getElementById("txtnombre").focus();
         //mensaje de exito

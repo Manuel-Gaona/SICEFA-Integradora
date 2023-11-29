@@ -1,5 +1,4 @@
-{
-    "ventas": [
+[
       {
         "cliente": "Cliente1",
         "fecha": "2023-11-30",
@@ -108,5 +107,3 @@
         "sucursal": "SICEFA CENTRAL"
       }
     ]
-  }
-  

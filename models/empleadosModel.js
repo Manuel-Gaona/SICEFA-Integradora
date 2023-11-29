@@ -1,3 +1,7 @@
+/**
+ * @author Juan Manuel Gaona Hernandez
+ * @description clase para el modelo de productos donde se crearan los metodos para el controlador
+ */
 //crear clase
 class empleadosModel{
     constructor(){
