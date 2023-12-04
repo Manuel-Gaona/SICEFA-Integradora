@@ -11,17 +11,19 @@ const modoColor = new ModoColorModel();
 const login = new loginModel();
 const empleados = new empleadosModel();
 
-//escuchar click en el botón btn-tema-color
+//obtener elementos del DOM
 const btnModoColor = document.getElementById('btn-tema-color');
+const btnCambiarLogin = document.getElementById('btn-cambiar-login');
+const linkCambiarLogin = document.getElementById('link-cambiar-login');
+const divMensajeError = document.getElementById("mensaje-error");
 
+//escuchar click en el botón btn-tema-color
 btnModoColor.addEventListener('click', () => {
         modoColor.cambiarModoColor();
     }
 )
 
 //Alternar entre el login de sucursal y el login de central
-const btnCambiarLogin = document.getElementById('btn-cambiar-login');
-const linkCambiarLogin = document.getElementById('link-cambiar-login');
 
 btnCambiarLogin.addEventListener('click', () => {
   cambiarLogin();
@@ -35,26 +37,11 @@ function cambiarLogin() {
     login.cambiarLogin(paginaInicio);
     paginaInicio = 1 - paginaInicio; // Alternar entre 0 y 1
   }
-
-/*
-//escuchar click en el botón btn-cambiar-login
-const btnCambiarLogin = document.getElementById('btn-cambiar-login')
-
-btnCambiarLogin.addEventListener('click', () => {
-        login.cambiarLogin(paginaInicio);
-        if (paginaInicio == 0){
-            paginaInicio = 1;
-        }
-        else{
-            paginaInicio = 0;
-        }
-    }
-)*/
-//proceso de login
-const divMensajeError = document.getElementById("mensaje-error");
+  
+  
+  //proceso de login
 const mensajeError = (mensaje) => '<div class="alert alert-danger text-center mb-0 mt-2" role="alert">' + mensaje + '</div>';
 const form = document.forms.login;
-
 form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const usuarioInput = form.usuario.value;
@@ -79,17 +66,7 @@ form.addEventListener('submit', async (event) => {
                         const rol = empleado.usuario.rol;
                         sessionStorage.setItem("usuario", usuario);
                         sessionStorage.setItem("rol", rol);
-                        switch(paginaInicio){
-                            case 0:
-                                window.location.href = "views/sucursal/index.html";
-                                break;
-                            case 1:
-                                window.location.href = "views/central/index.html";
-                                break;
-                            default:
-                                alert("Ha ocurrido un error")
-                                window.location.href = "index.html";
-                        }
+                        window.location.href = "views/sucursal/index.html";
                     }
                     else {
                         divMensajeError.innerHTML = mensajeError("Este usuario ya no tiene acceso a la plataforma.");

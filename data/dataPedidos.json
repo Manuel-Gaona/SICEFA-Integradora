@@ -3,7 +3,10 @@
         "codigo": "1",
         "nombre": "Donepecilo",
         "unidades": 100,
-        "estatus": 1
+        "estatus": 1,
+        "sucursal": "1",
+        "empleado": "Pedro",
+        "direccion": "Centro" 
     },
     {
         "codigo": "2",
@@ -16,5 +19,12 @@
         "nombre": "Etambutol",
         "unidades": 90,
         "estatus": 0
+    },
+    {
+        "codigo": "4",
+        "nombre": "Ciprofibrato",
+        "unidades": "50",
+        "estatus": 3
+
     }
 ]

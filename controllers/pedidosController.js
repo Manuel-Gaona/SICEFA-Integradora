@@ -1,88 +1,214 @@
-//importar clases
+// Importar las clases necesarias desde los módulos correspondientes
 import includesModel from "../models/includesModel.js";
 import pedidosModel from "../models/pedidosModel.js";
 import verificacionModel from "../models/verificacionModel.js";
+import empleadosModel from "../models/empleadosModel.js";
+import productosModel from "../models/productosModel.js";
 
-//instanciar clases
-const includes = new includesModel();
-const pedidos = new pedidosModel();
-const verificacion = new verificacionModel();
 
-//datos sessionStorage
-const usuario = sessionStorage.getItem("usuario");
-const rol = sessionStorage.getItem("rol");
+// Instanciar objetos de las clases importadas
+const includes = new includesModel(); // Instancia de la clase para la inclusión del header y footer en la página
+const pedidos = new pedidosModel(); // Instancia de la clase para manejar los datos de pedidos
+const verificacion = new verificacionModel(); // Instancia de la clase para verificar la información del usuario
+const empleados = new empleadosModel();
+const productos = new productosModel();
 
-//guardar datos clientes
-let dataPedidos = await pedidos.cargarDatosPedidos();
-console.log(dataPedidos);
+// Obtener datos del usuario y su rol almacenados en sessionStorage
+const usuario = sessionStorage.getItem("usuario"); // Obtener el nombre del usuario
+const rol = sessionStorage.getItem("rol"); // Obtener el rol del usuario
 
-// Llama a la función para incluir el header y el footer
-includes.incluirHeader();
-includes.incluirFooter();
+if(rol === "ADMS"){
+    document.getElementById("nav-agregar-tab").removeAttribute("disabled");
+    
+}
 
-//verificar usuario
-verificacion.verificarUsuario(usuario);
+if(rol === "ADMC"){
+    document.getElementById("btnConfirmarEdicion").removeAttribute("disabled");
+}
 
-//seleccion de la tabla
-let seleccion = 1;
+// Obtener datos de pedidos mediante el método cargarDatosPedidos del objeto pedidos
+let dataPedidos = await pedidos.cargarDatosPedidos(); // Obtener datos de pedidos desde un archivo JSON
+console.log(dataPedidos); // Mostrar los datos de pedidos en la consola
+let dataEmpleado = await empleados.getDatosEmpleado(usuario);
+console.log(dataEmpleado);
+let dataProductos = await productos.cargarDatosProductos();
+console.log(dataProductos);
 
-//Escuchar el evento click del checkbox
-const chkestatus = document.getElementById("chkestatus");
+// Llamar a las funciones de los objetos includes para incluir el header y el footer en la página
+includes.incluirHeader(); // Incluir el encabezado en la página
+includes.incluirFooter(); // Incluir el pie de página en la página
+
+// Verificar el usuario actual con la función verificarUsuario del objeto verificacion
+verificacion.verificarUsuario(usuario); // Verificar el usuario y realizar acciones según el rol
+
+// Establecer la variable de selección de la tabla a 1 por defecto
+let seleccion = 1; // Variable para determinar qué tipo de pedidos mostrar en la tabla
+
+// Obtener el elemento checkbox con el id "chkestatus"
+const chkestatus = document.getElementById("chkestatus"); // Elemento del checkbox de estatus
+
+// Escuchar el evento click del checkbox
 chkestatus.addEventListener("click", () => {
-    let checkbox = chkestatus.checked;
-    if(checkbox){
-        seleccion = 0;
-        loadTable(seleccion);
-    }
-    else{
-        seleccion = 1;
-        loadTable(seleccion);
+    // Obtener el estado actual del checkbox
+    let checkbox = chkestatus.checked; // Verificar si el checkbox está marcado
+
+    // Actualizar la variable de selección de acuerdo al estado del checkbox y cargar la tabla
+    if (checkbox) {
+        seleccion = 0; // Si el checkbox está marcado, seleccionar pedidos inactivos
+        loadTable(seleccion); // Cargar la tabla con la nueva selección
+    } else {
+        seleccion = 1; // Si el checkbox no está marcado, seleccionar pedidos activos
+        loadTable(seleccion); // Cargar la tabla con la nueva selección
     }
 });
 
-//cargar tabla
-loadTable(seleccion);
+// Cargar la tabla inicialmente con la opción por defecto (seleccion)
+loadTable(seleccion); // Llamar a la función para cargar la tabla con la selección actual
 
-// funcion para cargar tabla
+// Función para cargar la tabla según la selección realizada
 function loadTable(seleccion) {
+    // Inicializar la variable para almacenar el contenido de la tabla
     let cuerpo = "";
+
+    // Iterar sobre cada pedido en dataPedidos
     dataPedidos.forEach(function (pedido) {
-        if (pedido) {
-            switch (seleccion) {
-                case 0:
-                if (pedido.estatus === 0) {
-                    cuerpo += 
+        // Verificar si el pedido existe
+        if (pedido) { }
+
+        // Evaluar la selección actual y construir las filas de la tabla correspondientes
+        switch (seleccion) {
+            case 0:
+                // Filtrar y mostrar solo pedidos con estatus 0 (Inactivos)
+                if (pedido.estatus === 0)
+                    cuerpo +=
                         '<tr>' +
-                            '<td>' + pedido.codigo +'</td>' +
-                            '<td>' + pedido.nombre + '</td>' +
-                            '<td>' + pedido.unidades + '</td>' +
-                            '<td>' + pedido.estatus + '</td>'+
-                            '<td>' +
-                                '<div class="text-center">' +
-                                    '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataPedidos.indexOf(pedido)+ '"><i class="fa-solid fa-plus"></i></button>' +
-                                '</div>' +
-                            '</td>' +
-                        '</tr>';
-                }
-            break;
-            case 1:
-                if (pedido.estatus === 1){ 
-                    cuerpo += 
-                        '<tr>' +
-                        '<td>' + pedido.codigo +'</td>' +
+                        '<td>' + pedido.codigo + '</td>' +
                         '<td>' + pedido.nombre + '</td>' +
                         '<td>' + pedido.unidades + '</td>' +
-                        '<td>' + pedido.estatus + '</td>'+
-                            '<td>' +
-                                '<div class="text-center">' +
-                                    '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataPedidos.indexOf(pedido)+ '"><i class="fa-solid fa-plus"></i></button>' +
-                                '</div>' +
-                            '</td>' +
+                        '<td>' + mostrarEstatus(pedido.estatus) + '</td>' +
+                        '<td>' +
+                        '<div class="text-left">' +
+                            '<button type="button" class="btn btn-danger btnEliminar mx-2">Eliminar</button>' +
+                            '<button type="button" class="btn btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#modalVerPedido" data-bs-whatever="' + dataPedidos.indexOf(pedido) + '"><i class="fa-solid fa-plus"></i></button>'+
+                        '</div>' +
+                        '</td>' +
                         '</tr>';
+                break;
+            case 1:
+                // Filtrar y mostrar solo pedidos con estatus 1 (Activos)
+                if (pedido.estatus === 1) {
+                    cuerpo +=
+                        '<tr>' +
+                        '<td>' + pedido.codigo + '</td>' +
+                        '<td>' + pedido.nombre + '</td>' +
+                        '<td>' + pedido.unidades + '</td>' +
+                        '<td>' + mostrarEstatus(pedido.estatus) + '</td>' +
+                        '<td>' +
+                        '<div class="text-left">' +
+                            '<button type="button" class="btn btn-danger btnEliminar mx-2">Eliminar</button>' +
+                            '<button type="button" class="btn btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#modalVerPedido" data-bs-whatever="' + dataPedidos.indexOf(pedido) + '"><i class="fa-solid fa-plus"></i></button>'+
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    break;
                 }
-            break;
-                }
-            }
+                break;
+        }
+
+        // Actualizar el contenido de la tabla en el elemento con id "tblPedidos"
         document.getElementById("tblPedidos").innerHTML = cuerpo;
+
+
+        // Después de cargar la tabla en la función loadTable
+        document.querySelectorAll('#tblPedidos .btnEliminar').forEach((btnEliminar, index) => {
+            btnEliminar.addEventListener('click', () => {
+                handleEliminarPedido(index);
+            });
+        });
     });
+}
+
+
+
+function handleEliminarPedido(index) {
+    Swal.fire({
+        title: "¿Desea eliminar el pedido?",
+        text: "Esta acción no se puede deshacer",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
+        customClass: {
+            confirmButton: "btn btn-danger",
+            cancelButton: "btn btn-secondary mx-2",
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Hacer una copia del array
+            const newDataPedidos = [...dataPedidos];
+
+            // Eliminar el pedido del array usando splice en la copia
+            newDataPedidos.splice(index, 1);
+
+            // Aquí se utiliza el modelo PedidosModel para realizar la eliminación si es necesario
+            Swal.fire({
+                title: "¡Eliminado!",
+                text: "El pedido ha sido eliminado exitosamente",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Aceptar",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                },
+            }).then(() => {
+                // Actualizar la variable dataPedidos con la copia modificada
+                dataPedidos = newDataPedidos;
+
+                // Vuelve a cargar la tabla después de eliminar
+                loadTable(seleccion);
+            });
+        }
+    });
+}
+
+
+const buscar = document.getElementById("btnBuscar");
+buscar.addEventListener("click", () => {
+    let cuerpo = "";
+    let datobuscado = document.getElementById("txtdatobuscado").value;
+
+    dataPedidos.forEach(function (pedido) {
+        let codigo = pedido.codigo;
+
+        if ((codigo == datobuscado) ||
+                (datobuscado.toLowerCase() == pedido.nombre.toLowerCase())) {
+                    cuerpo +=
+                    '<tr>' +
+                    '<td>' + pedido.codigo + '</td>' +
+                    '<td>' + pedido.nombre + '</td>' +
+                    '<td>' + pedido.unidades + '</td>' +
+                    '<td>' + mostrarEstatus(pedido.estatus) + '</td>' +
+                    '<td>' +
+                    '<div class="text-left">' +
+                        '<button type="button" class="btn btn-danger btnEliminar mx-2">Eliminar</button>' +
+                        '<button type="button" class="btn btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#modalVerPedido" data-bs-whatever="' + dataPedidos.indexOf(pedido) + '"><i class="fa-solid fa-plus"></i></button>'+
+                    '</div>' +
+                    '</td>' +
+                    '</tr>';
+        }
+    });
+    document.getElementById("tblPedidos").innerHTML = cuerpo;
+});
+
+function mostrarEstatus(estatus) {
+    switch (estatus) {
+        case 0:
+            return "Completado";
+            break;
+        case 1:
+            return "Pendiente";
+            break;
+    }
 }

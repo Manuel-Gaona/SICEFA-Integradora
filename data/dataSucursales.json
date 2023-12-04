@@ -1,0 +1,48 @@
+
+[
+      {
+        "nombre": "Sucursal A",
+        "titular": "Juan Pérez",
+        "rfc_titular": "RFC123456",
+        "domicilio": "Calle 123",
+        "colonia": "Centro",
+        "ciudad": "Ciudad A",
+        "estado": "Estado X",
+        "codigo_postal": "12345",
+        "telefono": "123-456-7890",
+        "longitud": "40.7128",
+        "latitud": "-74.0060",
+        "estatus": 1,
+        "id": "0001"
+      },
+      {
+        "nombre": "Sucursal B",
+        "titular": "Ana García",
+        "rfc_titular": "RFC789012",
+        "domicilio": "Avenida Principal",
+        "colonia": "Oeste",
+        "ciudad": "Ciudad B",
+        "estado": "Estado Y",
+        "codigo_postal": "54321",
+        "telefono": "987-654-3210",
+        "longitud": "34.0522",
+        "latitud": "-118.2437",
+        "estatus": 1,
+        "id": "0002"
+      },
+      {
+        "nombre": "Sucursal C",
+        "titular": "Carlos Rodríguez",
+        "rfc_titular": "RFC345678",
+        "domicilio": "Boulevard Sur",
+        "colonia": "Este",
+        "ciudad": "Ciudad C",
+        "estado": "Estado Z",
+        "codigo_postal": "67890",
+        "telefono": "456-789-0123",
+        "longitud": "41.8781",
+        "latitud": "-87.6298",
+        "estatus": 0,
+        "id": "0003"
+      }
+    ]

@@ -31,13 +31,13 @@ const rol = sessionStorage.getItem("rol");
 //guardar datos productos en variable usando el metodo cargarDatosProductos de la instancia productos
 let dataProductos = await productos.cargarDatosProductos();
 //mostar datos de productos en consola
-console.log(dataProductos);
+// console.log(dataProductos);
 //declarar el contador de productos para utilizarlo en los id de los productos
-
+let contadorProductos = dataProductos.length;
 //guardar datos de empleados en variable usando el metodo getDatosEmpleado de la instancia empleados
 let empleado = await empleados.getDatosEmpleado(usuario);
 //mostrar datos de empleado en consola
-console.log(empleado);
+// console.log(empleado);
 //declarar variable sucursal
 let sucursal;
 //verificar si el empleado tiene datos laborales
@@ -55,7 +55,7 @@ includes.incluirFooter();
 
 //verificar que se haya iniciado sesion
 //ejecutar el metodo verificarUsuario de la instancia verificacion
-verificacion.verificarUsuario(usuario);
+verificacion.verificarUsuario("productos");
 
 //declarar variables para los checkbox
 //declarar variable para el checkbox de estatus

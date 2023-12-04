@@ -17,12 +17,17 @@ includes.incluirHeader();
 includes.incluirFooter();
 
 //Cargar datos de empleado y verificar usuario
-verificacion.verificarUsuario(usuario);
+verificacion.verificarUsuario("inicio");
 cargarDatosEmpleado();
 
 //Acortar funciones
 function docID(id){
     return document.getElementById(id);
+}
+
+//verificar rol de usuario
+if(rol === "ADMC"){
+    document.title = "Central"
 }
 
 //cargar datos empleado 
@@ -89,28 +94,48 @@ btnUpdatePassword.addEventListener("click", () => {
     docID("txtcontrasenia").focus();
     docID("txtcontrasenia").select();
     docID("txtcontrasenia").value = "";
-    btnUpdatePasswordConfirm.disabled = false;
-    btnUpdatePasswordCancel.disabled = false;
-    btnUpdatePassword.disabled = true;
+    //mostrar botones
+    btnUpdatePasswordConfirm.classList.remove("d-none");
+    btnUpdatePasswordCancel.classList.remove("d-none");
+    //ocultar boton
+    btnUpdatePassword.classList.add("d-none");
 });
 
 btnUpdatePasswordConfirm.addEventListener("click", () => {
     if(txtcontrasenia.value == ""){
-        alert("La contraseña no puede estar vacía.");
+        //mostrar alerta de error
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "La contraseña no puede estar vacía"
+        });
     }
     else{
         empleados.updatePassword(usuario, txtcontrasenia.value);
         docID("txtcontrasenia").disabled = true;
-        btnUpdatePasswordConfirm.disabled = true;
-        btnUpdatePasswordCancel.disabled = true;
-        btnUpdatePassword.disabled = false;
+        //ocultar botones
+        btnUpdatePasswordConfirm.classList.add("d-none");
+        btnUpdatePasswordCancel.classList.add("d-none");
+        //mostrar boton
+        btnUpdatePassword.classList.remove("d-none");
+        //mostrar alerta de exito
+        Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: "Contraseña actualizada correctamente"
+        });
+        //cargar datos de empleado
+        cargarDatosEmpleado();
     }
 });
 
 btnUpdatePasswordCancel.addEventListener("click", () => {
     docID("txtcontrasenia").disabled = true;
-    btnUpdatePasswordConfirm.disabled = true;
-    btnUpdatePasswordCancel.disabled = true;
-    btnUpdatePassword.disabled = false;
+    //ocultar botones
+    btnUpdatePasswordConfirm.classList.add("d-none");
+    btnUpdatePasswordCancel.classList.add("d-none");
+    //mostrar boton
+    btnUpdatePassword.classList.remove("d-none");
+    //cargar datos de empleado
     cargarDatosEmpleado(); 
 });

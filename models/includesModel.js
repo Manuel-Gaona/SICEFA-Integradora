@@ -37,7 +37,7 @@ class includesModel{
             linkClientes.remove();
             linkVentas.remove();
             linkEmpleados.remove();
-            linkUsuario.href = "/views/central/index.html";
+            // linkUsuario.href = "/views/central/index.html";
             sicefaHeader.innerHTML = " CENTRAL";
         }
         else{

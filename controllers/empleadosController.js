@@ -31,7 +31,7 @@ let seleccion = 1;
 includes.incluirHeader();
 includes.incluirFooter();
 //verificar usuario
-verificacion.verificarUsuario(usuario);
+verificacion.verificarUsuario("empleados");
 
 //agregar nombre sucursal
 document.getElementById("nombreSucursal").innerHTML = " sucursal: " + empleados.getSucursal(usuario, dataEmpleados);

@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sucursal</title>
+    <title>Sucursal</title>
     <link rel="icon" href="../../assets/img/logo.png">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/solid.css">
     <link rel="stylesheet" href="../../lib/fontawesome-free-6.4.2-web/css/regular.css">
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/lib/sweetalert/css/sweetalert2.min.css">
     <link rel="stylesheet" href="../../assets/css/custom.css">
 </head>
 <body>
@@ -128,8 +129,8 @@
                                 </div>
                                 <div class="container-fluid text-center">
                                     <button class="btn btn-warning mb-2" type="button" id="btnUpdatePassword">Cambiar contraseña</button>
-                                    <button class="btn btn-success mb-2" type="button" id="btnUpdatePasswordConfirm" disabled>Confirmar</button>
-                                    <button class="btn btn-danger mb-2" type="button" id="btnUpdatePasswordCancel" disabled>Cancelar</button>
+                                    <button class="btn btn-success mb-2 d-none" type="button" id="btnUpdatePasswordConfirm">Confirmar</button>
+                                    <button class="btn btn-danger mb-2 d-none" type="button" id="btnUpdatePasswordCancel">Cancelar</button>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +140,7 @@
     </main>
     <footer id="footerPage" class="sticky-bottom"></footer>
     <script src="../../lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/lib/sweetalert/js/sweetalert2.min.js"></script>
     <script src="../../controllers/sucursalController.js" type="module"></script>
 </body>
 </html>

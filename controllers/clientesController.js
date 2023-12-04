@@ -15,9 +15,10 @@ const verificacion = new verificacionModel();
 //datos sessionStorage
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
+// console.log(usuario);
 //guardar datos clientes
 let dataClientes = await clientes.cargarDatosClientes();
-console.log(dataClientes);
+// console.log(dataClientes);
 
 //contador de clientes
 let contadorClientes = dataClientes.length -1;
@@ -28,7 +29,7 @@ let seleccion = 1;
 includes.incluirHeader();
 includes.incluirFooter();
 //verificar usuario
-verificacion.verificarUsuario(usuario);
+verificacion.verificarUsuario("clientes");
 
 //escuchar el evento click del boton agregar
 const btnAgregarCliente = document.getElementById("btnAgregarCliente");
