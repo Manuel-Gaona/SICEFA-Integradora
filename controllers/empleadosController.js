@@ -231,6 +231,13 @@ if (modalVerEmpleado) {
             //usar el metodo eliminarEmpleado de la clase empleados para eliminar el empleado
             empleados.eliminarEmpleado(indice, dataEmpleados);
         });
+        
+        //escuchar el evento click del btnActivarEmpleado
+        const btnActivarEmpleado = document.getElementById("btnActivarEmpleado");
+        btnActivarEmpleado.addEventListener("click", () => {
+            //usa el metodo activarEmpleado de la clase empleados para activar el empleado
+            empleados.activarEmpleado(indice, dataEmpleados);
+        });
 
         //escuchar el evento click del btnEditarEmpleado
         const btnEditarEmpleado = document.getElementById("btnEditarEmpleado");
@@ -294,6 +301,7 @@ if (modalVerEmpleado) {
                 }
             });
         });
+
 
         //escuchar el evento click del btnCerrarModal
         const btnCerrarModal = document.getElementById("btnCerrarModal");

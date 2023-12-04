@@ -35,6 +35,7 @@ class empleadosModel{
         this.btnEliminarEmpleadoModal = document.getElementById("btnEliminarEmpleado");
         this.btnEditarEmpleadoModal = document.getElementById("btnEditarEmpleado");
         this.btnConfirmarEdicionModal = document.getElementById("btnConfirmarEdicion");
+        this.btnActivarEmpleadoModal = document.getElementById("btnActivarEmpleado");
     }
 
     //cargar datos empleados
@@ -128,11 +129,38 @@ class empleadosModel{
                 localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
                 //cargar datos en modal
                 this.cargarDatosEmpleadoModal(indice, dataEmpleados);
-                //deshabilitar campos
+                //mostrar botones
                 this.btnEliminarEmpleadoModal.classList.add("d-none");
                 this.btnEditarEmpleadoModal.classList.add("d-none");
                 Swal.fire({
                     title: "Se ha eliminado correctamente",
+                    icon: "success"
+                });
+            }
+        });
+    }
+    //funcion activar empleado
+    activarEmpleado(indice, dataEmpleados){
+        Swal.fire({
+            title: "¿Desea activar el empleado?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+        }).then((result) => {
+            if(result.isConfirmed){
+                dataEmpleados[indice].usuario.estatus = 1;
+                //guardar en localstorage
+                localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
+                //cargar datos en modal
+                this.cargarDatosEmpleadoModal(indice, dataEmpleados);
+                //mostrar botones
+                this.btnEliminarEmpleadoModal.classList.remove("d-none");
+                this.btnEditarEmpleadoModal.classList.remove("d-none");
+                //ocultar boton activar
+                this.btnActivarEmpleadoModal.classList.add("d-none");
+                Swal.fire({
+                    title: "Se ha activado correctamente",
                     icon: "success"
                 });
             }
@@ -189,6 +217,7 @@ class empleadosModel{
                     this.btnEliminarEmpleadoModal.classList.add("d-none");
                     this.btnEditarEmpleadoModal.classList.add("d-none");
                     this.btnConfirmarEdicionModal.classList.add("d-none");
+                    this.btnActivarEmpleadoModal.classList.remove("d-none");
                     break;
                 case 1: 
                     estatus = "Activo"
