@@ -12,22 +12,23 @@ const includes = new includesModel();
 const clientes = new clientesModel();
 const verificacion = new verificacionModel();
 
+// Llama a la función para incluir el header y el footer
+includes.incluirHeader();
+includes.incluirFooter();
+
 //datos sessionStorage
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // console.log(usuario);
 //guardar datos clientes
 let dataClientes = await clientes.cargarDatosClientes();
-// console.log(dataClientes);
+console.log(dataClientes);
 
 //contador de clientes
 let contadorClientes = dataClientes.length -1;
 //seleccion de la tabla
 let seleccion = 1;
 
-// Llama a la función para incluir el header y el footer
-includes.incluirHeader();
-includes.incluirFooter();
 //verificar usuario
 verificacion.verificarUsuario("clientes");
 
@@ -95,7 +96,11 @@ btnAgregarCliente.addEventListener("click", (event) => {
         // console.log(cliente);
         dataClientes.unshift(cliente);
         // console.log(dataClientes);
+        //guardar datos en localStorage
+        localStorage.setItem("dataClientes", JSON.stringify(dataClientes));
+        //limpiar formulario
         document.getElementById("formAgregarCliente").reset();
+        //hacer focus en el primer campo
         document.getElementById("txtnombre").focus();
         //mensaje de exito
         Swal.fire({
@@ -197,26 +202,41 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         //click en btnEliminarCliente
         const btnEliminarCliente = document.getElementById("btnEliminarCliente");
         btnEliminarCliente.addEventListener("click", () => {
+            //usar metodo eliminarCliente
             clientes.eliminarCliente(indice, dataClientes);
         });
 
         //click en btnEditarCliente
         const btnEditarCliente = document.getElementById("btnEditarCliente");
         btnEditarCliente.addEventListener("click", () => {
+            //habilitar campos
             clientes.habilitarCamposModal();
+            //ocultar botones
+            //ocultar boton editar cliente
             btnEditarCliente.classList.add("d-none");
+            //ocultar boton eliminar cliente
             btnEliminarCliente.classList.add("d-none");
+            //mostrar botones
+            //mostrar boton confirmar edicion
             btnConfirmarEdicion.classList.remove("d-none");
+            //mostrar boton cancelar edicion
             btnCancelarEdicion.classList.remove("d-none");
         });
         
         //click en btnCancelarEdicion
         const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
         btnCancelarEdicion.addEventListener("click", () => {
+            //deshabilitar campos del modal
             clientes.deshabilitarCamposModal();
+            //mostrar botones
+            //mostrar boton editar cliente
             btnEditarCliente.classList.remove("d-none");
+            //mostrar boton de eliminacion
             btnEliminarCliente.classList.remove("d-none");
+            //ocultar botones
+            //ocultar boton confirmar edicion
             btnConfirmarEdicion.classList.add("d-none");
+            //ocultar boton cancelar edicion
             btnCancelarEdicion.classList.add("d-none");
         });
 
@@ -234,16 +254,24 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
                 confirmButtonText: 'Confirmar',
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
+                //si se confirma la edicion
                 if (result.isConfirmed) {
                     //obtener datos del cliente
                     let dataCliente = clientes.getDatosClienteModal();
-                    console.log(dataCliente);
+                    // console.log(dataCliente);
                     //editar cliente
                     dataClientes[indice] = dataCliente;
-                    //ocultar botones
+                    //guardar datos en localStorage
+                    localStorage.setItem("dataClientes", JSON.stringify(dataClientes));
+                    //mostrar botones
+                    //mostrar boton de editar cliente
                     btnEditarCliente.classList.remove("d-none");
+                    //mostrar boton de eliminar cliente
                     btnEliminarCliente.classList.remove("d-none");
+                    //ocultar botones
+                    //ocultar boton confirmar edicion
                     btnConfirmarEdicion.classList.add("d-none");
+                    //ocultar boton cancelar edicion
                     btnCancelarEdicion.classList.add("d-none");
                     //deshabilitar campos
                     clientes.deshabilitarCamposModal();
@@ -263,10 +291,15 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         btnCerrarModal.addEventListener("click", () => {
             //cargar tabla
             loadTable(seleccion);
-            //ocultar botones
+            //mostar botones
+            //mostrar boton editar cliente
             btnEditarCliente.classList.remove("d-none");
+            //mostrar boton eliminar cliente
             btnEliminarCliente.classList.remove("d-none");
+            //ocultar botones
+            //ocultar boton confirmar edicion
             btnConfirmarEdicion.classList.add("d-none");
+            //ocultar boton cancelar edicion
             btnCancelarEdicion.classList.add("d-none");
             //deshabilitar campos
             clientes.deshabilitarCamposModal();
@@ -277,10 +310,15 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         btnCerrarModalHeader.addEventListener("click", () => {
             //cargar tabla
             loadTable(seleccion);
-            //ocultar botones
+            //mostrar botones
+            //mostrar boton editar cliente
             btnEditarCliente.classList.remove("d-none");
+            //mostrar boton eliminar cliente
             btnEliminarCliente.classList.remove("d-none");
+            //ocultar botones
+            //ocultar boton confirmar edicion
             btnConfirmarEdicion.classList.add("d-none");
+            //ocultar boton cancelar edicion
             btnCancelarEdicion.classList.add("d-none");
             //deshabilitar campos
             clientes.deshabilitarCamposModal();

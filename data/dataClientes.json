@@ -178,7 +178,7 @@
     },
     "datos_adicionales": {
       "id": 7,
-      "estatus": 1,
+      "estatus": 0,
       "fecha_de_registro": "27/11/2023",
       "correo_electronico": "hector.ramirez@example.com"
     }
@@ -247,7 +247,7 @@
     },
     "datos_adicionales": {
       "id": 10,
-      "estatus": "0",
+      "estatus": 1,
       "fecha_de_registro": "30/11/2023",
       "correo_electronico": "elena.sanchez@example.com"
     }

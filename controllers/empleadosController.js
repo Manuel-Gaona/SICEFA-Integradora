@@ -1,3 +1,7 @@
+/**
+ * @author Juan Manuel Gaona Hernandez
+ * @description clase para el modelo de productos donde se crearan los metodos para el controlador
+ */
 //importar clases
 import includesModel from "../models/includesModel.js";
 import empleadosModel from "../models/empleadosModel.js";
@@ -8,32 +12,27 @@ const includes = new includesModel();
 const empleados = new empleadosModel();
 const verificacion = new verificacionModel();
 
-//pruebas fecha
-//fecha registro
-// let fechaRegistro = fechaRegistroDate.toLocaleDateString();
-// console.log(fechaRegistro);
+// Llama al metodo para incluir el header y el footer en la pagina
+includes.incluirHeader();
+includes.incluirFooter();
 
-//declarar cosntantes y variables
+//declarar cosntantes y variables globales
 //llamar datos sessionStorege
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 // Crear const dataEmpleados para guardar los datos de los empleados
 let dataEmpleados = await empleados.cargarDatosEmpleados();
-console.log(dataEmpleados);
-
+// console.log(dataEmpleados);
 //contador empleados
 let contadorAdmin = empleados.buscarAdministradores(dataEmpleados);
 let contadorEmpleados = dataEmpleados.length - contadorAdmin;
-//Cargar la tabla
+//seleccion para cargar la tabla
 let seleccion = 1;
 
-// Llama a la función para incluir el header y el footer
-includes.incluirHeader();
-includes.incluirFooter();
-//verificar usuario
+//usar funcion para verificar el usuario y el rol
 verificacion.verificarUsuario("empleados");
 
-//agregar nombre sucursal
+//agregar nombre de la sucursal donde se encuentra el usuario
 document.getElementById("nombreSucursal").innerHTML = " sucursal: " + empleados.getSucursal(usuario, dataEmpleados);
 
 //Escuchar el evento click del boton agregar empleado
@@ -124,6 +123,8 @@ btnAgregarEmpleado.addEventListener("click", (event) => {
         //enviar datos al servidor
         dataEmpleados.unshift(empleado);
         console.log(dataEmpleados);
+        //guardar datos en localStorage
+        localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
         document.getElementById("formAgregarEmpleado").reset();
         document.getElementById("txtnombre").focus();
         //mostrar mensaje de confirmacion
@@ -227,6 +228,7 @@ if (modalVerEmpleado) {
         //escuchar el evento click del btnEliminarEmpleado
         const btnEliminarEmpleado = document.getElementById("btnEliminarEmpleado");
         btnEliminarEmpleado.addEventListener("click", () => {
+            //usar el metodo eliminarEmpleado de la clase empleados para eliminar el empleado
             empleados.eliminarEmpleado(indice, dataEmpleados);
         });
 
@@ -235,8 +237,10 @@ if (modalVerEmpleado) {
         btnEditarEmpleado.addEventListener("click", () => {
             //habilitar los campos
             empleados.habilitarCamposModal();
+            //ocultar botones
             btnEditarEmpleado.classList.add("d-none");
             btnEliminarEmpleado.classList.add("d-none");
+            //mostrar botones
             btnConfirmarEdicion.classList.remove("d-none");
             btnCancelarEdicion.classList.remove("d-none");
         });
@@ -244,9 +248,12 @@ if (modalVerEmpleado) {
         //escuchar el evento click del btnCancelarEdicion
         const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
         btnCancelarEdicion.addEventListener("click", () => {
+            //deshabilitar campos
             empleados.deshabilitarCamposModal();
+            //mostrar botones
             btnEditarEmpleado.classList.remove("d-none");
             btnEliminarEmpleado.classList.remove("d-none");
+            //ocultar botones
             btnConfirmarEdicion.classList.add("d-none");
             btnCancelarEdicion.classList.add("d-none");
         });
@@ -254,7 +261,7 @@ if (modalVerEmpleado) {
         //escuchar el evento click del btnConfirmarEdicion
         const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
         btnConfirmarEdicion.addEventListener("click", () => {
-            //pedir confirmacion
+            //pedir confirmacion con sweetalert
             Swal.fire({
                 title: "¿Desea actualizar los datos?",
                 icon: "warning",
@@ -262,16 +269,21 @@ if (modalVerEmpleado) {
                 confirmButtonText: "Si",
                 cancelButtonText: "No",
             }).then((result) => {
+                //si el usuario confirma
                 if(result.isConfirmed){
                     //obtener datos del formulario
                     let dataEmpleado = empleados.getDatosFormModal();
                     //editar datos del empleado
                     dataEmpleados[indice] = dataEmpleado;
+                    //guardar datos en localStorage
+                    localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
                     // console.log(dataEmpleados);
                     //deshabilitar campos
                     empleados.deshabilitarCamposModal();
+                    //mostrar botones
                     btnEditarEmpleado.classList.remove("d-none");
                     btnEliminarEmpleado.classList.remove("d-none");
+                    //ocultar botones
                     btnCancelarEdicion.classList.add("d-none");
                     btnConfirmarEdicion.classList.add("d-none");
                     //mostrar mensaje de confirmacion

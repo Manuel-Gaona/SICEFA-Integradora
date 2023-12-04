@@ -22,6 +22,12 @@ const productos = new productosModel();
 //instanciar verificacionModel
 const verificacion = new verificacionModel();
 
+//cargo el header y el footer en el html
+//ejecutar el metodo incluirHeader de la instancia includes
+includes.incluirHeader();
+//ejecutar el metodo incluirFooter de la instancia includes
+includes.incluirFooter();
+
 //guardar datos de usuario y rol del sessionStorage
 //guardar usuario en variable
 const usuario = sessionStorage.getItem("usuario");
@@ -44,14 +50,15 @@ let sucursal;
 if (empleado.datosLaborales){
     //guardar sucursal en variable
     sucursal = empleado.datosLaborales.sucursal;
+    //mostrar sucursal en nombreSucursal
+    document.getElementById("nombreSucursal").innerHTML = " sucursal: " + sucursal;
 }
-// console.log(sucursal);
+if (rol === "ADMC"){
+    //desabilitar el input chkestatusStock
+    document.getElementById("chkestatusStock").setAttribute("disabled", "");
+}
+console.log(sucursal);
 
-//cargo el header y el footer en el html
-//ejecutar el metodo incluirHeader de la instancia includes
-includes.incluirHeader();
-//ejecutar el metodo incluirFooter de la instancia includes
-includes.incluirFooter();
 
 //verificar que se haya iniciado sesion
 //ejecutar el metodo verificarUsuario de la instancia verificacion
@@ -146,17 +153,17 @@ btnAgregarProducto.addEventListener('click', (event) => {
             "foto": "",
             "rutaFoto": "",
             "codigoBarras": codigoBarras,
-            "estatus": "1",
+            "estatus": 1,
             "stockCentro": 0,
             "stockCentroMax": 0,
             "stockPlazaMayor": 0
         }
         //agregar producto al arreglo de productos en la posicion 0 del arreglo con el metodo unshift de la instancia productos
-        dataProductos.unshift(producto);
+        dataProductos.push(producto);
         //mostrar datos de productos en consola para verificar que se agrego el producto correctamente
         // console.log(dataProductos);
-        //guardar datos de productos
-        
+        //guardar datos de productos en el localStorage
+        localStorage.setItem("dataProductos", JSON.stringify(dataProductos));
         //vaciar los inputs del formulario de la pestana agregar producto con el metodo reset del formulario
         document.getElementById('formAgregarProducto').reset();
         // hacer focus en el input txtnombre
@@ -240,25 +247,19 @@ async function loadTable(seleccionStatus, seleccionStock){
         if (producto){
             //declarar variable stock
             let stock;
+            if (sucursal){
+                sucursal = sucursal.replace(/\s/g, '');
+                let stockPropiedad = "stock" + sucursal;
+                    stock = producto[stockPropiedad];
+            } else {
+                stock = null;
+            }
             //verificar la sucursal
-                if (sucursal === "Centro"){
-                    //si la sucursal es Centro asignar el stock de la sucursal Centro
-                    stock = producto.stockCentro;
-                } else if (sucursal === "Centro Max"){
-                    //si la sucursal es Centro Max asignar el stock de la sucursal Centro Max
-                    stock = producto.stockCentroMax;
-                }else if (sucursal === "Plaza Mayor"){
-                    //si la sucursal es Plaza Mayor asignar el stock de la sucursal Plaza Mayor
-                    stock = producto.stockPlazaMayor;
-                }else if (rol === "ADMC"){
-                    //si el rol es ADMC asignar el stock total
-                    stock = producto.stockCentro + producto.stockCentroMax + producto.stockPlazaMayor;
-                }
             //verificar si el checkbox de estatus esta seleccionado y el checkbox de stock esta seleccionado
             if (seleccionStatus === 0 && seleccionStock === 0){
                 //si el checkbox de estatus esta seleccionado y el checkbox de stock esta seleccionado
                 //verificar si el producto esta desactivado y el stock es 0
-                if (producto.estatus === "0" && stock === 0){
+                if (producto.estatus === 0 && stock === 0){
                     //si el producto esta desactivado y el stock es 0 agregar el producto a la tabla
                     cuerpo += '<tr>' +
                                     '<td>' + producto.idProducto + '</td>' +
@@ -277,7 +278,7 @@ async function loadTable(seleccionStatus, seleccionStock){
             } else if (seleccionStatus === 0 && seleccionStock === 1){
                 //si el checkbox de estatus esta seleccionado y el checkbox de stock no esta seleccionado
                 //verificar si el producto esta desactivado y el stock es mayor a 0
-                if (producto.estatus === "0"){
+                if (producto.estatus === 0){
                     //si el producto esta desactivado agregar el producto a la tabla
                     cuerpo += '<tr>' +
                                     '<td>' + producto.idProducto + '</td>' +
@@ -314,7 +315,7 @@ async function loadTable(seleccionStatus, seleccionStock){
             } else if (seleccionStatus === 1 && seleccionStock === 1){
                 //si el checkbox de estatus no esta seleccionado y el checkbox de stock no esta seleccionado
                 //verificar si el producto esta activado y el stock es mayor a 0
-                if (producto.estatus === "1" && stock > 0){
+                if (producto.estatus === 1 && (stock > 0 || rol === "ADMC")){
                     //si el producto esta activado y el stock es mayor a 0 agregar el producto a la tabla
                     cuerpo += '<tr>' +
                                     '<td>' + producto.idProducto + '</td>' +
@@ -352,7 +353,7 @@ if (modalVerProducto){
         //cargar datos del producto en el modal
         productos.cargarDatosProductoModal(producto, sucursal);
         //checar si el rol es EMPS
-        if (rol === "EMPS"){
+        if (rol === "EMPS" || rol === "ADMS"){
             //si el rol es EMPS deshabilitar los campos del modal
             document.getElementById("btnEditarProducto").classList.add("d-none");
             document.getElementById("btnEliminarProducto").classList.add("d-none");
@@ -372,14 +373,17 @@ if (modalVerProducto){
         btnEditarProducto.addEventListener('click', () => {
             //habilitar los campos del modal
             productos.habilitarCamposModal()
-            //ocultar el boton btnEditarProducto;
-            btnEditarProducto.classList.add("d-none");
-            //ocultar el boton btnEliminarProducto;
-            btnEliminarProducto.classList.add("d-none");
-            //mostrar el boton btnConfirmarEdicion;
-            btnConfirmarEdicion.classList.remove("d-none");
-            //mostrar el boton btnCancelarEdicion;
-            btnCancelarEdicion.classList.remove("d-none");
+            //verificar si el rol es ADMC
+            if (rol === "ADMC"){
+                //ocultar el boton btnEditarProducto;
+                btnEditarProducto.classList.add("d-none");
+                //ocultar el boton btnEliminarProducto;
+                btnEliminarProducto.classList.add("d-none");
+                //mostrar el boton btnConfirmarEdicion;
+                btnConfirmarEdicion.classList.remove("d-none");
+                //mostrar el boton btnCancelarEdicion;
+                btnCancelarEdicion.classList.remove("d-none");
+            }
         });
         //funcion que se ejecuta al hacer click en el boton btnCancelarEdicion
         //obtener el boton btnCancelarEdicion
@@ -390,14 +394,17 @@ if (modalVerProducto){
             productos.deshabilitarCamposModal();
             //ejectuar el metodo cargarDatosProductoModal de la instancia productos con los parametros producto y sucursal
             productos.cargarDatosProductoModal(producto, sucursal);
-            //mostrar el boton btnEditarProducto;
-            btnEditarProducto.classList.remove("d-none");
-            //mostrar el boton btnEliminarProducto;
-            btnEliminarProducto.classList.remove("d-none");
-            //ocultar el boton btnConfirmarEdicion;
-            btnConfirmarEdicion.classList.add("d-none");
-            //ocultar el boton btnCancelarEdicion;
-            btnCancelarEdicion.classList.add("d-none");
+            //verificar si el rol es ADMC
+            if (rol === "ADMC"){
+                //mostrar el boton btnEditarProducto;
+                btnEditarProducto.classList.remove("d-none");
+                //mostrar el boton btnEliminarProducto;
+                btnEliminarProducto.classList.remove("d-none");
+                //ocultar el boton btnConfirmarEdicion;
+                btnConfirmarEdicion.classList.add("d-none");
+                //ocultar el boton btnCancelarEdicion;
+                btnCancelarEdicion.classList.add("d-none");
+            }
         });
         //funcion que se ejecuta al hacer click en el boton btnConfirmarEdicion
         //obtener el boton btnConfirmarEdicion
@@ -417,8 +424,8 @@ if (modalVerProducto){
                     //si se confirmo la accion
                     //actualizar datos del producto en dataProductos con el metodo confirmarCambiosModal de la instancia productos con los parametros indice y dataProductos
                     dataProductos[indice] = productos.confirmarCambiosModal(indice, dataProductos);
-                    //guardar datos de productos en el SessionStorage
-                    sessionStorage.setItem("productos", JSON.stringify(dataProductos));
+                    //guardar datos de productos en el localStorage
+                    localStorage.setItem("dataProductos", JSON.stringify(dataProductos));
                     //deshabilitar campos
                     productos.deshabilitarCamposModal();
                     //mostrar el boton btnEditarProducto;
@@ -450,9 +457,8 @@ if (modalVerProducto){
             loadTable(seleccionStatus, seleccionStock);
             //deshabilitar campos
             productos.deshabilitarCamposModal();
-            //verificar si el rol es EMPS
-            if (rol !== "EMPS"){
-                //si el rol no es EMPS
+            //verificar si el rol es ADMC
+            if (rol === "ADMC"){
                 //mostrar el boton btnEditarProducto;
                 btnEditarProducto.classList.remove("d-none");
                 //mostrar el boton btnEliminarProducto;
@@ -472,9 +478,9 @@ if (modalVerProducto){
             loadTable(seleccionStatus, seleccionStock);
             //deshabilitar campos
             productos.deshabilitarCamposModal();
-            //verificar si el rol es EMPS
-            if (rol !== "EMPS"){
-                //si el rol no es EMPS
+            //verificar si el rol es ADMC
+            if (rol === "ADMC"){
+                //si el rol no es ADMC
                 //mostrar el boton btnEditarProducto;
                 btnEditarProducto.classList.remove("d-none");
                 //mostrar el boton btnEliminarProducto;

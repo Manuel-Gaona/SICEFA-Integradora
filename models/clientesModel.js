@@ -35,12 +35,21 @@ class ClientesModel {
 
     //metodo para obtener todos los clientes
     async cargarDatosClientes() {
-        try {
-            const res = await fetch('/data/dataClientes.json');
-            const data = await res.json();
-            return data;
-        } catch (err) {
-            console.log(err);
+        if (localStorage.getItem("dataClientes")) {
+            //obtener datos de localStorage
+            return JSON.parse(localStorage.getItem("dataClientes"));
+        }else{
+            //obtener datos de json
+            try {
+                //esperar respuesta de la peticion fetch
+                const res = await fetch('/data/dataClientes.json');
+                //convertir respuesta a json
+                const data = await res.json();
+                //regresar datos
+                return data;
+            } catch (err) {
+                console.log(err);
+            }
         }
     }
     //cambiar genero de string a numero
@@ -101,6 +110,7 @@ class ClientesModel {
     }
     //eliminar cliente
     eliminarCliente(indice, dataClientes){
+        //pedir confirmacion para eliminar
         Swal.fire({
             title: "¿Desea eliminar el cliente?",
             icon: "warning",
@@ -108,13 +118,20 @@ class ClientesModel {
             confirmButtonText: "Si",
             cancelButtonText: "No",
         }).then((result) => {
+            //si se confirma la eliminacion
             if (result.isConfirmed) {
                 //eliminar cliente
                 dataClientes[indice].datos_adicionales.estatus = 0;
+                //guardar en localStorage
+                localStorage.setItem("dataClientes", JSON.stringify(dataClientes));
+                //cargar datos del cliente en el modal
                 this.cargarDatosClienteModal(dataClientes[indice]);
-                //desactivar botones
+                //ocultar botones
+                //ocultar boton eliminar cliente
                 this.btnEliminarCliente.classList.add("d-none");
+                //ocultar boton editar cliente
                 this.btnEditarCliente.classList.add("d-none");
+                //mostrar mensaje de exito de sweetalert
                 Swal.fire({
                     title: "Cliente eliminado",
                     icon: "success",
@@ -125,35 +142,63 @@ class ClientesModel {
     }
     //habilitar campos
     habilitarCamposModal(){
+        //habilitar campos
+        //habilitar nombre
         this.nombreModal.disabled = false;
+        //habilitar apellido paterno
         this.apellidoPModal.disabled = false;
+        //habilitar apellido materno
         this.apellidoMModal.disabled = false;
+        //habilitar fecha de nacimiento
         this.fechaNacModal.disabled = false;
+        //habilitar rfc
         this.rfcModal.disabled = false;
+        //habilitar curp
         this.curpModal.disabled = false;
+        //habilitar domicilio
         this.domicilioModal.disabled = false;
+        //habilitar codigo postal
         this.cpModal.disabled = false;
+        //habilitar ciudad
         this.ciudadModal.disabled = false;
+        //habilitar estado
         this.estadoModal.disabled = false;
+        //habilitar telefono
         this.telefonoModal.disabled = false;
+        //habilitar email
         this.emailModal.disabled = false;
+        //habilitar genero
         this.rdgeneromModal.disabled = false;
         this.rdgenerofModal.disabled = false;
     }
     //deshabilitar campos
     deshabilitarCamposModal(){
+        //deshabilitar campos
+        //deshabilitar nombre
         this.nombreModal.disabled = true;
+        //deshabilitar apellido paterno
         this.apellidoPModal.disabled = true;
+        //deshabilitar apellido materno
         this.apellidoMModal.disabled = true;
+        //deshabilitar fecha de nacimiento
         this.fechaNacModal.disabled = true;
+        //deshabilitar rfc
         this.rfcModal.disabled = true;
+        //deshabilitar curp
         this.curpModal.disabled = true;
+        //deshabilitar domicilio
         this.domicilioModal.disabled = true;
+        //deshabilitar codigo postal
         this.cpModal.disabled = true;
+        //deshabilitar ciudad
         this.ciudadModal.disabled = true;
+        //deshabilitar estado
         this.estadoModal.disabled = true;
+        //deshabilitar telefono
         this.telefonoModal.disabled = true;
+        //deshabilitar email
         this.emailModal.disabled = true;
+        //deshabilitar genero
         this.rdgeneromModal.disabled = true;
         this.rdgenerofModal.disabled = true;
     }

@@ -47,17 +47,22 @@ class ProductosModel {
     }
     //metodo para regresar los datos del archivo json
     async cargarDatosProductos(){
-        try {
+        if (localStorage.getItem("dataProductos")) {
+            //obtener datos del local storage
+            return JSON.parse(localStorage.getItem("dataProductos"));
+        }else{
+            //try para manejar errores
+            try {
                 //obtener datos del archivo json 
                 const res = await fetch('/data/dataProductos.json');
                 //convertir datos a json
                 const data = await res.json();
                 //retornar datos
                 return data;
-            //retornar datos
-        } catch (error) {
-            //mostrar error en consola
-            console.log(error);
+            } catch (error) {
+                //mostrar error en consola
+                console.log(error);
+            }
         }
     }
     //metodo para eliminar un producto requiere el indice del producto y los datos del archivo json
@@ -77,6 +82,8 @@ class ProductosModel {
             if (result.isConfirmed) {
                 //Cambiar el estatus del producto a inactivo
                 dataProductos[indice].estatus = "0";
+                //guardar cambios en el local storage
+                localStorage.setItem("dataProductos", JSON.stringify(dataProductos));
                 //Mostar estatus en el modal
                 this.estatusModal.value = "Inactivo";
                 //ocultar botones de editar y eliminar
@@ -121,25 +128,27 @@ class ProductosModel {
             this.precioUnitarioModal.value = dataProducto.precioVenta;
             //dar valor al codigo de barras del producto en el modal a partir del codigo de barras del producto en el json
             this.codigoBarrasModal.value = dataProducto.codigoBarras;
-            //declarar variable para el stock
-            let stock;
-            //if para verificar el valor de la sucursal
-            if (sucursal == "Centro"){
-                //si la sucursal es centro el stock sera el stock de centro
-                stock = dataProducto.stockCentro;
-            }else if (sucursal == "CentroMax"){
-                //si la sucursal es centro max el stock sera el stock de centro max
-                stock = dataProducto.stockCentroMax;
-            }else if (sucursal == "Plaza Mayor"){
-                //si la sucursal es plaza mayor el stock sera el stock de plaza mayor
-                stock = dataProducto.stockPlazaMayor;
+            if (sucursal){
+                //obtener sucursal sin espacios
+                sucursal = sucursal.replace(/\s/g, '');
+                //declarar variable para el stock
+                let stockPropiedad = "stock" + sucursal;
+                //verificar si el stock de la sucursal existe
+                if (dataProducto[stockPropiedad]){
+                    //dar valor al stock del producto en el modal a partir de la variable stockPropiedad
+                    this.stockModal.value = dataProducto[stockPropiedad];
+                } else {
+                    //dar valor al stock del producto en el modal de 0
+                    this.stockModal.value = 0;
+                }
+            }else {
+                //dar valor al stock del producto en el modal de 0
+                this.stockModal.value = 0;
             }
-            //dar valor al stock del producto en el modal a partir de la variable stock
-            this.stockModal.value = stock;
             //switch para verificar el estatus del producto
             switch (dataProducto.estatus) {
                 //si el estatus es 0
-                case "0":
+                case 0:
                     //mostrar estatus inactivo en el modal
                     this.estatusModal.value = "Inactivo";
                     //ocultar botones de editar y eliminar
@@ -147,7 +156,7 @@ class ProductosModel {
                     this.btnEliminarProductoModal.classList.add('d-none');
                     break;
                 //si el estatus es 1    
-                case "1":
+                case 1:
                     //mostrar estatus activo en el modal
                     this.estatusModal.value = "Activo";
                     //mostrar botones de editar y eliminar

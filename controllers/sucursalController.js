@@ -12,6 +12,9 @@ const verificacion = new verificacionModel();
 const usuario = sessionStorage.getItem("usuario");
 const rol = sessionStorage.getItem("rol");
 
+//cargar datos de empleado
+const empleado = await empleados.getDatosEmpleado(usuario, await empleados.cargarDatosEmpleados());
+
 // Llama a la función para incluir el header y el footer
 includes.incluirHeader();
 includes.incluirFooter();
@@ -32,8 +35,6 @@ if(rol === "ADMC"){
 
 //cargar datos empleado 
 async function cargarDatosEmpleado(){
-        //cargar datos de empleado
-        const empleado = await empleados.getDatosEmpleado(usuario, await empleados.cargarDatosEmpleados());
 
         //revisar que exista el empleado.datosPersona
         if(empleado.datosPersona){
@@ -110,8 +111,18 @@ btnUpdatePasswordConfirm.addEventListener("click", () => {
             text: "La contraseña no puede estar vacía"
         });
     }
+    else if(txtcontrasenia.value == empleado.usuario.contrasenia){
+        //mostrar alerta de error
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "La contraseña no puede ser igual a la anterior"
+        });
+    }
     else{
+        //actualizar contraseña
         empleados.updatePassword(usuario, txtcontrasenia.value);
+        //deshabilitar input
         docID("txtcontrasenia").disabled = true;
         //ocultar botones
         btnUpdatePasswordConfirm.classList.add("d-none");
@@ -124,8 +135,6 @@ btnUpdatePasswordConfirm.addEventListener("click", () => {
             title: "Éxito",
             text: "Contraseña actualizada correctamente"
         });
-        //cargar datos de empleado
-        cargarDatosEmpleado();
     }
 });
 

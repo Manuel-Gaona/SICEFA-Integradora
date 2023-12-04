@@ -39,12 +39,21 @@ class empleadosModel{
 
     //cargar datos empleados
     async cargarDatosEmpleados(){
-        try {
-            const res = await fetch('/data/dataEmpleados.json');
-            const data = await res.json();
-            return data;
-        } catch (err) {
-            console.log(err);
+        if (localStorage.getItem("dataEmpleados")) {
+            // cargar datos desde localstorage
+            return JSON.parse(localStorage.getItem("dataEmpleados"));
+        }else{
+            // cargar datos desde json
+            try {
+                //Ejecutar petición fetch
+                const res = await fetch('/data/dataEmpleados.json');
+                //Convertir respuesta a json
+                const data = await res.json();
+                //retornar data
+                return data;
+            } catch (err) {
+                console.log(err);
+            }
         }
     }
     //cargar datos empleado con usuario
@@ -66,10 +75,17 @@ class empleadosModel{
     } 
     //funcion para cambiar contraseña
     async updatePassword(usuario, contrasenia){
+        //cargar datos de empleados
         const dataEmpleados = await this.cargarDatosEmpleados();
-        const empleado = dataEmpleados.find((e) => e.usuario.nombreUsuario === usuario);
-        empleado.usuario.contrasenia = contrasenia;
-        console.log('Contraseña actualizada:', empleado);
+        //recorrer arreglo de empleados
+        dataEmpleados.forEach(function(empleado){
+            //validar que el usuario sea igual al usuario que inicio sesion
+            if(empleado.usuario.nombreUsuario === usuario){
+                empleado.usuario.contrasenia = contrasenia;
+            }
+        });
+        //guardar en localstorage
+        localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
     }
     //buscar administradores
     buscarAdministradores(dataEmpleados){
@@ -108,7 +124,11 @@ class empleadosModel{
         }).then((result) => {
             if(result.isConfirmed){
                 dataEmpleados[indice].usuario.estatus = 0;
+                //guardar en localstorage
+                localStorage.setItem("dataEmpleados", JSON.stringify(dataEmpleados));
+                //cargar datos en modal
                 this.cargarDatosEmpleadoModal(indice, dataEmpleados);
+                //deshabilitar campos
                 this.btnEliminarEmpleadoModal.classList.add("d-none");
                 this.btnEditarEmpleadoModal.classList.add("d-none");
                 Swal.fire({
