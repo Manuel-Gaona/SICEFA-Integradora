@@ -206,6 +206,13 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
             clientes.eliminarCliente(indice, dataClientes);
         });
 
+        //click en btnActivarCliente
+        const btnActivarCliente = document.getElementById("btnActivarCliente");
+        btnActivarCliente.addEventListener("click", () => {
+            //usar metodo activarCliente
+            clientes.activarCliente(indice, dataClientes);
+        });
+
         //click en btnEditarCliente
         const btnEditarCliente = document.getElementById("btnEditarCliente");
         btnEditarCliente.addEventListener("click", () => {
@@ -291,16 +298,16 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         btnCerrarModal.addEventListener("click", () => {
             //cargar tabla
             loadTable(seleccion);
-            //mostar botones
-            //mostrar boton editar cliente
-            btnEditarCliente.classList.remove("d-none");
-            //mostrar boton eliminar cliente
-            btnEliminarCliente.classList.remove("d-none");
-            //ocultar botones
-            //ocultar boton confirmar edicion
-            btnConfirmarEdicion.classList.add("d-none");
-            //ocultar boton cancelar edicion
-            btnCancelarEdicion.classList.add("d-none");
+            // //mostar botones
+            // //mostrar boton editar cliente
+            // btnEditarCliente.classList.remove("d-none");
+            // //mostrar boton eliminar cliente
+            // btnEliminarCliente.classList.remove("d-none");
+            // //ocultar botones
+            // //ocultar boton confirmar edicion
+            // btnConfirmarEdicion.classList.add("d-none");
+            // //ocultar boton cancelar edicion
+            // btnCancelarEdicion.classList.add("d-none");
             //deshabilitar campos
             clientes.deshabilitarCamposModal();
         });
@@ -310,16 +317,16 @@ modalVerCliente.addEventListener("show.bs.modal", (event) => {
         btnCerrarModalHeader.addEventListener("click", () => {
             //cargar tabla
             loadTable(seleccion);
-            //mostrar botones
-            //mostrar boton editar cliente
-            btnEditarCliente.classList.remove("d-none");
-            //mostrar boton eliminar cliente
-            btnEliminarCliente.classList.remove("d-none");
-            //ocultar botones
-            //ocultar boton confirmar edicion
-            btnConfirmarEdicion.classList.add("d-none");
-            //ocultar boton cancelar edicion
-            btnCancelarEdicion.classList.add("d-none");
+            // //mostrar botones
+            // //mostrar boton editar cliente
+            // btnEditarCliente.classList.remove("d-none");
+            // //mostrar boton eliminar cliente
+            // btnEliminarCliente.classList.remove("d-none");
+            // //ocultar botones
+            // //ocultar boton confirmar edicion
+            // btnConfirmarEdicion.classList.add("d-none");
+            // //ocultar boton cancelar edicion
+            // btnCancelarEdicion.classList.add("d-none");
             //deshabilitar campos
             clientes.deshabilitarCamposModal();
         });

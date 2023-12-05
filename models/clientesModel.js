@@ -30,6 +30,7 @@ class ClientesModel {
         this.btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
         this.btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
         this.btnCerrarModal = document.getElementById("btnCerrarModal");
+        this.btnActivarCliente = document.getElementById("btnActivarCliente");
 
     }
 
@@ -95,14 +96,20 @@ class ClientesModel {
             let estatus;
             switch(cliente.datos_adicionales.estatus){
                 case 0: 
-                    estatus = "Eliminado"; 
+                    estatus = "Inactivo"; 
                     this.btnEliminarCliente.classList.add("d-none");
                     this.btnEditarCliente.classList.add("d-none");
+                    this.btnCancelarEdicion.classList.add("d-none");
+                    this.btnConfirmarEdicion.classList.add("d-none");
+                    this.btnActivarCliente.classList.remove("d-none");
                     break;
                 case 1: 
                     estatus = "Activo"; 
-                    this.btnEliminarCliente.classList.remove("d-none");
                     this.btnEditarCliente.classList.remove("d-none");
+                    this.btnEliminarCliente.classList.remove("d-none");
+                    this.btnCancelarEdicion.classList.add("d-none");
+                    this.btnConfirmarEdicion.classList.add("d-none");
+                    this.btnActivarCliente.classList.add("d-none");
                     break;
             }
             this.estatusModal.value = estatus;
@@ -140,6 +147,42 @@ class ClientesModel {
             }
         });
     }
+    //funcion activar cliente
+    activarCliente(indice, dataClientes){
+        //pedir confirmacion para activar
+        Swal.fire({
+            title: "¿Desea activar el cliente?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+        }).then((result) => {
+            //si se confirma la activacion
+            if (result.isConfirmed) {
+                //activar cliente
+                dataClientes[indice].datos_adicionales.estatus = 1;
+                //guardar en localStorage
+                localStorage.setItem("dataClientes", JSON.stringify(dataClientes));
+                //cargar datos del cliente en el modal
+                this.cargarDatosClienteModal(dataClientes[indice]);
+                //mostrar botones
+                //mostrar boton eliminar cliente
+                this.btnEliminarCliente.classList.remove("d-none");
+                //mostrar boton editar cliente
+                this.btnEditarCliente.classList.remove("d-none");
+                //ocultar botones
+                //ocultar boton activar cliente
+                this.btnActivarCliente.classList.add("d-none");
+                //mostrar mensaje de exito de sweetalert
+                Swal.fire({
+                    title: "Cliente activado",
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
+            }
+        });
+    }
+
     //habilitar campos
     habilitarCamposModal(){
         //habilitar campos

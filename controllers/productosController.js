@@ -366,6 +366,15 @@ if (modalVerProducto){
             //ejectuar el metodo eliminarProducto de la instancia productos con los parametros indice y dataProductos
             productos.eliminarProducto(indice, dataProductos);
         });
+        //funcion que se ejecuta al hacer click en el boton btnActivarProducto
+        //obtener el boton btnActivarProducto
+        const btnActivarProducto = document.getElementById('btnActivarProducto');
+        //agregar el evento click al boton btnActivarProducto
+        btnActivarProducto.addEventListener('click', () => {
+            //ejectuar el metodo activarProducto de la instancia productos con los parametros indice y dataProductos
+            productos.activarProducto(indice, dataProductos);  
+        });
+        
         //funcion que se ejecuta al hacer click en el boton btnEditarProducto
         //obtener el boton btnEditarProducto
         const btnEditarProducto = document.getElementById('btnEditarProducto');

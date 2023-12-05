@@ -42,8 +42,12 @@ class ProductosModel {
         this.btnEliminarProductoModal = document.getElementById('btnEliminarProducto');
         //boton editar producto en el modal
         this.btnEditarProductoModal = document.getElementById('btnEditarProducto');
+        //boton cancelar edicion en el modal
+        this.btnCancelarEdicionModal = document.getElementById('btnCancelarEdicion');
         //boton confirmar edicion en el modal
-        this.btneConfirmarEdicionModal = document.getElementById('btnConfirmarEdicion');
+        this.btnConfirmarEdicionModal = document.getElementById('btnConfirmarEdicion');
+        //boton activar producto en el modal
+        this.btnActivarProductoModal = document.getElementById('btnActivarProducto');
     }
     //metodo para regresar los datos del archivo json
     async cargarDatosProductos(){
@@ -81,7 +85,7 @@ class ProductosModel {
             //verificar si se confirmo la eliminacion
             if (result.isConfirmed) {
                 //Cambiar el estatus del producto a inactivo
-                dataProductos[indice].estatus = "0";
+                dataProductos[indice].estatus = 0;
                 //guardar cambios en el local storage
                 localStorage.setItem("dataProductos", JSON.stringify(dataProductos));
                 //Mostar estatus en el modal
@@ -89,6 +93,8 @@ class ProductosModel {
                 //ocultar botones de editar y eliminar
                 this.btnEditarProductoModal.classList.add('d-none');
                 this.btnEliminarProductoModal.classList.add('d-none');
+                //mostrar boton de activar
+                this.btnActivarProductoModal.classList.remove('d-none');
                 //mostrar alerta de producto eliminado
                 Swal.fire({
                     title: "Producto eliminado",
@@ -97,6 +103,41 @@ class ProductosModel {
             }
         });
     }
+    //metodo para activar un producto requiere el indice del producto y los datos del archivo json
+    activarProducto(indice, dataProductos){
+        //mostrar alerta para confirmar la activacion
+        Swal.fire({
+            //titulo de la alerta
+            title: "¿Desea activar el producto?",
+            //icono de la alerta
+            icon: "warning",
+            //botones de la alerta
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+        }).then((result) => {
+            //verificar si se confirmo la activacion
+            if (result.isConfirmed) {
+                //Cambiar el estatus del producto a activo
+                dataProductos[indice].estatus = 1;
+                //guardar cambios en el local storage
+                localStorage.setItem("dataProductos", JSON.stringify(dataProductos));
+                //Mostar estatus en el modal
+                this.estatusModal.value = "Activo";
+                //mostrar botones de editar y eliminar
+                this.btnEditarProductoModal.classList.remove('d-none');
+                this.btnEliminarProductoModal.classList.remove('d-none');
+                //ocultar boton de activar
+                this.btnActivarProductoModal.classList.add('d-none');
+                //mostrar alerta de producto activado
+                Swal.fire({
+                    title: "Producto activado",
+                    icon: "success"
+                });
+            }
+        });
+    }
+
     //metodo paraa cargar los datos del producto en el modal requiere el indice del producto y los datos del archivo json
     cargarDatosProductoModal(dataProducto, sucursal){
         //Verificar si el producto existe
@@ -154,6 +195,12 @@ class ProductosModel {
                     //ocultar botones de editar y eliminar
                     this.btnEditarProductoModal.classList.add('d-none');
                     this.btnEliminarProductoModal.classList.add('d-none');
+                    //ocultar boton de cancelar edicion
+                    this.btnCancelarEdicionModal.classList.add('d-none');
+                    //ocultar boton de confirmar edicion
+                    this.btnConfirmarEdicionModal.classList.add('d-none');
+                    //mostrar boton de activar
+                    this.btnActivarProductoModal.classList.remove('d-none');
                     break;
                 //si el estatus es 1    
                 case 1:
@@ -162,6 +209,12 @@ class ProductosModel {
                     //mostrar botones de editar y eliminar
                     this.btnEditarProductoModal.classList.remove('d-none');
                     this.btnEliminarProductoModal.classList.remove('d-none');
+                    //ocultar boton de cancelar edicion
+                    this.btnCancelarEdicionModal.classList.add('d-none');
+                    //ocultar boton de confirmar edicion
+                    this.btnConfirmarEdicionModal.classList.add('d-none');
+                    //ocultar boton de activar
+                    this.btnActivarProductoModal.classList.add('d-none');
                     break;
             }
         }
