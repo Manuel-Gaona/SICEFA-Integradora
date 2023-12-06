@@ -137,6 +137,50 @@ class ProductosModel {
             }
         });
     }
+    //metodo para busqueda de productos requiere el valor de la busqueda y los datos del archivo json
+    busquedaProductos(valorBusqueda, dataProductos, sucursal){
+        //declarar el cuerpo de la tabla
+        let cuerpo = "";
+        //declarar variable para el stock
+        let stock;
+        //recorrer los productos
+        dataProductos.forEach((producto, indice) => {
+            //verificar si el producto existe
+            if (producto) {
+                //verificar si la sucursal existe
+                if (sucursal){
+                    //obtener sucursal sin espacios
+                    sucursal = sucursal.replace(/\s/g, '');
+                    //declarar variable para el stock
+                    let stockPropiedad = "stock" + sucursal;
+                    //dar valor a la variable stock a partir de la variable stockPropiedad
+                    stock = producto[stockPropiedad];
+                } else {
+                    stock = null;
+                }
+                //convertir el valor de la busqueda a minusculas
+                valorBusqueda = valorBusqueda.toLowerCase();
+                //verificar si el valor de la busqueda es igual a alguno de los datos del producto
+                if (producto.idProducto.toLowerCase().includes(valorBusqueda) || producto.nombreGeneral.toLowerCase().includes(valorBusqueda) || producto.nombreGenerico.toLowerCase().includes(valorBusqueda) || producto.formaFarmaceutica.toLowerCase().includes(valorBusqueda) || producto.unidadMedida.toLowerCase().includes(valorBusqueda) || producto.presentacion.toLowerCase().includes(valorBusqueda) || producto.principalIndicacion.toLowerCase().includes(valorBusqueda) || producto.contraindicaciones.toLowerCase().includes(valorBusqueda) || producto.concentracion.toLowerCase().includes(valorBusqueda) || producto.unidadesEnvase.toLowerCase().includes(valorBusqueda) || producto.precioCompra.toLowerCase().includes(valorBusqueda) || producto.precioVenta.toLowerCase().includes(valorBusqueda) || (producto.codigoBarras == valorBusqueda)) {
+                    cuerpo += '<tr>' +
+                                    '<td>' + producto.idProducto + '</td>' +
+                                    '<td>' + producto.nombreGeneral + '</td>' +
+                                    '<td class="d-none d-lg-table-cell">' + producto.unidadMedida + '</td>' +
+                                    '<td>' + stock + '</td>' +
+                                    '<td>' + producto.precioVenta + '</td>' +
+                                    '<td>' +
+                                        '<div class="text-center">' +
+                                        //agregar el boton para abrir el modal con el metodo indexOf de la instancia dataProductos
+                                            '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerProducto" data-bs-whatever="' + dataProductos.indexOf(producto) + '"><i class="fa-solid fa-plus"></i></button>' +
+                                        '</div>' +
+                                    '</td>' +
+                                '</tr>';
+                }
+            }
+        });
+        //agregar el cuerpo a la tabla
+        document.getElementById('tblProductos').innerHTML = cuerpo;
+    }
 
     //metodo paraa cargar los datos del producto en el modal requiere el indice del producto y los datos del archivo json
     cargarDatosProductoModal(dataProducto, sucursal){

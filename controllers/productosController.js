@@ -237,6 +237,29 @@ btnRecargarDatos.addEventListener('click', () => {
     loadTable(seleccionStatus, seleccionStock);
 });
 
+//funcion que se ejecuta al hacer click en el boton btnBuscar
+//obtener el boton btnBuscar
+const btnBuscar = document.getElementById('btnBuscar');
+//agregar el evento click al boton btnBuscar
+btnBuscar.addEventListener('click', () => {
+    //obtener el input txtBuscar
+    const inputBusqueda = document.getElementById('txtdatobuscado');
+    //obtener el valor del input txtBuscar
+    const valorBusqueda = inputBusqueda.value;
+    //verificar si el input txtBuscar no esta vacio
+    if (valorBusqueda){
+        productos.busquedaProductos(valorBusqueda, dataProductos, sucursal);
+        //vaciar el input txtBuscar
+        inputBusqueda.value = "";
+    } else {
+        //si el input txtBuscar esta vacio mostrar mensaje de error
+        Swal.fire({
+            title: "Ingrese un valor para buscar",
+            icon: "warning"
+        });
+    }
+});
+
 //funcion para cargar la tabla con los productos con los parametros seleccionStatus y seleccionStock
 async function loadTable(seleccionStatus, seleccionStock){
     //obtener la tabla tblProductos
@@ -357,6 +380,7 @@ if (modalVerProducto){
             //si el rol es EMPS deshabilitar los campos del modal
             document.getElementById("btnEditarProducto").classList.add("d-none");
             document.getElementById("btnEliminarProducto").classList.add("d-none");
+            document.getElementById("btnActivarProducto").classList.add("d-none");
         }
         //funcion que se ejecuta al hacer click en el boton btnEliminarProducto
         //obtener el boton btnEliminarProducto

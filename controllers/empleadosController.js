@@ -330,20 +330,20 @@ if (modalVerEmpleado) {
         btnCerrarModal.addEventListener("click", () => {
             loadTable(seleccion);
             empleados.deshabilitarCamposModal();
-            btnEditarEmpleado.classList.remove("d-none");
-            btnEliminarEmpleado.classList.remove("d-none");
-            btnConfirmarEdicion.classList.add("d-none");
-            btnCancelarEdicion.classList.add("d-none");
+            // btnEditarEmpleado.classList.remove("d-none");
+            // btnEliminarEmpleado.classList.remove("d-none");
+            // btnConfirmarEdicion.classList.add("d-none");
+            // btnCancelarEdicion.classList.add("d-none");
         });
         //escuchar el evento click del btnCerrarModal-header
         const btnCerrarModalHeader = document.getElementById("btnCerrarModal-header");
         btnCerrarModalHeader.addEventListener("click", () => {
             loadTable(seleccion);
             empleados.deshabilitarCamposModal();
-            btnEditarEmpleado.classList.remove("d-none");
-            btnEliminarEmpleado.classList.remove("d-none");
-            btnConfirmarEdicion.classList.add("d-none");
-            btnCancelarEdicion.classList.add("d-none");
+            // btnEditarEmpleado.classList.remove("d-none");
+            // btnEliminarEmpleado.classList.remove("d-none");
+            // btnConfirmarEdicion.classList.add("d-none");
+            // btnCancelarEdicion.classList.add("d-none");
         });
     });
 }

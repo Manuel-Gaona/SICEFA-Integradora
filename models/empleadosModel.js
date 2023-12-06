@@ -34,6 +34,7 @@ class empleadosModel{
         //botones modal
         this.btnEliminarEmpleadoModal = document.getElementById("btnEliminarEmpleado");
         this.btnEditarEmpleadoModal = document.getElementById("btnEditarEmpleado");
+        this.btnCancelarEdicionModal = document.getElementById("btnCancelarEdicion");
         this.btnConfirmarEdicionModal = document.getElementById("btnConfirmarEdicion");
         this.btnActivarEmpleadoModal = document.getElementById("btnActivarEmpleado");
     }
@@ -247,6 +248,7 @@ class empleadosModel{
                     estatus = "Inactivo"; 
                     this.btnEliminarEmpleadoModal.classList.add("d-none");
                     this.btnEditarEmpleadoModal.classList.add("d-none");
+                    this.btnCancelarEdicionModal.classList.add("d-none");
                     this.btnConfirmarEdicionModal.classList.add("d-none");
                     this.btnActivarEmpleadoModal.classList.remove("d-none");
                     break;
@@ -254,6 +256,9 @@ class empleadosModel{
                     estatus = "Activo"
                     this.btnEliminarEmpleadoModal.classList.remove("d-none");
                     this.btnEditarEmpleadoModal.classList.remove("d-none");
+                    this.btnCancelarEdicionModal.classList.add("d-none");
+                    this.btnConfirmarEdicionModal.classList.add("d-none");
+                    this.btnActivarEmpleadoModal.classList.add("d-none");
                     ; break;
             }
             this.estatusModal.value = estatus;
