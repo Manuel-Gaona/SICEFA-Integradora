@@ -166,6 +166,37 @@ class empleadosModel{
             }
         });
     }
+    //buscar datos de empleado
+    busquedaEmpleados(valorBusqueda, dataEmpleado){
+        //variable para contador
+        let cuerpo = "";
+        //recorrer arreglo de empleados
+        dataEmpleado.forEach(function(empleado){
+            //validar que el empleado tenga datos laborales, datos personales y usuario
+            if (empleado.datosLaborales && empleado.datosPersona && empleado.usuario){
+                //toLowercase para convertir a minusculas
+                valorBusqueda = valorBusqueda.toLowerCase();
+                //validar que el valor de busqueda sea igual al nombre, apellido paterno, apellido materno, rfc, curp, telefono, domicilio, cp, ciudad, estado, puesto, email, codigo de empleado, sucursal, nombre de usuario o rol
+                if(empleado.datosPersona.nombre.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.apellidoP.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.apellidoM.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.rfc.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.curp.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.telefono.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.datosDomicilio.domicilio.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.datosDomicilio.cp.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.datosDomicilio.ciudad.toLowerCase().includes(valorBusqueda) || empleado.datosPersona.datosDomicilio.estado.toLowerCase().includes(valorBusqueda) || empleado.datosLaborales.puesto.toLowerCase().includes(valorBusqueda) || empleado.datosLaborales.email.toLowerCase().includes(valorBusqueda) || empleado.datosLaborales.codigoEmpleado.toLowerCase().includes(valorBusqueda) || empleado.datosLaborales.sucursal.toLowerCase().includes(valorBusqueda) || empleado.usuario.nombreUsuario.toLowerCase().includes(valorBusqueda) || empleado.usuario.rol.toLowerCase().includes(valorBusqueda)){
+                    let nombreEmpleado = empleado.datosPersona.nombre + " " + empleado.datosPersona.apellidoP + " " + empleado.datosPersona.apellidoM;
+                            cuerpo += '<tr>'+
+                                        '<td>'+ empleado.datosLaborales.codigoEmpleado +'</td>'+
+                                        '<td>'+ nombreEmpleado +'</td>'+
+                                        '<td class="d-none d-md-table-cell">'+ empleado.datosLaborales.email +'</td>'+
+                                        '<td>' + empleado.usuario.rol + '</td>'+
+                                        '<td>' +
+                                            '<div class="text-center">' +
+                                                //btnTable para cargar modal
+                                                '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerEmpleado" data-bs-whatever="' + dataEmpleado.indexOf(empleado) + '"><i class="fa-solid fa-plus"></i></button>' +
+                                            '</div>' +
+                                        '</td>' +
+                                    '</tr>';
+                }
+            }
+        });
+        //cargar datos en tabla
+        document.getElementById("tblEmpleados").innerHTML = cuerpo;
+    }
     //funcion cargar datos empleado en modal
     cargarDatosEmpleadoModal(indice, dataEmpleados){
         //constantes para modal

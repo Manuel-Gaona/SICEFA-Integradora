@@ -162,6 +162,28 @@ btnRecargar.addEventListener("click", () => {
     loadTable(seleccion);
 });
 
+//escuchar click en btnBuscar
+const btnBuscar = document.getElementById("btnBuscar");
+btnBuscar.addEventListener("click", () => {
+    //obtener valor del input
+    const inputBusqueda = document.getElementById("txtdatobuscado");
+    let valorBusqueda = inputBusqueda.value;
+    //verificar que el valor no este vacio
+    if(valorBusqueda){
+        //usar metodo busquedaEmpleados de la clase empleados
+        empleados.busquedaEmpleados(valorBusqueda, dataEmpleados);
+        //limpiar input
+        inputBusqueda.value = "";
+    }
+    else{
+        //mostrar mensaje de error
+        Swal.fire({
+            title: "No se ha ingresado ningun valor",
+            icon: "error"
+        });
+    }
+});
+
 //funcion para cargar la tabla
 function loadTable(seleccion){
     let cuerpo = "";

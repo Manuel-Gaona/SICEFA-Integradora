@@ -139,6 +139,28 @@ btnRecargarDatos.addEventListener("click", () => {
     loadTable(seleccion);
 });
 
+//clik en btnBuscar
+const btnBuscar = document.getElementById("btnBuscar");
+btnBuscar.addEventListener("click", () => {
+    //obtener valor del input
+    const inputBuscar = document.getElementById("txtdatobuscado");
+    let datoBuscado = inputBuscar.value;
+    //verificar si el dato buscado esta vacio
+    if (datoBuscado) {
+        //usar metodo buscarCliente
+        clientes.busquedaClientes(datoBuscado, dataClientes);
+        //limpiar input
+        inputBuscar.value = "";
+    } else {
+        //mensaje de error
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No has ingresado un dato',
+        });
+    }
+});
+
 // funcion para cargar tabla
 function loadTable(seleccion) {
     let cuerpo = "";

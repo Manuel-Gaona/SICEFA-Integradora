@@ -182,6 +182,38 @@ class ClientesModel {
             }
         });
     }
+    //busqueda de clientes
+    busquedaClientes(busqueda, dataClientes){
+        //variable cuerpo para mostrar clientes
+        let cuerpo = "";
+        //recorrer clientes
+        dataClientes.forEach(function(cliente) {
+            //validar que el cliente tenga datos personales y datos adicionales
+            if(cliente.datos_personales && cliente.datos_adicionales){
+                //convertir a minusculas
+                busqueda = busqueda.toLowerCase();
+                //validar que el valor de busqueda sea igual a alguno de los datos del cliente
+                if(cliente.datos_personales.nombre.toLowerCase().includes(busqueda) || cliente.datos_personales.apellido_paterno.toLowerCase().includes(busqueda) || cliente.datos_personales.apellido_materno.toLowerCase().includes(busqueda) || cliente.datos_personales.RFC.toLowerCase().includes(busqueda) || cliente.datos_personales.CURP.toLowerCase().includes(busqueda) || cliente.datos_personales.domicilio.toLowerCase().includes(busqueda) || cliente.datos_personales.codigo_postal.toLowerCase().includes(busqueda) || cliente.datos_personales.ciudad.toLowerCase().includes(busqueda) || cliente.datos_personales.estado.toLowerCase().includes(busqueda) || cliente.datos_personales.telefono.toLowerCase().includes(busqueda) || cliente.datos_adicionales.correo_electronico.toLowerCase().includes(busqueda)){
+                    //obtener nombre completo
+                    let nombreCompleto = cliente.datos_personales.nombre + " " + cliente.datos_personales.apellido_paterno + " " + cliente.datos_personales.apellido_materno;
+                    //agregar datos del cliente al cuerpo
+                    cuerpo += '<tr>' +
+                                '<td>' + cliente.datos_adicionales.id +'</td>' +
+                                '<td>' + nombreCompleto + '</td>' +
+                                '<td class="d-none d-md-table-cell">' + cliente.datos_adicionales.correo_electronico + '</td>'+
+                                '<td>' + cliente.datos_adicionales.fecha_de_registro + '</td>'+
+                                '<td>' +
+                                    '<div class="text-center">' +
+                                        '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerCliente" data-bs-whatever="' + dataClientes.indexOf(cliente)+ '"><i class="fa-solid fa-plus"></i></button>' +
+                                    '</div>' +
+                                '</td>' +
+                            '</tr>';
+                }
+            }
+        });
+        //cargar datos en la tabla
+        document.getElementById("tblClientes").innerHTML = cuerpo;
+    }
 
     //habilitar campos
     habilitarCamposModal(){
