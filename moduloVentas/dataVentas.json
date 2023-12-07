@@ -1,0 +1,43 @@
+[
+    {
+        "Cliente": "Juan Pérez",
+        "Fecha": "2023-12-01",
+        "Hora": "15:30",
+        "Empleado": "Ana Martínez",
+        "Productos": "Donepecilo, Etambutol, Ciprofibrato, Lidocaína, Ambroxol, Metronidazol",
+        "Sucursal": "Central"
+    },
+    {
+        "Cliente": "María Gómez",
+        "Fecha": "2023-12-02",
+        "Hora": "14:45",
+        "Empleado": "Carlos Rodríguez",
+        "Productos": "Lidocaína, Carbetocina, Peginterferón, Felipresina, Ambroxol, Metronidazol",
+        "Sucursal": "Central"
+    },
+    {
+        "Cliente": "Pedro Torres",
+        "Fecha": "2023-12-03",
+        "Hora": "12:00",
+        "Empleado": "Elena Sánchez",
+        "Productos": "Albumina humana,Alantoína, Alquitrán de hulla, Clioquinol",
+        "Sucursal": "Central"
+    },
+    {
+        "Cliente": "Laura Jiménez",
+        "Fecha": "2023-12-04",
+        "Hora": "17:15",
+        "Empleado": "Miguel López",
+        "Productos": "Fórmula de arroz, Inmunoglobulina humana antirrábica,Aciclovir,Midazolam",
+        "Sucursal": "Central"
+    },
+    {
+        "Cliente": "Sofía Ramírez",
+        "Fecha": "2023-12-05",
+        "Hora": "10:30",
+        "Empleado": "David Ruiz",
+        "Productos": "Dexmedetomidina, Zafirlukast,Talidomida,Octreotida",
+        "Sucursal": "Central"
+    }
+   
+]

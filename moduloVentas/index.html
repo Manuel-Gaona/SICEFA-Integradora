@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Ventas</title>
+<!-- Agregar jsPDF -->
+    
+
+    <!-- Agregar los estilos de Bootstrap -->
+    <link rel="icon" href="../../assets/img/logo.png"> <!--<title>sucursal</title>: Esta etiqueta <title> establece el título de la página. En este caso, el título se establece como "sucursal".    -->
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.4.2-web/css/solid.css">
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.4.2-web/css/regular.css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/lib/sweetalert/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <script src="html2pdf.js-master/dist/html2pdf.bundle.js"></script> 
+
+
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header id="headerPage" class="sticky-top"></header>
+
+<main id="mainPage" class="my-3">
+    <h1 class="text-center">Ventas</h1>
+
+    <div class="container my-4">   <!--Esta etiqueta <main> define la sección principal del contenido de la página. El atributo id="mainPage" proporciona un identificador único para este elemento, que puede ser utilizado en scripts de JavaScript o hojas de estilo CSS. La clase "my-3" es una clase de Bootstrap que agrega un espacio vertical de tamaño mediano en la parte superior e inferior del elemento.-->
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="agregar-tab" data-bs-toggle="tab" data-bs-target="#agregar"
+                type="button" role="tab" aria-controls="agregar" aria-selected="true">Agregar Venta</button>
+            <button class="nav-link" id="consultar-tab" data-bs-toggle="tab" data-bs-target="#consultar"
+                type="button" role="tab" aria-controls="consultar" aria-selected="false">Consultar Ventas</button>
+        </div>
+
+        <div class="tab-content" id="nav-tabContent">
+            <!-- Agregar Venta -->
+            <div class="tab-pane fade show active p-3 p-md-4 border border-top-0" id="agregar" role="tabpanel" aria-labelledby="agregar-tab">
+                    <h2>Registro de Ventas</h2>
+                    <!-- Formulario para registrar una venta -->
+                    <form id="ventaForm">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="cliente">Cliente</label>
+                                <input type="text" class="form-control" id="cliente" placeholder="Nombre del Cliente" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" class="form-control" id="fecha" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="hora">Hora</label>
+                                <input type="time" class="form-control" id="hora" required>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="empleado">Empleado</label>
+                                <input type="text" class="form-control" id="empleado" placeholder="Nombre del Empleado" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="productos">Productos</label>
+                                <input type="text" class="form-control" id="productos" placeholder="Lista de Productos" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="sucursal">Sucursal</label>
+                                <input type="text" class="form-control" id="sucursal" placeholder="Nombre de la Sucursal" required>
+                            </div>
+                        </div>
+                
+                        <button type="button" class="btn btn-success my-2" onclick="registrarVenta()">Registrar Venta</button>
+                    </form>
+            </div>
+
+            <!-- Consultar Ventas -->
+            <div class="tab-pane fade p-3 p-md-4 border border-top-0" id="consultar" role="tabpanel" aria-labelledby="consultar-tab">
+                <h2 class="my-3">Consultar Ventas</h2> <!--Este fragmento de código HTML representa una tabla (<table>) que se utilizará para mostrar datos de ventas en una página web-->
+                    
+                    <div class="form-group mt-3">
+                        <label for="buscar">Buscar:</label>
+                        <input type="text" class="form-control my-2 " id="buscar" placeholder="Ingrese término de búsqueda">
+                    </div>
+                    
+                    <!-- Botón de buscar -->
+                    <button type="button" class="btn btn-primary mx-3" onclick="buscarVentas()">Buscar</button>
+                    <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Hora</th>
+                                <th scope="col">Empleado</th>
+                                <th scope="col">Productos</th>
+                                <th scope="col">Sucursal</th>
+                                <th scope="col">Acciones</th>
+                                <th scope="col">PDF</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="ventasTableBody">
+                            <!-- Aquí se agregarán dinámicamente las filas de ventas registradas -->
+                        </tbody>
+                    </table>
+                            <!-- Aquí se agregarán dinámicamente las filas de ventas registradas -->
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Pie de página -->
+<footer id="footerPage" class="sticky-bottom"></footer>
+
+<!-- Agregar los scripts de Bootstrap -->
+<!-- Agregar SweetAlert2 y Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/lib/sweetalert/js/sweetalert2.min.js"></script> 
+<script src="ventas.js"></script>
+<script type="module" src="/controllers/ventaController.js"></script>
+
+
+</body>
+</html>
