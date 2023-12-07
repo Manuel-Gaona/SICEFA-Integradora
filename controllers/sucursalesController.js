@@ -5,6 +5,8 @@ import includesModel from "/models/includesModel.js";
 import sucursalesModel from "/models/sucursalesModel.js";
 //Esta linea importa el modelo de empleados para poder utilizar los datos en este apartado
 import empleadoModel from "/models/empleadosModel.js";
+//Esta linea importa el modelo de verificacion para poder utilizar los datos en este apartado
+import verificacionModel from "/models/verificacionModel.js";
 
 //instancia de clases
 //intancia los icludes para utulizarlos
@@ -13,6 +15,8 @@ const includes = new includesModel();
 const sucursales = new sucursalesModel();
 //intancia los empleados para por utulizarlos en la creacion de las sucursales
 const empleados = new  empleadoModel();
+//intancia la verificacion para por utulizarlos en la creacion de las sucursales
+const verificacion = new verificacionModel();
 
 //variable que guardar datos sucursales
 let dataSucursales = await sucursales.cargarDatosSucursales();
@@ -26,6 +30,9 @@ let contadorSucursales = dataSucursales.length;
 //incluir header y footer
 includes.incluirHeader();
 includes.incluirFooter();
+
+//verificar usuario
+verificacion.verificarUsuario("sucursales");
 
 //seleccion de la tabla 
 let seleccion = 1;
@@ -128,7 +135,6 @@ if (modalVerSucursal) {
         const btnActivarSucursal = document.getElementById("btnActivarSucursal");
         btnActivarSucursal.addEventListener("click", () => {
             sucursales.activarsucursal(indice, dataSucursales);
-
         });
 
         //escuchar el evento click del btnEditarSucursal

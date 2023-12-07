@@ -106,6 +106,7 @@ class sucursalesModel {
                 this.estatusModal.value = "Inactivo";
                 this.btnEliminarSucursalModal.classList.add("d-none");
                 this.btnEditarSucursalModal.classList.add("d-none");
+                this.btnActivarSucursal.classList.remove('d-none');
                 
                 Swal.fire({
                     title: "Se ha eliminado correctamente",
@@ -133,7 +134,7 @@ class sucursalesModel {
                 this.btnActivarSucursal.classList.add('d-none');
 
                 Swal.fire({
-                    title: "Se ha eliminado correctamente",
+                    title: "Se ha activado correctamente",
                     icon: "success"
                 });
             }
