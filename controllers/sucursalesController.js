@@ -7,27 +7,21 @@ import sucursalesModel from "/models/sucursalesModel.js";
 import empleadoModel from "/models/empleadosModel.js";
 
 //instancia de clases
-//intancia los icludes para por utulizarlos
+//intancia los icludes para utulizarlos
 const includes = new includesModel();
 //intancia las sucursales del controlador para por utulizarlas
 const sucursales = new sucursalesModel();
 //intancia los empleados para por utulizarlos en la creacion de las sucursales
 const empleados = new  empleadoModel();
 
-//variables globales
-//variable para el rol
-let rol = sessionStorage.getItem("rol");
-//variable para el usuario
-let usuario = sessionStorage.getItem("usuario");
-
 //variable que guardar datos sucursales
 let dataSucursales = await sucursales.cargarDatosSucursales();
 //para comprobar si cargan los datos en la cosola
 console.log(dataSucursales);
-//variable que guardar datos de empleados
-let dataEmpleados = await empleados.cargarDatosEmpleados();
 // variable para contar las sucursales
 let contadorSucursales = dataSucursales.length;
+
+        
 
 //incluir header y footer
 includes.incluirHeader();
@@ -50,6 +44,14 @@ chkestatus.addEventListener('click', () => {
         seleccion = 1;
         loadTable(seleccion)
     }
+});
+
+
+
+const btnRecargarDatos = document.getElementById("btnRecargarDatos");
+btnRecargarDatos.addEventListener('click', () => {
+
+    loadTable(seleccion);
 });
 
 
@@ -102,76 +104,105 @@ async function loadTable(seleccion){
         document.getElementById("tblSucursales").innerHTML = cuerpo;
     });
 }
-var modal = document.getElementById("miModal");
-    //modal
-    const modalVerSucursal = document.getElementById('modalVerSucursal');
+//funcion cuando se activa el modal
+const modalVerSucursal = document.getElementById("modalVerSucursal");
+//escuchar el evento show del modal
+if (modalVerSucursal) {
+    modalVerSucursal.addEventListener("show.bs.modal", (event) => {
+        //obtener el boton que abre el modal
+        const button = event.relatedTarget;
+        //obtener el indice del boton
+        const indice = button.getAttribute("data-bs-whatever");
+        //obtener datos de la sucursal
+        const sucursal = dataSucursales[indice];
+        //cargar datos en modal
+        sucursales.cargarDatosSucursalModal(indice, dataSucursales);
+        console.log(sucursales);
+        
+        //escuchar el evento click del btnEliminarSucursal
+        const btnEliminarSucursal = document.getElementById("btnEliminarSucursal");
+        btnEliminarSucursal.addEventListener("click", () => {
+            sucursales.eliminarSucursal(indice, dataSucursales);
+        });
 
-    if (modalVerSucursal){
-        modalVerSucursal.addEventListener('show.bs.modal', function (event){
-            //boton que abre el modal
-            const button = event.relatedTarget;
-            //extraer el indice del boton
-            const indice = button.getAttribute('data-bs-whatever');
-            //obtener datos del producto
-            const sucursal = dataSucursales[indice];
-            //cargar datos del producto en el modal
-            sucursales.cargarDatosSucursalModal(indice, dataSucursales);
-    
-            //click en eliminar producto
-            const btnEliminarSucursal = document.getElementById('btnEliminarSucursal');
-            btnEliminarSucursal.addEventListener('click', () => {
-                sucursales.eliminarProducto(indice, dataSucursales);
-            });
-            //click en editar producto
-            const btnEditarSucursal = document.getElementById('btnEditarSucursal');
-            btnEditarSucursal.addEventListener('click', () => {
-                sucursales.habilitarCamposModal();
-            });
-            //click en confirmar edicion
-            const btnConfirmarEdicion = document.getElementById('btnConfirmarEdicion');
-            btnConfirmarEdicion.addEventListener('click', () => {
-                Swal.fire({
-                    title: "¿Desea actualizar los datos?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Si",
-                    cancelButtonText: "No",
-                }).then((result) => {
-                    if(result.isConfirmed){
-                        //actualizar datos
-                        dataSucursales[indice] = sucursales.confirmarCambiosModal(indice, dataSucursales);
-                        //deshabilitar campos
-                        sucursales.deshabilitarCamposModal();
-                        btnEditarSucursal.classList.remove("disabled");
-                        btnEliminarSucursal.classList.remove("disabled");
-                        btnConfirmarEdicion.classList.add("disabled");
-                        console.log(dataProductos);
-                    }
+        const btnActivarSucursal = document.getElementById("btnActivarSucursal");
+        btnActivarSucursal.addEventListener("click", () => {
+            sucursales.activarsucursal(indice, dataSucursales);
+
+        });
+
+        //escuchar el evento click del btnEditarSucursal
+        const btnEditarSucursal = document.getElementById("btnEditarSucursal");
+        btnEditarSucursal.addEventListener("click", () => {
+            //habilitar los campos
+            sucursales.habilitarCamposModal();
+            btnEditarSucursal.classList.add("d-none");
+            btnEliminarSucursal.classList.add("d-none");
+            btnConfirmarEdicion.classList.remove("d-none");
+            btnCancelarEdicion.classList.remove("d-none");
+        });
+
+        //escuchar el evento click del btnCancelarEdicion
+        const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
+        btnCancelarEdicion.addEventListener("click", () => {
+            sucursales.deshabilitarCamposModal();
+            btnEditarSucursal.classList.remove("d-none");
+            btnEliminarSucursal.classList.remove("d-none");
+            btnConfirmarEdicion.classList.add("d-none");
+            btnCancelarEdicion.classList.add("d-none");
+        });
+
+        //escuchar el evento click del btnConfirmarEdicion
+        const btnConfirmarEdicion = document.getElementById("btnConfirmarEdicion");
+        btnConfirmarEdicion.addEventListener("click", () => {
+            //pedir confirmacion
+            Swal.fire({
+                title: "¿Desea actualizar los datos?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+            }).then((result) => {
+                if(result.isConfirmed){
+                    //obtener datos del formulario
+                    let datasucursal = sucursales.getDatosFormModal();
+                    console.log(datasucursal);
+                    //editar datos del empleado
+                    dataSucursales[indice] = datasucursal;
+                    // console.log(datasucursal);
+                    //deshabilitar campos
+                    sucursales.deshabilitarCamposModal();
+                    btnEditarSucursal.classList.remove("d-none");
+                    btnEliminarSucursal.classList.remove("d-none");
+                    btnCancelarEdicion.classList.add("d-none");
+                    btnConfirmarEdicion.classList.add("d-none");
                     //mostrar mensaje de confirmacion
                     Swal.fire({
                         title: "Se ha actualizado correctamente",
                         icon: "success"
                     });
-                });
+                }
             });
+        });
             
             //click en btnCerrarModal
-        const btnCerrarModal = document.getElementById("btnCerrarModal");
-        btnCerrarModal.addEventListener("click", () => {
-            loadTable(seleccion);
-            sucursales.deshabilitarCamposModal();
-            btnEditarSucursal.classList.remove("disabled");
-            btnEliminarSucursal.classList.remove("disabled");
-            btnConfirmarEdicion.classList.add("disabled");
-        });
+            const btnCerrarModal = document.getElementById("btnCerrarModal");
+            btnCerrarModal.addEventListener("click", () => {
+                loadTable(seleccion);
+                sucursales.deshabilitarCamposModal();
+                btnEditarSucursal.classList.remove("d-none");
+                btnEliminarSucursal.classList.remove("d-none");
+                btnConfirmarEdicion.classList.add("d-none");
+            });
             //escuchar el evento click del btnCerrarModal-header
             const btnCerrarModalHeader = document.getElementById("btnCerrarModal-header");
             btnCerrarModalHeader.addEventListener("click", () => {
                 loadTable(seleccion);
                 sucursales.deshabilitarCamposModal();
-                btnEditarSucursal.classList.remove("disabled");
-                btnEliminarSucursal.classList.remove("disabled");
-                btnConfirmarEdicion.classList.add("disabled");
+                btnEditarSucursal.classList.remove("d-none");
+                btnEliminarSucursal.classList.remove("d-none");
+                btnConfirmarEdicion.classList.add("d-none");
+                btnCancelarEdicion.classList.add("d-none");
             });
         });
     }
@@ -195,31 +226,14 @@ btnAgregarSucursal.addEventListener("click", (event) => {
     let telefono = document.getElementById("txttelefono").value;
     let longitu = document.getElementById("txtlongitud").value;
     let latitud = document.getElementById("txtlatitud").value;
-    //datos 
-    let fecha = new Date();
-    let annio = fecha.getFullYear();
-    let mes = "";
-    let dia = "";
-    //if para fecha
-    if((fecha.getMonth() + 1) < 10){
-        mes = "0" + (fecha.getMonth() + 1);
-    }
-    else{
-        mes = "" + (fecha.getMonth() + 1);
-    }
-    if(fecha.getDate() + 1 < 10){
-        dia = "0" + fecha.getDate();
-    }
-    else{
-        dia = "" + fecha.getDate();
-    }
-    //declarar variable fechaRegistro
-    let fechaRegistro = dia + "/" + mes + "/" + annio;
-    //aumentar contador
-    contadorSucursales++;
-    //declarar variable codigoESucursal
-    let codigoSucursal = "" + contadorSucursales.toString().padStart(2, '0');
-    //definir el tipo de usuario
+    let codigoSucursal = "" + contadorSucursales.toString().padStart(3, '0');
+    if (nombre === "" || nombreTitular === "" || RFCTitutar === "" || domicilio === "" || colonia === "" || ciudad === "" || estado === "" || cp === "" || telefono === "" || longitu === "" || latitud === "" || codigoSucursal === ""){
+        //mostrar mensaje de error si faltan campos por llenar
+        Swal.fire({
+            title: "Todos los campos son obligatorios",
+            icon: "warning"
+        });
+    } else{
 
     let sucursal = {
         "nombre": nombre,
@@ -245,25 +259,51 @@ btnAgregarSucursal.addEventListener("click", (event) => {
         title: "Se ha agregado correctamente",
         icon: "success"
     });
-
-    //este imprime el usuario del titular de la sucursal
-    document.getElementById("formAgregarEmpleado").reset();
-    //este imprime el nombre del titular de la sucursal
-    document.getElementById("txtnombreSucursal").focus();
-    //con estos comandos se crear admin
-    let usuario = "Admin" + codigoSucursal;	
-    let admin = {
-        "usuario": {
-            "nombreUsuario": usuario,
-            "contrasenia": usuario,
-            "tipoUsuario": 1,
-            "rol": "ADMS",
-            "estatus": 1
-        }
     }
-    //para mandar el usuario creado a la parte superior
-    dataEmpleados.unshift(admin);
-    //comprovar si se ejecuta correcto en la consola
-    console.log(dataEmpleados);
-    
+
+    document.getElementById("theform").reset();
+    
 });
+
+const buscarSucursal = document.getElementById("buscarSucursal");
+buscarSucursal.addEventListener("click", (event) => {
+  let cuerpo = "";
+  let datobuscado = document.getElementById("txtdatobuscado").value.toLowerCase();
+
+  // Verificar si el campo de búsqueda está vacío
+  if (datobuscado.trim() === "") {
+    // Si está vacío, no mostrar ninguna sucursal
+    document.getElementById("tblSucursales").innerHTML = "";
+    return;
+  }
+
+  dataSucursales.forEach(function (sucursal) {
+    if (sucursal.nombre.toLowerCase().includes(datobuscado)) {
+      let registro =
+        '<tr>' +
+        '<td>' + sucursal.nombre + '</td>' +
+        '<td>' + sucursal.titular + '</td>' +
+        '<td>' + sucursal.domicilio + '</td>' +
+        '<td>' + sucursal.codigo_postal + '</td>' +
+        '<td>' +
+            '<div class="text-center">' +
+                '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalVerSucursal" data-bs-whatever="' + dataSucursales.indexOf(sucursal) + '"><i class="fa-solid fa-plus"></i></button>' +
+            '</div>' +
+        '</td>' +
+        '</tr>';
+      cuerpo += registro;
+    }
+  });
+  document.getElementById("tblSucursales").innerHTML = cuerpo;
+  document.getElementById("txtdatobuscado").value = "";
+
+});
+
+  
+
+
+
+
+
+
+   

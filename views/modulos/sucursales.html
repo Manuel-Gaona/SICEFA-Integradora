@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="light">
 <!-- Enlaces a los hojas de estilo que utlisamos para el documento -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <!-- inicia el contenido de la paguina -->
+
 <body>
     <!-- encabezado de la paguina -->
     <header id="headerPage" class="sticky-top"></header>
@@ -25,7 +27,7 @@
         <div class="container my-4">
             <div id="h1-SICEFA-sm" class="d-sm-none"></div>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <!-- este apartado te muestra la interface para agregar la sucursales -->
+                <!-- este apartado te muestra la interface para agregar la sucursales -->
                 <button class="nav-link active" id="nav-agregarSucursales-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-agregarEmpleado" type="button" role="tab" aria-controls="nav-agregarEmpleado"
                     aria-selected="true">Agregar</button>
@@ -44,7 +46,7 @@
                         </div>
                         <!-- estas lineas muestran los campos con los datos solicitados que pide el sistema para agregar la sucursal -->
                         <div class="card-body ">
-                            <form id="formAgregarEmpleado">
+                            <form id="theform">
                                 <h3>Datos de la Sucursal</h3>
                                 <!-- nombre de la sucursal -->
                                 <div class="row">
@@ -60,7 +62,7 @@
                                     <!-- rfc del titular -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                         <input type="text" class="form-control my-2" id="txtRFCTitular" required>
-                                        <label for="txtRFCTitular">RFC del Titular</label>
+                                        <label for="txtRFCTitutar">RFC del Tirular</label>
                                     </div>
                                     <!-- domicilio -->
                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
@@ -123,13 +125,24 @@
 
                     <div class="row">
                         <div class="col-12">
-                        <!-- este apartado podemos verificar las sucursales activas e inactivas -->
+                            <!-- este apartado podemos verificar las sucursales activas e inactivas -->
                             <div class="row mb-2">
                                 <div class="col">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" name="chkestatus"
                                             id="chkestatus">
                                         <label class="form-check-label" for="chkestatus"> inactivos</label>
+                                    </div>
+                                    <div class="col" >
+                                        <div class="input-group">
+                                            <div class="form-floating">
+                                                <input type="text" id="txtdatobuscado" class="form-control" />
+                                                <label  for="txtdatobuscado">Buscar</label>
+                                            </div>
+                                            <button type="button" id="buscarSucursal" class="btn btn-primary">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-1 d-flex align-items-center">
@@ -166,11 +179,10 @@
                                 </div>
                             </div>
                             <!-- inicia la estructura del modal para mostrar elementos adicionales-->
-                            
+
                             <div class="modal fade" id="modalVerSucursal" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
-                               
                                 <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -185,106 +197,87 @@
                                                 <div class="row">
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtnombresucursal-modal" required disabled>
                                                         <label for="txtnombresucursal-modal">Nombre Sucursal </label>
                                                     </div>
                                                     <!-- mostrar nombre del titular -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtnombreTitular-modal" required disabled>
                                                         <label for="txtnombreTitular-modal">Nombre del titular </label>
                                                     </div>
                                                     <!-- mostrar RFC del titular -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtRFCTitutar-modal" required disabled>
                                                         <label for="txtRFCTitutar-modal">RFC del titular </label>
                                                     </div>
                                                     <!-- mostrar Domicilio -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtdomicilio-modal" required disabled>
                                                         <label for="txtdomicilio-modal">Domicilio </label>
                                                     </div>
                                                     <!-- mostrar Colonia -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
-                                                        <label for="txtcolonia-moda">Colonia </label>
+                                                            id="txtcolonia-modal" required disabled>
+                                                        <label for="txtcolonia-modal">Colonia </label>
                                                     </div>
                                                     <!-- mostrar Ciudad -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtciudad-modal" required disabled>
                                                         <label for="txtciudad-modal">Ciudad </label>
                                                     </div>
                                                     <!-- mostrar Estado -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
-                                                        <label for="txtestado-modal">Estado </label>
-                                                    </div>
-                                                    <!-- mostrar Estado -->
-                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                        <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
-                                                        <label for="txtestado-modal">Estado </label>
-                                                    </div>
-                                                    <!-- mostrar Estado -->
-                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                        <input type="text" class="form-control my-2"
-                                                            id="txtnombreSucursal-moda" required disabled>
+                                                            id="txtestado-modal" required disabled>
                                                         <label for="txtestado-modal">Estado </label>
                                                     </div>
                                                     <!-- mostrar el Codigo Postal -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtestatus-modal" required disabled>
+                                                            id="txtcp-modal" required disabled>
                                                         <label for="txtcp-modal">Codigo Postal </label>
                                                     </div>
                                                     <!-- mostrar el Telfono -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtestatus-modal" required disabled>
-                                                        <label for="txttelefono-modal">Telefono </label>
-                                                    </div>
-                                                    <!-- mostrar el Telfono -->
-                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                        <input type="text" class="form-control my-2"
-                                                            id="txtestatus-modal" required disabled>
+                                                            id="txttelefono-modal" required disabled>
                                                         <label for="txttelefono-modal">Telefono </label>
                                                     </div>
                                                     <!-- mostrar el Longitud -->
                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtestatus-modal" required disabled>
+                                                            id="txtlongitud-modal" required disabled>
                                                         <label for="txtlongitud-modal">Longitud </label>
                                                     </div>
-                                                     <!-- mostrar el Latitud -->
-                                                     <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                    <!-- mostrar el Latitud -->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
                                                         <input type="text" class="form-control my-2"
-                                                            id="txtestatus-modal" required disabled>
+                                                            id="txtlatitud-modal" required disabled>
                                                         <label for="txtlatitud-modal">Latitud </label>
                                                     </div>
                                                     <!-- mostrar el Estatus -->
-                                                <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                    <input type="text" class="form-control my-2"
-                                                        id="txtestatus-modal" required disabled>
-                                                    <label for="txtestatus-modal">Estatus </label>
-                                                </div>
-                                                 <!-- mostrar el ID -->
-                                                 <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
-                                                     <input type="text" class="form-control my-2"
-                                                         id="txtestatus-modal" required disabled>
-                                                     <label for="xtid-modal">ID </label>
-                                                 </div>
-                                                </div>
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2"
+                                                            id="txtestatus-modal" required disabled>
+                                                        <label for="txtestatus-modal">Estatus </label>
+                                                    </div>
+                                                    <!-- mostrar el ID -->
+                                                    <div class="form-floating my-1 col-12 col-md-6 col-lg-4">
+                                                        <input type="text" class="form-control my-2"
+                                                            id="txtid-modal" required disabled>
+                                                        <label for="txtid-modal">ID </label>
+                                                    </div>
                                                     <!--  se muestra el mapa de ubicacion -->
-                                                    <iframe class="iframe"
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13724.26640640419!2d-101.6884853!3d21.1191451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf7ad877544b%3A0x4406ea667ab1ab47!2sPlaza%20Principal%20de%20Le%C3%B3n!5e1!3m2!1ses-419!2smx!4v1701670676300!5m2!1ses-419!2smx"width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                                                    <!-- <iframe class="iframe"
                                                         src="https://maps.google.com/?ll=21.158770519026504,-101.69757062244037&z=19&t=k&output=embed"
                                                         width="100%" height="400" frameborder="0" style="border:0;"
                                                         allowfullscreen>
-                                                    </iframe>
+                                                    </iframe> -->
                                                 </div>
                                             </form>
                                         </div>
@@ -294,10 +287,15 @@
                                                 class="btn btn-danger">Eliminar</button>
                                             <button id="btnEditarSucursal" type="button"
                                                 class="btn btn-warning">Editar</button>
+                                            <button id="btnCancelarEdicion" type="button"
+                                                class="btn btn-danger d-none">Cancelar</button>
                                             <button id="btnConfirmarEdicion" type="button"
-                                                class="btn btn-success disabled">Confirmar</button>
+                                                class="btn btn-success d-none">Confirmar</button>
+                                                <button id="btnActivarSucursal" type="button" class="btn btn-success d-none"
+                                                data-bs-dismiss="modal">Activar</button>
                                             <button id="btnCerrarModal" type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Salir</button>
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -305,8 +303,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- aqui termina el footer del modal  -->
-            </div>
+            <!-- aqui termina el modal  -->
+        </div>
         </div>
     </main>
     <!-- este es el footer de la paguina -->
